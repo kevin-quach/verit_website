@@ -1,0 +1,149 @@
+/*
+    Theme Name: Learn.Pediatrics - Salient Child Theme
+    Theme URI: ...
+    Version: 0.1
+    Author: Strategy & Innovation Office
+    Author URI: ...
+    Description: Custom Salient child theme for Learn.Pediatrics
+    Template: salient
+-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+/*  Variables
+/*-------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------*/
+/*  Imports
+/*-------------------------------------------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Media Queries
+|--------------------------------------------------------------------------
+|
+| Simple media query mixin that allows breakpoints
+|	to be declared straight inside the selector 
+|	without having to group them traditionally
+| 
+*/
+/*-------------------------------------------------------------------------*/
+/*  General
+/*-------------------------------------------------------------------------*/
+p, li, td, a, div, span {
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+/* Custom Buttons */
+.lab-button {
+  border: 2px solid #fff;
+  padding: 8px 16px;
+  color: #fff;
+  letter-spacing: .1em;
+  font-size: 14px;
+  font-family: 'Exo', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative; }
+  .lab-button span {
+    position: relative;
+    z-index: 999;
+    transition: all .55s ease; }
+  .lab-button::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    top: 0;
+    left: 0;
+    transition: all .55s ease; }
+  .lab-button::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    transition: all .35s ease; }
+  .lab-button:hover span {
+    color: #001d3c; }
+  .lab-button:hover::after {
+    width: 100%;
+    transition: all .35s ease; }
+  .lab-button:hover::before {
+    width: 100%;
+    transition: all .55s ease; }
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .2;
+  pointer-events: none;
+  z-index: -1; }
+
+.gradient-bg .full-page-inner-wrap {
+  background: rgba(0, 29, 60, 0.25);
+  background: linear-gradient(to bottom, #1e5799 -75%, #001d3c 75%); }
+
+/* Circular Tabs */
+.lab-circle-tabs {
+  margin-top: 50px; }
+  @media screen and (max-width: 999px) {
+    .lab-circle-tabs {
+      margin-top: 0; } }
+  @media screen and (max-width: 999px) {
+    .lab-circle-tabs .ui-tabs-nav {
+      display: block;
+      width: 100% !important;
+      text-align: center; } }
+  @media screen and (max-width: 999px) {
+    .lab-circle-tabs .ui-tabs-nav li {
+      display: inline-block; } }
+  .lab-circle-tabs .ui-tabs-nav li a {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 50px auto; }
+    .lab-circle-tabs .ui-tabs-nav li a::after {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      transition: all .3s ease; }
+    .lab-circle-tabs .ui-tabs-nav li a::before {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      height: 100%;
+      width: 2px;
+      background: #ccc;
+      left: 50%; }
+    .lab-circle-tabs .ui-tabs-nav li a.active-tab::after {
+      border: 2px solid #001d3c; }
+    @media screen and (max-width: 999px) {
+      .lab-circle-tabs .ui-tabs-nav li a {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        margin: 0 26px 0 0; }
+        .lab-circle-tabs .ui-tabs-nav li a::before {
+          width: calc(100% - 4px);
+          height: 2px;
+          top: 50%;
+          left: 30px; } }
+  .lab-circle-tabs .ui-tabs-nav li:last-child a::before {
+    display: none; }
+
+/*-------------------------------------------------------------------------*/
+/*  Home
+/*-------------------------------------------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+*/

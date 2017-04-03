@@ -1,0 +1,32 @@
+/*
+    Theme Name: Learn.Pediatrics - Salient Child Theme
+    Theme URI: ...
+    Version: 0.1
+    Author: Strategy & Innovation Office
+    Author URI: ...
+    Description: Custom Salient child theme for Learn.Pediatrics
+    Template: salient
+-------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------*/
+/*  Variables
+/*-------------------------------------------------------------------------*/
+
+$accent:    #001d3c;
+$extra1:    #1e5799;
+$extra2:    #ffffff;
+$dark-text: #424242;
+
+
+/*-------------------------------------------------------------------------*/
+/*  Imports
+/*-------------------------------------------------------------------------*/
+
+
+@import "_mixins";
+@import "global";
+@import "_home";
+@import "_footer";
+
+
+

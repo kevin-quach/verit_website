@@ -1,0 +1,27 @@
+/*
+|--------------------------------------------------------------------------
+| Media Queries
+|--------------------------------------------------------------------------
+|
+| Simple media query mixin that allows breakpoints
+|	to be declared straight inside the selector 
+|	without having to group them traditionally
+| 
+*/
+$mobile-width:  480px;
+$tablet-width:  1000px;
+
+
+
+@mixin mobile {
+  @media screen and (max-width: #{$mobile-width - 1}) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: #{$tablet-width - 1}) {
+    @content;
+  }
+}
+
+
