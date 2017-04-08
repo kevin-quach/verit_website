@@ -1,0 +1,1087 @@
+{
+	"lodestone_id": 15831245,
+	"name": "Lucia Chere",
+	"server": "Cactuar",
+	"avatar": "http://img2.finalfantasyxiv.com/f/1e5e73c718a96d4822fc38c861627ab0_96ab1df8877c1f8ba6a89a39cccfd437fc0_96x96.jpg?t=2017976",
+	"added": "2016-11-17 10:50:02",
+	"last_updated": "2017-04-07 15:10:55",
+	"last_synced": "2017-04-07 15:12:01",
+	"data_last_changed": "2017-03-29 14:01:48",
+	"data_hash": "c4e892f3d3ec18b2feacf12f31ea5ad7c58ccfc2",
+	"update_count": 103,
+	"achievements_last_updated": "2017-04-03 16:29:41",
+	"achievements_last_changed": null,
+	"achievements_public": 0,
+	"achievements_score_reborn": 0,
+	"achievements_score_legacy": 0,
+	"achievements_score_reborn_total": 0,
+	"achievements_score_legacy_total": 0,
+	"deleted": "0",
+	"priority": 3,
+	"patch": 0,
+	"data": {
+		"id": "15831245",
+		"name": "Lucia Chere",
+		"server": "Cactuar",
+		"title": "The Last Resort",
+		"avatar": "http://img2.finalfantasyxiv.com/f/1e5e73c718a96d4822fc38c861627ab0_96ab1df8877c1f8ba6a89a39cccfd437fc0_96x96.jpg",
+		"portrait": "http://img2.finalfantasyxiv.com/f/1e5e73c718a96d4822fc38c861627ab0_96ab1df8877c1f8ba6a89a39cccfd437fl0_640x873.jpg",
+		"biography": "",
+		"race": "Miqo'te",
+		"clan": "Seeker of the Sun",
+		"gender": "female",
+		"nameday": "6th Sun of the 3rd Astral Moon",
+		"guardian": {
+			"icon": "http://img.finalfantasyxiv.com/lds/h/d/ErWJbXfiscvkq-E2T1UEAgc64Y.png",
+			"name": "Llymlaen, the Navigator"
+		},
+		"city": {
+			"icon": "http://img.finalfantasyxiv.com/lds/h/j/Xlz3DzGOKmwiDGho5aGWaudRNI.png",
+			"name": "Limsa Lominsa"
+		},
+		"grand_company": {
+			"icon": "http://img.finalfantasyxiv.com/lds/h/Z/2IcE8P6NEDhkLF-iGE2T8XGeGs.png",
+			"name": "Order of the Twin Adder",
+			"rank": "First Serpent Lieutenant"
+		},
+		"classjobs": {
+			"1": {
+				"name": "Gladiator",
+				"level": 24,
+				"exp": {
+					"current": 59088,
+					"max": 87100,
+					"at_cap": false,
+					"total_gained": 663768,
+					"total_max": 29470800,
+					"total_togo": 28807032,
+					"percent": 67.839,
+					"total_percent": 2.252
+				},
+				"id": 1,
+				"data": {
+					"id": 1,
+					"name": "Gladiator",
+					"abbr": "GLA",
+					"is_job": 1,
+					"classjob_parent": 1,
+					"icon": "https://secure.xivdb.com/img/classes/set2/gladiator.png",
+					"patch": 0
+				},
+				"level_togo": 36,
+				"level_percent": 40
+			},
+			"2": {
+				"name": "Pugilist",
+				"level": 0,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": false,
+					"total_gained": 0,
+					"total_max": 29470800,
+					"total_togo": 29470800,
+					"percent": 0,
+					"total_percent": 0
+				},
+				"id": 2,
+				"data": {
+					"id": 2,
+					"name": "Pugilist",
+					"abbr": "PGL",
+					"is_job": 1,
+					"classjob_parent": 2,
+					"icon": "https://secure.xivdb.com/img/classes/set2/pugilist.png",
+					"patch": 0
+				},
+				"level_togo": 60,
+				"level_percent": 0
+			},
+			"3": {
+				"name": "Marauder",
+				"level": 50,
+				"exp": {
+					"current": 215166,
+					"max": 864000,
+					"at_cap": false,
+					"total_gained": 7949166,
+					"total_max": 29470800,
+					"total_togo": 21521634,
+					"percent": 24.903,
+					"total_percent": 26.973
+				},
+				"id": 3,
+				"data": {
+					"id": 3,
+					"name": "Marauder",
+					"abbr": "MRD",
+					"is_job": 1,
+					"classjob_parent": 3,
+					"icon": "https://secure.xivdb.com/img/classes/set2/marauder.png",
+					"patch": 0
+				},
+				"level_togo": 10,
+				"level_percent": 83.3
+			},
+			"4": {
+				"name": "Lancer",
+				"level": 0,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": false,
+					"total_gained": 0,
+					"total_max": 29470800,
+					"total_togo": 29470800,
+					"percent": 0,
+					"total_percent": 0
+				},
+				"id": 4,
+				"data": {
+					"id": 4,
+					"name": "Lancer",
+					"abbr": "LNC",
+					"is_job": 1,
+					"classjob_parent": 4,
+					"icon": "https://secure.xivdb.com/img/classes/set2/lancer.png",
+					"patch": 0
+				},
+				"level_togo": 60,
+				"level_percent": 0
+			},
+			"5": {
+				"name": "Archer",
+				"level": 0,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": false,
+					"total_gained": 0,
+					"total_max": 29470800,
+					"total_togo": 29470800,
+					"percent": 0,
+					"total_percent": 0
+				},
+				"id": 5,
+				"data": {
+					"id": 5,
+					"name": "Archer",
+					"abbr": "ARC",
+					"is_job": 1,
+					"classjob_parent": 5,
+					"icon": "https://secure.xivdb.com/img/classes/set2/archer.png",
+					"patch": 0
+				},
+				"level_togo": 60,
+				"level_percent": 0
+			},
+			"6": {
+				"name": "Conjurer",
+				"level": 18,
+				"exp": {
+					"current": 493,
+					"max": 45700,
+					"at_cap": false,
+					"total_gained": 237473,
+					"total_max": 29470800,
+					"total_togo": 29233327,
+					"percent": 1.079,
+					"total_percent": 0.806
+				},
+				"id": 6,
+				"data": {
+					"id": 6,
+					"name": "Conjurer",
+					"abbr": "CNJ",
+					"is_job": 1,
+					"classjob_parent": 6,
+					"icon": "https://secure.xivdb.com/img/classes/set2/conjurer.png",
+					"patch": 0
+				},
+				"level_togo": 42,
+				"level_percent": 30
+			},
+			"7": {
+				"name": "Thaumaturge",
+				"level": 26,
+				"exp": {
+					"current": 5145,
+					"max": 109800,
+					"at_cap": false,
+					"total_gained": 792125,
+					"total_max": 29470800,
+					"total_togo": 28678675,
+					"percent": 4.686,
+					"total_percent": 2.688
+				},
+				"id": 7,
+				"data": {
+					"id": 7,
+					"name": "Thaumaturge",
+					"abbr": "THM",
+					"is_job": 1,
+					"classjob_parent": 7,
+					"icon": "https://secure.xivdb.com/img/classes/set2/thaumaturge.png",
+					"patch": 0
+				},
+				"level_togo": 34,
+				"level_percent": 43.3
+			},
+			"8": {
+				"name": "Carpenter",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 8,
+				"data": {
+					"id": 8,
+					"name": "Carpenter",
+					"abbr": "CRP",
+					"is_job": 1,
+					"classjob_parent": 8,
+					"icon": "https://secure.xivdb.com/img/classes/set2/carpenter.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"9": {
+				"name": "Blacksmith",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 9,
+				"data": {
+					"id": 9,
+					"name": "Blacksmith",
+					"abbr": "BSM",
+					"is_job": 1,
+					"classjob_parent": 9,
+					"icon": "https://secure.xivdb.com/img/classes/set2/blacksmith.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"10": {
+				"name": "Armorer",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 10,
+				"data": {
+					"id": 10,
+					"name": "Armorer",
+					"abbr": "ARM",
+					"is_job": 1,
+					"classjob_parent": 10,
+					"icon": "https://secure.xivdb.com/img/classes/set2/armorer.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"11": {
+				"name": "Goldsmith",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 11,
+				"data": {
+					"id": 11,
+					"name": "Goldsmith",
+					"abbr": "GSM",
+					"is_job": 1,
+					"classjob_parent": 11,
+					"icon": "https://secure.xivdb.com/img/classes/set2/goldsmith.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"12": {
+				"name": "Leatherworker",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 12,
+				"data": {
+					"id": 12,
+					"name": "Leatherworker",
+					"abbr": "LTW",
+					"is_job": 1,
+					"classjob_parent": 12,
+					"icon": "https://secure.xivdb.com/img/classes/set2/leatherworker.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"13": {
+				"name": "Weaver",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 13,
+				"data": {
+					"id": 13,
+					"name": "Weaver",
+					"abbr": "WVR",
+					"is_job": 1,
+					"classjob_parent": 13,
+					"icon": "https://secure.xivdb.com/img/classes/set2/weaver.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"14": {
+				"name": "Alchemist",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 14,
+				"data": {
+					"id": 14,
+					"name": "Alchemist",
+					"abbr": "ALC",
+					"is_job": 1,
+					"classjob_parent": 14,
+					"icon": "https://secure.xivdb.com/img/classes/set2/alchemist.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"15": {
+				"name": "Culinarian",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 15,
+				"data": {
+					"id": 15,
+					"name": "Culinarian",
+					"abbr": "CUL",
+					"is_job": 1,
+					"classjob_parent": 15,
+					"icon": "https://secure.xivdb.com/img/classes/set2/culinarian.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"16": {
+				"name": "Miner",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 16,
+				"data": {
+					"id": 16,
+					"name": "Miner",
+					"abbr": "MIN",
+					"is_job": 1,
+					"classjob_parent": 16,
+					"icon": "https://secure.xivdb.com/img/classes/set2/miner.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"17": {
+				"name": "Botanist",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 17,
+				"data": {
+					"id": 17,
+					"name": "Botanist",
+					"abbr": "BTN",
+					"is_job": 1,
+					"classjob_parent": 17,
+					"icon": "https://secure.xivdb.com/img/classes/set2/botanist.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"18": {
+				"name": "Fisher",
+				"level": 45,
+				"exp": {
+					"current": 304550,
+					"max": 408200,
+					"at_cap": false,
+					"total_gained": 5698250,
+					"total_max": 29470800,
+					"total_togo": 23772550,
+					"percent": 74.608,
+					"total_percent": 19.335
+				},
+				"id": 18,
+				"data": {
+					"id": 18,
+					"name": "Fisher",
+					"abbr": "FSH",
+					"is_job": 1,
+					"classjob_parent": 18,
+					"icon": "https://secure.xivdb.com/img/classes/set2/fisher.png",
+					"patch": 0
+				},
+				"level_togo": 15,
+				"level_percent": 75
+			},
+			"26": {
+				"name": "Arcanist",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 26,
+				"data": {
+					"id": 26,
+					"name": "Arcanist",
+					"abbr": "ACN",
+					"is_job": 1,
+					"classjob_parent": 26,
+					"icon": "https://secure.xivdb.com/img/classes/set2/arcanist.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			},
+			"29": {
+				"name": "Rogue",
+				"level": 0,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": false,
+					"total_gained": 0,
+					"total_max": 29470800,
+					"total_togo": 29470800,
+					"percent": 0,
+					"total_percent": 0
+				},
+				"id": 29,
+				"data": {
+					"id": 29,
+					"name": "Rogue",
+					"abbr": "ROG",
+					"is_job": 1,
+					"classjob_parent": 29,
+					"icon": "https://secure.xivdb.com/img/classes/set2/rogue.png",
+					"patch": 0
+				},
+				"level_togo": 60,
+				"level_percent": 0
+			},
+			"31": {
+				"name": "Machinist",
+				"level": 0,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": false,
+					"total_gained": 0,
+					"total_max": 29470800,
+					"total_togo": 29470800,
+					"percent": 0,
+					"total_percent": 0
+				},
+				"id": 31,
+				"data": {
+					"id": 31,
+					"name": "Machinist",
+					"abbr": "MCH",
+					"is_job": 1,
+					"classjob_parent": 31,
+					"icon": "https://secure.xivdb.com/img/classes/set2/machinist.png",
+					"patch": 0
+				},
+				"level_togo": 60,
+				"level_percent": 0
+			},
+			"32": {
+				"name": "Dark Knight",
+				"level": 32,
+				"exp": {
+					"current": 97582,
+					"max": 189600,
+					"at_cap": false,
+					"total_gained": 1753662,
+					"total_max": 29470800,
+					"total_togo": 27717138,
+					"percent": 51.467,
+					"total_percent": 5.951
+				},
+				"id": 32,
+				"data": {
+					"id": 32,
+					"name": "Dark Knight",
+					"abbr": "DRK",
+					"is_job": 1,
+					"classjob_parent": 32,
+					"icon": "https://secure.xivdb.com/img/classes/set2/darkknight.png",
+					"patch": 0
+				},
+				"level_togo": 28,
+				"level_percent": 53.3
+			},
+			"33": {
+				"name": "Astrologian",
+				"level": 37,
+				"exp": {
+					"current": 101318,
+					"max": 267800,
+					"at_cap": false,
+					"total_gained": 2850618,
+					"total_max": 29470800,
+					"total_togo": 26620182,
+					"percent": 37.833,
+					"total_percent": 9.673
+				},
+				"id": 33,
+				"data": {
+					"id": 33,
+					"name": "Astrologian",
+					"abbr": "AST",
+					"is_job": 1,
+					"classjob_parent": 33,
+					"icon": "https://secure.xivdb.com/img/classes/set2/astrologian.png",
+					"patch": 0
+				},
+				"level_togo": 23,
+				"level_percent": 61.7
+			}
+		},
+		"active_class": {
+			"role": {
+				"id": 13,
+				"name": "Weaver",
+				"abbr": "WVR",
+				"is_job": 1,
+				"classjob_parent": 13,
+				"icon": "https://secure.xivdb.com/img/classes/set2/weaver.png",
+				"patch": 0
+			},
+			"progress": {
+				"name": "Weaver",
+				"level": 60,
+				"exp": {
+					"current": 0,
+					"max": 0,
+					"at_cap": true,
+					"total_gained": 29470800,
+					"total_max": 29470800,
+					"total_togo": 0,
+					"percent": 100,
+					"total_percent": 100
+				},
+				"id": 13,
+				"data": {
+					"id": 13,
+					"name": "Weaver",
+					"abbr": "WVR",
+					"is_job": 1,
+					"classjob_parent": 13,
+					"icon": "https://secure.xivdb.com/img/classes/set2/weaver.png",
+					"patch": 0
+				},
+				"level_togo": 0,
+				"level_percent": 100
+			}
+		},
+		"mounts": {
+			"1": {
+				"id": 1,
+				"name": "Company Chocobo",
+				"icon": "/img/game/004000/004401.png",
+				"obtained": 45,
+				"url": "/mount/1/company+chocobo"
+			},
+			"6": {
+				"id": 6,
+				"name": "Magitek Armor",
+				"icon": "/img/game/004000/004406.png",
+				"obtained": 50,
+				"url": "/mount/6/magitek+armor"
+			},
+			"9": {
+				"id": 9,
+				"name": "Ahriman",
+				"icon": "/img/game/004000/004404.png",
+				"obtained": false,
+				"url": "/mount/9/ahriman"
+			},
+			"43": {
+				"id": 43,
+				"name": "Boreas",
+				"icon": "/img/game/004000/004429.png",
+				"obtained": false,
+				"url": "/mount/43/boreas"
+			},
+			"45": {
+				"id": 45,
+				"name": "Black Chocobo",
+				"icon": "/img/game/004000/004436.png",
+				"obtained": false,
+				"url": "/mount/45/black+chocobo"
+			},
+			"50": {
+				"id": 50,
+				"name": "Midgardsormr",
+				"icon": "/img/game/004000/004437.png",
+				"obtained": false,
+				"url": "/mount/50/midgardsormr"
+			},
+			"55": {
+				"id": 55,
+				"name": "Manacutter",
+				"icon": "/img/game/004000/004440.png",
+				"obtained": false,
+				"url": "/mount/55/manacutter"
+			}
+		},
+		"minions": {
+			"1": {
+				"id": 1,
+				"name": "Cherry Bomb",
+				"icon": "/img/game/004000/004503.png",
+				"obtained": 54,
+				"url": "/minion/1/cherry+bomb"
+			},
+			"2": {
+				"id": 2,
+				"name": "Mammet #001",
+				"icon": "/img/game/004000/004501.png",
+				"obtained": 75,
+				"url": "/minion/2/mammet+#001"
+			},
+			"7": {
+				"id": 7,
+				"name": "Mammet #003G",
+				"icon": "/img/game/004000/004507.png",
+				"obtained": 14,
+				"url": "/minion/7/mammet+#003g"
+			},
+			"10": {
+				"id": 10,
+				"name": "Serpent Hatchling",
+				"icon": "/img/game/004000/004510.png",
+				"obtained": 17,
+				"url": "/minion/10/serpent+hatchling"
+			},
+			"12": {
+				"id": 12,
+				"name": "Morbol Seedling",
+				"icon": "/img/game/004000/004512.png",
+				"obtained": 19,
+				"url": "/minion/12/morbol+seedling"
+			},
+			"14": {
+				"id": 14,
+				"name": "Baby Bun",
+				"icon": "/img/game/004000/004514.png",
+				"obtained": 31,
+				"url": "/minion/14/baby+bun"
+			},
+			"15": {
+				"id": 15,
+				"name": "Chigoe Larva",
+				"icon": "/img/game/004000/004515.png",
+				"obtained": 32,
+				"url": "/minion/15/chigoe+larva"
+			},
+			"16": {
+				"id": 16,
+				"name": "Bluebird",
+				"icon": "/img/game/004000/004516.png",
+				"obtained": 34,
+				"url": "/minion/16/bluebird"
+			},
+			"17": {
+				"id": 17,
+				"name": "Wide-eyed Fawn",
+				"icon": "/img/game/004000/004517.png",
+				"obtained": 36,
+				"url": "/minion/17/wide-eyed+fawn"
+			},
+			"19": {
+				"id": 19,
+				"name": "Coeurl Kitten",
+				"icon": "/img/game/004000/004552.png",
+				"obtained": 41,
+				"url": "/minion/19/coeurl+kitten"
+			},
+			"21": {
+				"id": 21,
+				"name": "Wind-up Gentleman",
+				"icon": "/img/game/004000/004615.png",
+				"obtained": 112,
+				"url": "/minion/21/wind-up+gentleman"
+			},
+			"22": {
+				"id": 22,
+				"name": "Gravel Golem",
+				"icon": "/img/game/004000/004519.png",
+				"obtained": 116,
+				"url": "/minion/22/gravel+golem"
+			},
+			"28": {
+				"id": 28,
+				"name": "Dust Bunny",
+				"icon": "/img/game/004000/004524.png",
+				"obtained": 7,
+				"url": "/minion/28/dust+bunny"
+			},
+			"31": {
+				"id": 31,
+				"name": "Pudgy Puk",
+				"icon": "/img/game/004000/004527.png",
+				"obtained": 51,
+				"url": "/minion/31/pudgy+puk"
+			},
+			"32": {
+				"id": 32,
+				"name": "Buffalo Calf",
+				"icon": "/img/game/004000/004528.png",
+				"obtained": 52,
+				"url": "/minion/32/buffalo+calf"
+			},
+			"34": {
+				"id": 34,
+				"name": "Smallshell",
+				"icon": "/img/game/004000/004530.png",
+				"obtained": 104,
+				"url": "/minion/34/smallshell"
+			},
+			"35": {
+				"id": 35,
+				"name": "Wolf Pup",
+				"icon": "/img/game/004000/004550.png",
+				"obtained": 96,
+				"url": "/minion/35/wolf+pup"
+			},
+			"36": {
+				"id": 36,
+				"name": "Beady Eye",
+				"icon": "/img/game/004000/004531.png",
+				"obtained": 154,
+				"url": "/minion/36/beady+eye"
+			},
+			"37": {
+				"id": 37,
+				"name": "Fledgling Dodo",
+				"icon": "/img/game/004000/004532.png",
+				"obtained": 130,
+				"url": "/minion/37/fledgling+dodo"
+			},
+			"41": {
+				"id": 41,
+				"name": "Goobbue Sproutling",
+				"icon": "/img/game/004000/004536.png",
+				"obtained": 193,
+				"url": "/minion/41/goobbue+sproutling"
+			},
+			"48": {
+				"id": 48,
+				"name": "Kidragora",
+				"icon": "/img/game/004000/004542.png",
+				"obtained": false,
+				"url": "/minion/48/kidragora"
+			},
+			"51": {
+				"id": 51,
+				"name": "Wind-up Cursor",
+				"icon": "/img/game/004000/004544.png",
+				"obtained": false,
+				"url": "/minion/51/wind-up+cursor"
+			},
+			"52": {
+				"id": 52,
+				"name": "Wind-up Airship",
+				"icon": "/img/game/004000/004545.png",
+				"obtained": false,
+				"url": "/minion/52/wind-up+airship"
+			},
+			"54": {
+				"id": 54,
+				"name": "Black Chocobo Chick",
+				"icon": "/img/game/004000/004548.png",
+				"obtained": false,
+				"url": "/minion/54/black+chocobo+chick"
+			},
+			"67": {
+				"id": 67,
+				"name": "Minion Of Light",
+				"icon": "/img/game/004000/004558.png",
+				"obtained": false,
+				"url": "/minion/67/minion+of+light"
+			},
+			"68": {
+				"id": 68,
+				"name": "Minion Of Light",
+				"icon": "/img/game/004000/004650.png",
+				"obtained": false,
+				"url": "/minion/68/minion+of+light"
+			},
+			"69": {
+				"id": 69,
+				"name": "Minion Of Light",
+				"icon": "/img/game/004000/004651.png",
+				"obtained": false,
+				"url": "/minion/69/minion+of+light"
+			},
+			"70": {
+				"id": 70,
+				"name": "Minion Of Light",
+				"icon": "/img/game/004000/004652.png",
+				"obtained": false,
+				"url": "/minion/70/minion+of+light"
+			},
+			"75": {
+				"id": 75,
+				"name": "Princely Hatchling",
+				"icon": "/img/game/004000/004560.png",
+				"obtained": false,
+				"url": "/minion/75/princely+hatchling"
+			},
+			"96": {
+				"id": 96,
+				"name": "Miniature Minecart",
+				"icon": "/img/game/004000/004586.png",
+				"obtained": false,
+				"url": "/minion/96/miniature+minecart"
+			},
+			"104": {
+				"id": 104,
+				"name": "Wind-up Ultros",
+				"icon": "/img/game/004000/004604.png",
+				"obtained": false,
+				"url": "/minion/104/wind-up+ultros"
+			},
+			"106": {
+				"id": 106,
+				"name": "Heavy Hatchling",
+				"icon": "/img/game/004000/004606.png",
+				"obtained": false,
+				"url": "/minion/106/heavy+hatchling"
+			},
+			"112": {
+				"id": 112,
+				"name": "Mummy's Little Mummy",
+				"icon": "/img/game/004000/004609.png",
+				"obtained": false,
+				"url": "/minion/112/mummy's+little+mummy"
+			},
+			"116": {
+				"id": 116,
+				"name": "Demon Box",
+				"icon": "/img/game/004000/004613.png",
+				"obtained": false,
+				"url": "/minion/116/demon+box"
+			},
+			"119": {
+				"id": 119,
+				"name": "Midgardsormr",
+				"icon": "/img/game/004000/004618.png",
+				"obtained": false,
+				"url": "/minion/119/midgardsormr"
+			},
+			"122": {
+				"id": 122,
+				"name": "Enkidu",
+				"icon": "/img/game/004000/004621.png",
+				"obtained": false,
+				"url": "/minion/122/enkidu"
+			},
+			"130": {
+				"id": 130,
+				"name": "Wind-up Alphinaud",
+				"icon": "/img/game/004000/004619.png",
+				"obtained": false,
+				"url": "/minion/130/wind-up+alphinaud"
+			},
+			"133": {
+				"id": 133,
+				"name": "Wind-up Cid",
+				"icon": "/img/game/004000/004627.png",
+				"obtained": false,
+				"url": "/minion/133/wind-up+cid"
+			},
+			"141": {
+				"id": 141,
+				"name": "Lesser Panda",
+				"icon": "/img/game/004000/004634.png",
+				"obtained": false,
+				"url": "/minion/141/lesser+panda"
+			},
+			"142": {
+				"id": 142,
+				"name": "Page 63",
+				"icon": "/img/game/004000/004635.png",
+				"obtained": false,
+				"url": "/minion/142/page+63"
+			},
+			"154": {
+				"id": 154,
+				"name": "Gold Rush Minecart",
+				"icon": "/img/game/004000/004647.png",
+				"obtained": false,
+				"url": "/minion/154/gold+rush+minecart"
+			},
+			"173": {
+				"id": 173,
+				"name": "Wind-up Haurchefant",
+				"icon": "/img/game/004000/004668.png",
+				"obtained": false,
+				"url": "/minion/173/wind-up+haurchefant"
+			},
+			"181": {
+				"id": 181,
+				"name": "Poro Roggo",
+				"icon": "/img/game/004000/004680.png",
+				"obtained": false,
+				"url": "/minion/181/poro+roggo"
+			},
+			"193": {
+				"id": 193,
+				"name": "Wind-up Aymeric",
+				"icon": "/img/game/004000/004706.png",
+				"obtained": false,
+				"url": "/minion/193/wind-up+aymeric"
+			},
+			"227": {
+				"id": 227,
+				"name": "Angel Of Mercy",
+				"icon": "/img/game/004000/004727.png",
+				"obtained": false,
+				"url": "/minion/227/angel+of+mercy"
+			},
+			"228": {
+				"id": 228,
+				"name": "Wind-up Estinien",
+				"icon": "/img/game/004000/004728.png",
+				"obtained": false,
+				"url": "/minion/228/wind-up+estinien"
+			}
+		}
+	},
+	"grand_companies": {
+		"order_of_the_twin_adder": {
+			"icon": "http://img.finalfantasyxiv.com/lds/h/Z/2IcE8P6NEDhkLF-iGE2T8XGeGs.png",
+			"name": "Order of the Twin Adder",
+			"rank": "First Serpent Lieutenant",
+			"time": "2017-04-07 15:10:55"
+		}
+	},
+	"portrait": "http://img2.finalfantasyxiv.com/f/1e5e73c718a96d4822fc38c861627ab0_96ab1df8877c1f8ba6a89a39cccfd437fl0_640x873.jpg?t=2017976",
+	"last_active": "2017-03-29 14:01:48",
+	"url": "/character/cactuar/lucia+chere",
+	"url_api": "https://api.xivdb.com/character/15831245",
+	"url_xivdb": "http://xivdb.com/character/cactuar/lucia+chere",
+	"url_lodestone": "https://na.finalfantasyxiv.com/lodestone/character/15831245",
+	"url_type": "character",
+	"extras": {
+		"mounts": {
+			"obtained": 7,
+			"total": 80,
+			"percent": 8.8
+		},
+		"minions": {
+			"obtained": 46,
+			"total": 232,
+			"percent": 19.8
+		}
+	}
+}
