@@ -1,32 +1,31 @@
 /*
-    Theme Name: Learn.Pediatrics - Salient Child Theme
+    Theme Name: <Verit> Website 
     Theme URI: ...
     Version: 0.1
-    Author: Strategy & Innovation Office
-    Author URI: ...
-    Description: Custom Salient child theme for Learn.Pediatrics
+    Author: Kevin Quach & Lydia Quon
+    Author URI: kevinquach.ca | lydiaquon.com
+    Description: Custom Salient child theme for the FF14 Free Company website <Verit>
     Template: salient
 -------------------------------------------------------------------------*/
-
-/*-------------------------------------------------------------------------*/
-/*  Variables
-/*-------------------------------------------------------------------------*/
-
-$accent:    #001d3c;
-$extra1:    #1e5799;
-$extra2:    #ffffff;
-$dark-text: #424242;
-
 
 /*-------------------------------------------------------------------------*/
 /*  Imports
 /*-------------------------------------------------------------------------*/
 
-
+// Core CSS
+@import "_variables";
 @import "_mixins";
+@import "_typography";
+@import "_helpers";
 @import "global";
-@import "_home";
+
+//Components
 @import "_footer";
+@import "_tables";
+@import "_buttons";
 
-
+//Page Specific
+@import "_home";
+@import "_forums";
+@import "_profile";
 
