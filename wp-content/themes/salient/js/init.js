@@ -8173,21 +8173,21 @@ $('body').on('mouseenter','#header-outer .cart-notification',function(){
 });
 
 //cart dropdown
-$('#header-outer div.cart-outer').hoverIntent(function(){
+// $('#header-outer div.cart-outer').hoverIntent(function(){
 
-	if($dropdownStyle == 'minimal') { 
-		$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).show()
-		$('#header-outer .cart_list').stop(true,true).show();
-		clearTimeout(timeout);
-		$('#header-outer .cart-notification').hide();
-	} else {
-		$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).fadeIn(300);
-		$('#header-outer .cart_list').stop(true,true).fadeIn(300);
-		clearTimeout(timeout);
-		$('#header-outer .cart-notification').fadeOut(300);
-	}
+// 	if($dropdownStyle == 'minimal') { 
+// 		$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).show()
+// 		$('#header-outer .cart_list').stop(true,true).show();
+// 		clearTimeout(timeout);
+// 		$('#header-outer .cart-notification').hide();
+// 	} else {
+// 		$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).fadeIn(300);
+// 		$('#header-outer .cart_list').stop(true,true).fadeIn(300);
+// 		clearTimeout(timeout);
+// 		$('#header-outer .cart-notification').fadeOut(300);
+// 	}
 	
-});
+// });
 
 
 $('body').on('mouseleave','#header-outer div.cart-outer',function(){
@@ -14334,12 +14334,12 @@ if($('body[data-fancy-form-rcs="1"]').length > 0) {
 	
 
 		//cart dropdown
-		$('#header-outer div.cart-outer').hoverIntent(function(){
-			$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).fadeIn(400);
-			$('#header-outer .cart_list').stop(true,true).fadeIn(400);
-			clearTimeout(timeout);
-			$('#header-outer .cart-notification').fadeOut(300);
-		});
+		// $('#header-outer div.cart-outer').hoverIntent(function(){
+		// 	$('#header-outer .widget_shopping_cart').addClass('open').stop(true,true).fadeIn(400);
+		// 	$('#header-outer .cart_list').stop(true,true).fadeIn(400);
+		// 	clearTimeout(timeout);
+		// 	$('#header-outer .cart-notification').fadeOut(300);
+		// });
 
 
 		//remove excess loading images now
