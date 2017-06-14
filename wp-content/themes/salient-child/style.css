@@ -1,18 +1,20 @@
 /*
-    Theme Name: Learn.Pediatrics - Salient Child Theme
+    Theme Name: <Verit> Website 
     Theme URI: ...
     Version: 0.1
-    Author: Strategy & Innovation Office
-    Author URI: ...
-    Description: Custom Salient child theme for Learn.Pediatrics
+    Author: Kevin Quach & Lydia Quon
+    Author URI: kevinquach.ca | lydiaquon.com
+    Description: Custom Salient child theme for the FF14 Free Company website <Verit>
     Template: salient
 -------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------*/
-/*  Variables
-/*-------------------------------------------------------------------------*/
-/*-------------------------------------------------------------------------*/
 /*  Imports
 /*-------------------------------------------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Variables
+|--------------------------------------------------------------------------
+*/
 /*
 |--------------------------------------------------------------------------
 | Media Queries
@@ -23,12 +25,37 @@
 |	without having to group them traditionally
 | 
 */
-/*-------------------------------------------------------------------------*/
-/*  General
-/*-------------------------------------------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Typography
+|--------------------------------------------------------------------------
+*/
 p, li, td, a, div, span {
   -webkit-font-smoothing: subpixel-antialiased; }
 
+/*
+|--------------------------------------------------------------------------
+| Utility
+|--------------------------------------------------------------------------
+*/
+/*-------------------------------------------------------------------------*/
+/*  Global
+/*-------------------------------------------------------------------------*/
+/*
+|--------------------------------------------------------------------------
+| Footer
+|--------------------------------------------------------------------------
+*/
+/*
+|--------------------------------------------------------------------------
+| Tables
+|--------------------------------------------------------------------------
+*/
+/*
+|--------------------------------------------------------------------------
+| Buttons
+|--------------------------------------------------------------------------
+*/
 /*-------------------------------------------------------------------------*/
 /*  Home
 /*-------------------------------------------------------------------------*/
@@ -38,6 +65,62 @@ article.post .post-meta .month {
 
 /*
 |--------------------------------------------------------------------------
-| Footer
+| Forum
 |--------------------------------------------------------------------------
+*/
+.bbpress {
+  color: #767b91; }
+  .bbpress .container-wrap {
+    background-color: #23334c !important;
+    margin-top: -70px !important; }
+  .bbpress #bbpress-forums .minimal-form-input label span.text .text-inner {
+    color: #767b91 !important; }
+  .bbpress #bbpress-forums input, .bbpress #bbpress-forums textarea {
+    color: #fff !important;
+    padding-bottom: 0 !important; }
+  .bbpress #bbpress-forums #bbp_topic_title {
+    font-size: 2.25em !important; }
+  .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums #bbpress-forums .widget_display_replies img.avatar {
+    border: none !important;
+    border-radius: 50%;
+    transform: scale(1.5);
+    margin: 8px; }
+  .bbpress #bbpress-forums div.bbp-template-notice.info, .bbpress #bbpress-forums div.bbp-template-notice {
+    background-color: #767b91 !important;
+    color: #fff !important;
+    padding: 2px 10px;
+    border: none !important; }
+    .bbpress #bbpress-forums div.bbp-template-notice.info a, .bbpress #bbpress-forums div.bbp-template-notice a {
+      color: #eab053;
+      font-weight: 600; }
+  .bbpress #bbpress-forums ul.bbp-forums, .bbpress #bbpress-forums ul.bbp-topics {
+    border: none !important;
+    /* HEADERS */
+    /* BODY */ }
+    .bbpress #bbpress-forums ul.bbp-forums li.bbp-header, .bbpress #bbpress-forums ul.bbp-topics li.bbp-header {
+      border-top: none;
+      background-color: transparent !important; }
+      .bbpress #bbpress-forums ul.bbp-forums li.bbp-header .forum-titles, .bbpress #bbpress-forums ul.bbp-topics li.bbp-header .forum-titles {
+        color: #fff;
+        font-weight: bolder;
+        text-transform: uppercase; }
+    .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.even, .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.odd, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.even, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.odd {
+      border-top: 1px solid #767b91;
+      background-color: transparent !important;
+      color: #767b91; }
+      .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.even a, .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.odd a, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.even a, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.odd a {
+        color: #eab053;
+        font-weight: 600;
+        font-size: 1.25em; }
+    .bbpress #bbpress-forums ul.bbp-forums li.bbp-footer, .bbpress #bbpress-forums ul.bbp-topics li.bbp-footer {
+      border-top: 1px solid #767b91;
+      background-color: transparent !important; }
+
+/*
+|--------------------------------------------------------------------------
+| User Profile
+|--------------------------------------------------------------------------
+| Styles unique to just the user profile that contains stuff like the 
+| bio, character information etc. that might require specific
+| styling and formatting.
 */
