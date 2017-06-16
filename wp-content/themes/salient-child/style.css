@@ -41,6 +41,9 @@ p, li, td, a, div, span {
 /*-------------------------------------------------------------------------*/
 /*  Global
 /*-------------------------------------------------------------------------*/
+#call-to-action .triangle {
+  border-top: 10px solid #23334c !important; }
+
 /*
 |--------------------------------------------------------------------------
 | Footer
@@ -78,9 +81,27 @@ article.post .post-meta .month {
   .bbpress #bbpress-forums input, .bbpress #bbpress-forums textarea {
     color: #fff !important;
     padding-bottom: 0 !important; }
+  .bbpress #bbpress-forums fieldset.bbp-form {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid #767b91 !important; }
+    .bbpress #bbpress-forums fieldset.bbp-form .bbp_topic_title::before {
+      border-bottom: 1px solid red !important; }
+    .bbpress #bbpress-forums fieldset.bbp-form legend {
+      font-size: 1.5em;
+      margin: 0 auto; }
+    .bbpress #bbpress-forums fieldset.bbp-form textarea {
+      padding-top: 0 !important; }
+  .bbpress #bbpress-forums select {
+    background-color: transparent !important;
+    border-bottom: 1px solid #767b91 !important;
+    color: #fff !important; }
+    .bbpress #bbpress-forums select option {
+      color: #676767 !important; }
   .bbpress #bbpress-forums #bbp_topic_title {
     font-size: 2.25em !important; }
-  .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums #bbpress-forums .widget_display_replies img.avatar {
+  .bbpress #bbpress-forums .minimal-form-input label:before {
+    border-bottom: 1px solid #767b91 !important; }
+  .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums .widget_display_replies img.avatar {
     border: none !important;
     border-radius: 50%;
     transform: scale(1.5);
@@ -93,6 +114,8 @@ article.post .post-meta .month {
     .bbpress #bbpress-forums div.bbp-template-notice.info a, .bbpress #bbpress-forums div.bbp-template-notice a {
       color: #eab053;
       font-weight: 600; }
+    .bbpress #bbpress-forums div.bbp-template-notice.info img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar {
+      margin-top: 0 !important; }
   .bbpress #bbpress-forums ul.bbp-forums, .bbpress #bbpress-forums ul.bbp-topics {
     border: none !important;
     /* HEADERS */
