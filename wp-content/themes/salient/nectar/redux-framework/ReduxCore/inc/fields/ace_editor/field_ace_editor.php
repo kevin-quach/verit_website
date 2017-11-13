@@ -33,13 +33,12 @@
              * @since ReduxFramework 1.0.0
              */
             function __construct( $field = array(), $value = '', $parent ) {
-
-
                 $this->parent = $parent;
                 $this->field  = $field;
                 $this->value  = $value;
 
-                  //upgrade proof
+                /* nectar addition */
+                //upgrade proof
                 $old_options = get_option('salient');
                 global $salient_redux;
 
@@ -48,12 +47,12 @@
                 $legacy_editor = (!empty($old_options[$fixed_ID])) ? $old_options[$fixed_ID] : '-';
                 $display_val = (isset($salient_redux[$this->field['id']]) || $legacy_editor == '-') ? $this->value : $legacy_editor;
 
-
                 if ( is_array( $display_val ) ) {
                     $this->value = '';
                 } else {
                     $this->value = trim( $display_val );
                 }
+                /* nectar addition end */
 
                 if ( ! empty( $this->field['options'] ) ) {
                     $this->field['args'] = $this->field['options'];
@@ -78,7 +77,7 @@
                 }
 
                 $params = array(
-                    'minLines' => 24,
+                    'minLines' => 10,
                     'maxLines' => 30,
                 );
 

@@ -30,7 +30,7 @@ if ( ! class_exists( 'ReduxFramework_switch' ) ) {
 
             $cb_enabled = $cb_disabled = ''; //no errors, please
             //
-
+            /* nectar additon */
             //upgrade proof
             $old_options = get_option('salient');
             global $salient_redux;
@@ -39,7 +39,6 @@ if ( ! class_exists( 'ReduxFramework_switch' ) ) {
             $fixed_ID = $this->field['id'];
             $legacy_switch = (!empty($old_options[$fixed_ID])) ? $old_options[$fixed_ID] : '-';
             $display_val = (isset($salient_redux[$this->field['id']]) || $legacy_switch == '-') ? $this->value : $legacy_switch;
-            
 
             //Get selected
             if ( (int) $display_val == 1 ) {
@@ -47,6 +46,7 @@ if ( ! class_exists( 'ReduxFramework_switch' ) ) {
             } else {
                 $cb_disabled = ' selected';
             }
+            /* nectar addition end */
 
             //Label ON
             $this->field['on'] = isset( $this->field['on'] ) ? $this->field['on'] : __( 'On', 'redux-framework' );

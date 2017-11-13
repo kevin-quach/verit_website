@@ -28,21 +28,45 @@
 	      'save_always' => true,
 	      "description" => __("Please select how many columns you would like..", "js_composer")
 	    ),
+			array(
+			 "type" => "dropdown",
+			 "heading" => __("Hover Effect", "js_composer"),
+			 "param_name" => "hover_effect",
+			 "value" => array(
+			 "Opacity Change" => "opacity",
+			 "Greyscale to Color" => "greyscale_to_color",	
+		 ),
+			 'save_always' => true,
+			 "description" => __("Select your desired hover effect", "js_composer")
+		 ),
+		 array(
+			 "type" => "dropdown",
+			 "heading" => __("Additional Logo Padding", "js_composer"),
+			 "param_name" => "additional_padding",
+			 "value" => array(
+			 "None" => "none",
+			 "A little" => "2",	
+			 "Medium" => "3",
+			 "A lot" => "4",
+		 ),
+			 'save_always' => true,
+			 "description" => __("Please select if you would like any additional padding between your client logos", "js_composer")
+		 ),
 	    array(
 	      "type" => "checkbox",
-		  "class" => "",
-		  "heading" => "Fade In One By One?",
-		  "value" => array("Yes, please" => "true" ),
-		  "param_name" => "fade_in_animation",
-		  "description" => ""
+			  "class" => "",
+			  "heading" => "Fade In One By One?",
+			  "value" => array("Yes, please" => "true" ),
+			  "param_name" => "fade_in_animation",
+			  "description" => ""
 	    ),
 	    array(
 	      "type" => "checkbox",
-		  "class" => "",
-		  "heading" => "Turn Into Carousel",
-		  "value" => array("Yes, please" => "true" ),
-		  "param_name" => "carousel",
-		  "description" => ""
+			  "class" => "",
+			  "heading" => "Turn Into Carousel",
+			  "value" => array("Yes, please" => "true" ),
+			  "param_name" => "carousel",
+			  "description" => ""
 	    ),
 	    array(
 	      "type" => "checkbox",

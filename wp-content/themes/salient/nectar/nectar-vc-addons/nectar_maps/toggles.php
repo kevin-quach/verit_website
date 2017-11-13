@@ -16,6 +16,7 @@ return array(
 		  "value" => array(
 			 "Default" => "default",
 			 "Minimal" => "minimal",
+			 "Minimal Small" => "minimal_small",
 		   ),
 		  'save_always' => true,
 		  "description" => __("Please select the style you desire for your toggle element.", "js_composer")

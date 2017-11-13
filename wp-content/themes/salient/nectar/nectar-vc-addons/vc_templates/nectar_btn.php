@@ -1,9 +1,11 @@
 <?php 
 
 extract(shortcode_atts(array("size" => 'small', "url" => '#', 'button_style' => '', 'button_color_2' => '', 'button_color' => '', 'color_override' => '', 'hover_color_override' => '', 'hover_text_color_override' => '#fff', "text" => 'Button Text', 'icon_family' => '', 'icon_fontawesome' => '', 'icon_linecons' => '', 'icon_iconsmind' => '', 'icon_steadysets' => '', 'open_new_tab' => '0', 
-	'margin_top' => '','margin_right' => '','margin_bottom' => '', 'margin_left' => '', 'css_animation' => ''), $atts));
+	'margin_top' => '','margin_right' => '','margin_bottom' => '', 'margin_left' => '', 'css_animation' => '', 'el_class' => ''), $atts));
 
 
+global $options;
+ 
 $target = ($open_new_tab == 'true') ? 'target="_blank"' : null;
 	
 	//icon
@@ -27,6 +29,7 @@ $target = ($open_new_tab == 'true') ? 'target="_blank"' : null;
 			$icon = '';
 			break;
 	}
+	
 
 	if(!empty($icon_family) && $icon_family != 'none') {
 		$button_icon = '<i class="' . $icon .'"></i>'; $has_icon = ' has-icon'; 
@@ -41,6 +44,10 @@ $target = ($open_new_tab == 'true') ? 'target="_blank"' : null;
 	if( strtolower($color) == 'accent-color' || strtolower($color) == 'extra-color-1' || strtolower($color) == 'extra-color-2' || strtolower($color) == 'extra-color-3') {
 		if($button_style != 'see-through')	$stnd_button = " " . $this->getCSSAnimation( $css_animation ) . " regular-button";
 	}
+
+	if(!empty($el_class)) {
+		$stnd_button .= ' ' . $el_class;
+	}
 	
 	$button_open_tag = '';
 
@@ -49,7 +56,14 @@ $target = ($open_new_tab == 'true') ? 'target="_blank"' : null;
 		$button_open_tag = '<div class="tilt-button-wrap"> <div class="tilt-button-inner">';
 	}
 
-
+	
+	//stop regular grad class for material skin 
+	if($options['theme-skin'] == 'material' && $color == 'extra-color-gradient-1') {
+		$color = 'm-extra-color-gradient-1';
+	} else if( $options['theme-skin'] == 'material' && $color == 'extra-color-gradient-2') {
+		$color = 'm-extra-color-gradient-2';
+	} 
+	
 	if($color == 'extra-color-gradient-1' && $button_style == 'see-through' || $color == 'extra-color-gradient-2' && $button_style == 'see-through')
 		$style_color = $button_style . '-'. strtolower($color);
 	else
@@ -108,7 +122,7 @@ $target = ($open_new_tab == 'true') ? 'target="_blank"' : null;
 		if($size =='extra_jumbo') $border = 20;
 		echo '
 		<div class="nectar-3d-transparent-button" style="'.$margins.'" data-size="'.$size.'">
-		     <a href="'.$url.'" '. $target.'><span class="hidden-text">'.$text.'</span>
+		     <a href="'.$url.'" '. $target.' class="'.$el_class.'"><span class="hidden-text">'.$text.'</span>
 			<div class="inner-wrap">
 				<div class="front-3d">
 					<svg>

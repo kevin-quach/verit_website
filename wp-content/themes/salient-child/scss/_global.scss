@@ -2,7 +2,14 @@
 /*  Global
 /*-------------------------------------------------------------------------*/
 
-
-#call-to-action .triangle {
-	border-top: 10px solid $background !important;
+html body.original {
+	.container-wrap {
+		background-color: $background;
+		margin-top: -75px;
+		padding-top: 8% !important;
+	}
+	&.home .container-wrap {
+		padding-top: 0 !important;
+	}
 }
+

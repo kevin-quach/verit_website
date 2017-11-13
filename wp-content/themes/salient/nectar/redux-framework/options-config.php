@@ -250,7 +250,8 @@
                 'subtitle' => 'This will alter the overall styling of various theme elements',
                 'options' => array(
                     "original" => "Original",
-                    "ascend" => "Ascend"
+                    "ascend" => "Ascend",
+                    "material" => "Material"
                 ),
                 'default' => 'ascend'
             ),
@@ -261,9 +262,7 @@
                 'subtitle' => __('Upload a 16px x 16px .png or .gif image that will be your favicon.', NECTAR_THEME_NAME),
                 'desc' => ''
             ),
-          
-            
-            
+
             array(
                 'id' => 'button-styling', 
                 'type' => 'select', 
@@ -274,9 +273,23 @@
                     "slightly_rounded" => "Slightly Rounded",
                     "slightly_rounded_shadow" => "Slightly Rounded W/ Shadow",
                     "rounded" => "Rounded",
+                    "rounded_shadow" => "Rounded W/ Shadow",
                 ),
                 'default' => 'default' 
             ),
+            /*
+            array(
+                'id'        => 'custom_column_spacing_amount',
+                'type' => 'select', 
+                'title'     => __('Column Spacing Amount', NECTAR_THEME_NAME),
+                'subtitle'  => __('Adjust to your desired amount.', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                'options' => array(
+                    "default" => "Default",
+                    "larger" => "Larger"
+                ),
+                'default' => 'default'
+            ), */
             array(
                 'id' => 'theme-icon-style', 
                 'type' => 'select', 
@@ -413,7 +426,6 @@
                 'title' => __('Theme Lightbox', NECTAR_THEME_NAME),
                 'subtitle' => 'Please choose your desired lightbox script here',
                 'options' => array(
-                    "pretty_photo" => "Pretty Photo",
                     "magnific" => "Magnific",
                     "none" => "None"
                 ),
@@ -935,7 +947,7 @@
                 'id'       => 'label_font_family',
                 'type'     => 'typography',
                 'title'    => __( 'Form Labels', 'redux-framework-demo' ),
-                'subtitle' => __( 'Specify the Form Label properties.', 'redux-framework-demo' ),
+                'subtitle' => __( 'Specify the Form Label properties. When using the "Material" theme skin, sidebar links will inherit this as well.', 'redux-framework-demo' ),
                 'google'   => true,
                 'all_styles'  => false,
                 'fonts' =>  $nectar_std_fonts,
@@ -954,7 +966,7 @@
                 'id'       => 'nectar_slider_heading_font_family',
                 'type'     => 'typography',
                 'title'    => __( 'Nectar/Home Slider Heading Font', 'redux-framework-demo' ),
-                'subtitle' => __( 'Specify the Nnectar Slider Heading font properties.', 'redux-framework-demo' ),
+                'subtitle' => __( 'Specify the Nectar Slider Heading font properties.', 'redux-framework-demo' ),
                 'google'   => true,
                 'all_styles'  => false,
                 'fonts' =>  $nectar_std_fonts,
@@ -1028,7 +1040,7 @@
                 'default'  => array()
             ),
 
-              array(
+            array(
                 'id'       => 'nectar_dropcap_font_family',
                 'type'     => 'typography',
                 'title'    => __( 'Dropcap', 'redux-framework-demo' ),
@@ -1038,6 +1050,343 @@
                 'all_styles'  => false,
                 'default'  => array()
             ),
+
+            array(
+                'id'       => 'nectar_sidebar_footer_headers_font_family',
+                'type'     => 'typography',
+                'title'    => __( 'Sidebar/Footer Headers', 'redux-framework-demo' ),
+                'subtitle' => __( 'Specify the font properties for headers used in sidebars & the footer.', 'redux-framework-demo' ),
+                'google'   => true,
+                'fonts' =>  $nectar_std_fonts,
+                'all_styles'  => false,
+                'default'  => array()
+            ),
+
+             
+        )
+    ) );
+
+
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Responsive Settings', 'redux-framework-demo' ),
+        'id'               => 'typography-responsive',
+        'subsection'       => true,
+        'fields'           => array(
+              
+            array(
+                'id' => 'use-responsive-heading-typography',
+                'type' => 'switch',
+                'title' => __('Custom Responsive Headings', NECTAR_THEME_NAME), 
+                'subtitle' => __('If left off, Salient will calculate the responsive typography settings for your h1-h6 tags automatically.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+
+            array(
+                'id'    => 'info-use-responsive-heading-typography',
+                'type'  => 'info',
+                'style' => 'success',
+                'title' => __('How These Settings Work',  NECTAR_THEME_NAME),
+                'icon'  => 'el el-info-circle',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' ),
+                'desc'  => __( 'Set the amount (in %) you would like each heading tag to decrease by for every viewport. <br/> For example, a value of "100" would mean the font stays at 100% of the font size defined and a value of "50" would mean the font shrinks to "50%" of the font size defined. <br/> <br/> <i>Note: these will apply to all heading tags defined by you throughout your site, but some Nectar Elements will override the sizing within themselves.</i>',  NECTAR_THEME_NAME)
+            ),
+
+            array(
+                'id'        => 'h1-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H1 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 75,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h1-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H1 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 70,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h1-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H1 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 65,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'   =>'responsive-heading-typography-divider-1',
+                'desc' => __('', 'redux-framework-demo'),
+                'type' => 'divide',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
+
+            array(
+                'id'        => 'h2-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H2 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 85,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h2-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H2 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 80,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h2-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H2 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 70,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'   =>'responsive-heading-typography-divider-2',
+                'desc' => __('', 'redux-framework-demo'),
+                'type' => 'divide',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
+            array(
+                'id'        => 'h3-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H3 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 85,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h3-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H3 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 80,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h3-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H3 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 70,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'   =>'responsive-heading-typography-divider-3',
+                'desc' => __('', 'redux-framework-demo'),
+                'type' => 'divide',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
+            array(
+                'id'        => 'h4-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H4 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h4-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H4 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 90,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h4-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H4 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 90,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'   =>'responsive-heading-typography-divider-4',
+                'desc' => __('', 'redux-framework-demo'),
+                'type' => 'divide',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
+
+            array(
+                'id'        => 'h5-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H5 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h5-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H5 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h5-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H5 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'   =>'responsive-heading-typography-divider-5',
+                'desc' => __('', 'redux-framework-demo'),
+                'type' => 'divide',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
+
+             array(
+                'id'        => 'h6-small-desktop-font-size',
+                'type'      => 'slider',
+                'title'     => __('H6 Small Desktop', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h6-tablet-font-size',
+                'type'      => 'slider',
+                'title'     => __('H6 Tablet', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+            array(
+                'id'        => 'h6-phone-font-size',
+                'type'      => 'slider',
+                'title'     => __('H6 Phone', NECTAR_THEME_NAME),
+                'subtitle'  => __('', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 100,
+                "min"       => 10,
+                "step"      => 5,
+                "max"       => 100,
+                'display_value' => 'text',
+                'required' => array( 'use-responsive-heading-typography', '=', '1' )
+            ),
+
+
 
              
         )
@@ -1137,7 +1486,18 @@ Redux::setSection( $opt_name, array(
                 'default' => '1' 
             ),
            
-            
+             array(
+                'id'        => 'header-menu-mobile-breakpoint',
+                'type'      => 'slider',
+                'title'     => __('Mobile Breakpoint', NECTAR_THEME_NAME),
+                'subtitle'  => __('Define at what window size (in px) the header navigation menu will collapse into the mobile menu style - larger values are useful when you have navigations with many items which wouldn\'t fit on one line when viewed on small desktops/laptops.', NECTAR_THEME_NAME),
+                'desc'      => __('', NECTAR_THEME_NAME),
+                "default"   => 1000,
+                "min"       => 1000,
+                "step"      => 10,
+                "max"       => 1450,
+                'display_value' => 'text'
+            ),
              array(
                 'id' => 'header-box-shadow', 
                 'type' => 'select', 
@@ -1151,7 +1511,6 @@ Redux::setSection( $opt_name, array(
                 ),
                 'default' => 'small'
             ),
-
              array(
                 'id'        => 'header-menu-item-spacing',
                 'type'      => 'slider',
@@ -1168,7 +1527,8 @@ Redux::setSection( $opt_name, array(
                 'id' => 'header-bg-opacity',
                 'type'      => 'slider',
                 'title'     => __('Header BG Opacity', NECTAR_THEME_NAME),
-                'subtitle'  => __('Please select your header BG opacity here', NECTAR_THEME_NAME),
+                'subtitle'  => __('Please set your header BG opacity here. <br/> <br/> <i>Note:</i> if you\'re trying to have your header completely see through before scrolling, setting this very low is not how to achieve it. The fully transparent style as shown on many of the demos is the option titled "
+Use Transparent Header When Applicable" which is available in the Header Navigation > Transparency tab.', NECTAR_THEME_NAME),
                 'desc'      => __('', NECTAR_THEME_NAME),
                 "default"   => 100,
                 "min"       => 1,
@@ -1289,6 +1649,18 @@ Redux::setSection( $opt_name, array(
             ),
 
             array(
+                'id' => 'header-dropdown-heading-font-hover-color',
+                'type' => 'color',
+                'title' => '',
+                'subtitle' => __('Mega Menu Heading Font Hover', NECTAR_THEME_NAME), 
+                'required' => array( 'header-color', '=', 'custom' ),
+                'class' => 'five-columns',
+                'transparent' => false,
+                'desc' => '',
+                'default' => '#ffffff'
+            ),
+
+            array(
                 'id' => 'header-separator-color',
                 'type' => 'color',
                 'title' => '',
@@ -1345,9 +1717,22 @@ Redux::setSection( $opt_name, array(
                 'desc' => '',
                 'class' => 'five-columns',
                 'transparent' => false,
-                'default' => '#27CCC0'
+                'default' => '#3452ff'
             ),
-            
+
+             array(
+                'id' => 'header-slide-out-widget-area-background-color-2',
+                'type' => 'color',
+                'title' => '', 
+                'subtitle' => __('Off Canvas Navigation Background 2 (Used for gradient)', NECTAR_THEME_NAME),
+                'required' => array( 'header-color', '=', 'custom' ),
+                'desc' => '',
+                'class' => 'five-columns',
+                'transparent' => false,
+                'default' => ''
+            ),
+
+  
              array(
                 'id' => 'header-slide-out-widget-area-header-color',
                 'type' => 'color',
@@ -1383,12 +1768,30 @@ Redux::setSection( $opt_name, array(
                 'desc' => '',
                 'default' => '#ffffff'
             ),
+            array(
+                'id' => 'header-slide-out-widget-area-close-bg-color',
+                'type' => 'color',
+                'title' => '', 
+                'subtitle' => __('Off Canvas Navigation Close Button Background', NECTAR_THEME_NAME),
+                'required' => array( array( 'header-color', '=', 'custom'), array( 'theme-skin', '=', 'material') ),
+                'desc' => '',
+                'class' => 'five-columns',
+                'transparent' => false,
+                'default' => '#ff1053'
+            ),
+            array(
+                'id' => 'header-slide-out-widget-area-close-icon-color',
+                'type' => 'color',
+                'title' => '', 
+                'subtitle' => __('Off Canvas Navigation Close Button Icon', NECTAR_THEME_NAME),
+                'required' => array( array( 'header-color', '=', 'custom'), array( 'theme-skin', '=', 'material') ),
+                'desc' => '',
+                'class' => 'five-columns',
+                'transparent' => false,
+                'default' => '#ffffff'
+            ),
             
-                 
-       
-            
-
-             
+ 
         )
     ) );
 
@@ -1459,6 +1862,27 @@ Redux::setSection( $opt_name, array(
                 ),
                 'default' => 'standard'
             ),
+             /*
+             array(
+                'id' => 'header_secondary_format', 
+                'type' => 'image_select',
+                'title' => __('Header Secondary Nav Format', NECTAR_THEME_NAME),
+                'subtitle' => __('Please select your secondary header format here.', NECTAR_THEME_NAME),
+                'desc' => '',
+                'options' => array(
+                    'default' => array('title' => 'Default Layout', 'img' => NECTAR_FRAMEWORK_DIRECTORY.'options/img/hs-default.jpg'),
+                    'centered-menu' => array('title' => 'Centered Menu', 'img' => NECTAR_FRAMEWORK_DIRECTORY.'options/img/hs-centered-links.jpg'),
+                ),
+                'required' => array( 'header_layout', '=', 'header_with_secondary' ),
+                'default' => 'default'
+            ),
+              array(
+                'id' => 'header_secondary_text', 
+                'type' => 'text', 
+                'title' => __('Header Secondary Text', NECTAR_THEME_NAME),
+                'subtitle' => 'Enter any custom text you would like to display in the secoondary header. Useful for phone numbers/quick callouts',
+                'required' => array( 'header_layout', '=', 'header_with_secondary' )
+            ), */
             array(
                 'id' => 'enable_social_in_header',
                 'type' => 'switch',
@@ -1618,6 +2042,38 @@ Redux::setSection( $opt_name, array(
                 'title' => __('Use Vine Icon', NECTAR_THEME_NAME), 
                 'subtitle' => '',
                 'desc' => ''
+            ),
+            array(
+                'id' => 'use-houzz-icon-header',
+                'type' => 'checkbox',
+                'required' => array( 'enable_social_in_header', '=', '1' ),
+                'title' => __('Use Houzz Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
+            ),
+            array(
+                'id' => 'use-yelp-icon-header',
+                'type' => 'checkbox',
+                'required' => array( 'enable_social_in_header', '=', '1' ),
+                'title' => __('Use Yelp Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
+            ),
+            array(
+                'id' => 'use-email-icon-header',
+                'type' => 'checkbox',
+                'required' => array( 'enable_social_in_header', '=', '1' ),
+                'title' => __('Use Email Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
+            ),
+            array(
+                'id' => 'use-phone-icon-header',
+                'type' => 'checkbox',
+                'required' => array( 'enable_social_in_header', '=', '1' ),
+                'title' => __('Use Phone Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
             )
             
 
@@ -1728,7 +2184,7 @@ Redux::setSection( $opt_name, array(
                 'title' => __('Remove Border On Transparent Header', NECTAR_THEME_NAME), 
                 'subtitle' => __('Turning this on will remove the border that normally appears with the transparent header', NECTAR_THEME_NAME),
                 'desc' => '',
-                'required' => array( 'transparent-header', '=', '1' ),
+                'required' => array( array( 'transparent-header', '=', '1' ), array( 'theme-skin', '!=', 'material') ),
                 'default' => '0' 
             ),
 
@@ -1874,6 +2330,20 @@ Redux::setSection( $opt_name, array(
                 'default' => 'slide-out-from-right',
             ),
           array(
+              'id' => 'header-slide-out-widget-area-dropdown-behavior', 
+              'type' => 'select', 
+              'title' => __('Off Canvas Menu Dropdown Behavior', NECTAR_THEME_NAME),
+              'subtitle' => __('Please select the functionality for how dropdowns will behave in your off canvas menu', NECTAR_THEME_NAME),
+              'desc' => '',
+              'options' => array(
+                  'default' => __('Dropdown Parent Link Toggles Submenu', NECTAR_THEME_NAME), 
+                  'separate-dropdown-parent-link' => __('Separate Dropdown Parent Link From Dropdown Toggle', NECTAR_THEME_NAME)
+              ),
+              'default' => 'default',
+              'required' => array(  array('header-slide-out-widget-area-style', '!=', 'fullscreen'), array('header-slide-out-widget-area-style', '!=', 'fullscreen-alt' ) ),
+          ),
+          
+          array(
                 'id' => 'header-slide-out-widget-area',
                 'type' => 'switch',
                 'title' => __('Off Canvas Menu', NECTAR_THEME_NAME), 
@@ -1881,19 +2351,7 @@ Redux::setSection( $opt_name, array(
                 'desc' => '',
                 'default' => '0' 
             ),
-            array(
-                'id' => 'header-slide-out-widget-area-icon-animation', 
-                'type' => 'select', 
-                'title' => __('Off Canvas Menu Hamburger Animation', NECTAR_THEME_NAME),
-                'subtitle' => __('Please select your off canvas menu hamburger icon animation here.', NECTAR_THEME_NAME),
-                'desc' => '',
-                'options' => array(
-                    'spin-and-transform' => __('Spin & Transform', NECTAR_THEME_NAME), 
-                    'simple-transform' => __('Simple Transform', NECTAR_THEME_NAME)
-                ),
-                'default' => 'simple-transform',
-                'required' => array( 'header-slide-out-widget-area', '=', '1' ),
-            ),
+
             array(
                 'id' => 'header-slide-out-widget-area-social',
                 'type' => 'checkbox',
@@ -1936,7 +2394,6 @@ Redux::setSection( $opt_name, array(
                 'desc' => '',
                 'default' => '0' 
             ),
-            
 
              
         )
@@ -2276,6 +2733,20 @@ Redux::setSection( $opt_name, array(
                 'title' => __('Use Vine Icon', NECTAR_THEME_NAME), 
                 'subtitle' => '',
                 'desc' => ''
+            ),
+            array(
+                'id' => 'use-houzz-icon',
+                'type' => 'checkbox',
+                'title' => __('Use Houzz Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
+            ),
+            array(
+                'id' => 'use-yelp-icon',
+                'type' => 'checkbox',
+                'title' => __('Use Yelp Icon', NECTAR_THEME_NAME), 
+                'subtitle' => '',
+                'desc' => ''
             )
         )
     ) );
@@ -2330,6 +2801,7 @@ Redux::setSection( $opt_name, array(
                 'options' => array(
                     "standard" => "Fade with loading icon",
                     "center_mask_reveal" => "Center mask reveal",
+                    "horizontal_swipe_basic" => "Horizontal basic swipe",
                     "horizontal_swipe" => "Horizontal multi layer swipe"
                 ),
                 'default' => 'standard'
@@ -2626,7 +3098,8 @@ Redux::setSection( $opt_name, array(
                                 '3' => __("Title overlaid w/ zoom effect on hover", NECTAR_THEME_NAME),
                                 '5' => __("Title overlaid w/ zoom effect on hover alt", NECTAR_THEME_NAME),
                                 '4' => __("Meta from bottom on hover + entire thumb link", NECTAR_THEME_NAME),
-                                '6' => __("Meta + 3D Parallax on hover", NECTAR_THEME_NAME) 
+                                '6' => __("Meta + 3D Parallax on hover", NECTAR_THEME_NAME) ,
+                                '9' => __('Meta below thumb w/ shadow hover', NECTAR_THEME_NAME) 
                             ),
                 'default' => '1'
             ),
@@ -2938,7 +3411,8 @@ Redux::setSection( $opt_name, array(
                 'desc' => __('', NECTAR_THEME_NAME),
                 'options' => array(
                                 'classic' => __('Classic', NECTAR_THEME_NAME),
-                                'minimal' => __('Minimal', NECTAR_THEME_NAME)
+                                'minimal' => __('Minimal', NECTAR_THEME_NAME),
+                                'featured_img_left' => __('Featured Image Left', NECTAR_THEME_NAME)
                             ),
                 'default' => 'classic',
                 'required' => array( 'blog_type', 'contains', 'std-blog' )
@@ -2952,10 +3426,30 @@ Redux::setSection( $opt_name, array(
                 'options' => array(
                                 'classic' => __('Classic', NECTAR_THEME_NAME),
                                 'classic_enhanced' => __('Classic Enhanced', NECTAR_THEME_NAME),
-                                'meta_overlaid' => __('Meta Overlaid', NECTAR_THEME_NAME)
+                                'material' =>  __('Material', NECTAR_THEME_NAME),
+                                'meta_overlaid' => __('Meta Overlaid', NECTAR_THEME_NAME),
+                                'auto_meta_overlaid_spaced' => __('Auto Masonry: Meta Overlaid Spaced', NECTAR_THEME_NAME)
                             ),
                 'default' => 'classic'
             ),
+            
+            array(
+                'id' => 'blog_auto_masonry_spacing',
+                'type' => 'select',
+                'title' => __('Auto Masonry Spacing', NECTAR_THEME_NAME), 
+                'subtitle' => __('Please select the amount of spacing you would like for your auto masonry layout', NECTAR_THEME_NAME),
+                'desc' => __('', NECTAR_THEME_NAME),
+                'options' => array(
+                     '4px' => '4px',
+                     '8px' => '8px',
+                     '12px' => '12px',
+                     '16px' => '16px',
+                     '20px' => '20px',
+                            ),
+                'default' => '8px',
+                'required' => array( 'blog_masonry_type', '=', 'auto_meta_overlaid_spaced' )
+            ),
+            
             array(
                 'id' => 'blog_loading_animation',
                 'type' => 'select',
@@ -2991,6 +3485,14 @@ Redux::setSection( $opt_name, array(
                 'subtitle' => __('Using this will remove the sidebar from appearing on your single post page.', NECTAR_THEME_NAME),
                 'desc' => '',
                 'default' => '1' 
+            ), 
+            array(
+                'id' => 'blog_enable_ss',
+                'type' => 'checkbox',
+                'title' => __('Enable Sticky Sidebar', NECTAR_THEME_NAME), 
+                'subtitle' => __('Would you like to have your sidebar follow down as your scroll in a sticky manner?', NECTAR_THEME_NAME),
+                'desc' => '',
+                'default' => '0',
             ),  
             array(
                 'id' => 'blog_hide_featured_image',
@@ -3046,13 +3548,68 @@ Redux::setSection( $opt_name, array(
            array(
                 'id' => 'blog_next_post_link',
                 'type' => 'checkbox',
-                'title' => __('Next Post Link On Single Post Page', NECTAR_THEME_NAME), 
-                'subtitle' => __('Using this will add a link at the bottom of every post page that leads to the next post.', NECTAR_THEME_NAME),
+                'title' => __('Post Navigation Links On Single Post Page', NECTAR_THEME_NAME), 
+                'subtitle' => __('Using this will add navigation link(s) at the bottom of every post page.', NECTAR_THEME_NAME),
                 'desc' => '',
-                'switch' => true,
-                'default' => '0' 
+                'type' => 'switch',
+                'default' => '1' 
             ), 
-
+            array(
+                'id' => 'blog_next_post_link_style',
+                'type' => 'select',
+                'title' => __('Post Navigation Style', NECTAR_THEME_NAME), 
+                'subtitle' => __('Please select the style you would like your post navigation to display in."', NECTAR_THEME_NAME),
+                'desc' => __('', NECTAR_THEME_NAME),
+                'required' => array( 'blog_next_post_link', '=', '1' ),
+                'options' => array(
+                                "fullwidth_next_only" => "Fullwidth Next Link Only",
+                                "fullwidth_next_prev" => "Fullwidth Next & Prev Links",
+                                "contained_next_prev" => "Contained Next & Prev Links"
+                            ),
+                'default' => 'fullwidth_next_only'
+            ),
+          
+            array(
+                 'id' => 'blog_related_posts',
+                 'type' => 'checkbox',
+                 'title' => __('Related Posts On Single Post Page', NECTAR_THEME_NAME), 
+                 'subtitle' => __('Using this will add related post links at the bottom of every post page.', NECTAR_THEME_NAME),
+                 'desc' => '',
+                 'type' => 'switch',
+                 'default' => '0' 
+             ), 
+             
+             array(
+                 'id' => 'blog_related_posts_style',
+                 'type' => 'select',
+                 'title' => __('Related Posts Style', NECTAR_THEME_NAME), 
+                 'subtitle' => __('Please select the style you would like for the related posts"', NECTAR_THEME_NAME),
+                 'desc' => __('', NECTAR_THEME_NAME),
+                 'required' => array( 'blog_related_posts', '=', '1' ),
+                 'options' => array(
+                          "material" => "Material",
+                          "classic_enhanced" => "Classic Enhanced",
+                  ),
+                 'default' => 'material'
+             ),
+             
+             array(
+                 'id' => 'blog_related_posts_title_text',
+                 'type' => 'select',
+                 'title' => __('Related Posts Title Text', NECTAR_THEME_NAME), 
+                 'subtitle' => __('Please select the header text you would like above the related posts"', NECTAR_THEME_NAME),
+                 'desc' => __('', NECTAR_THEME_NAME),
+                 'required' => array( 'blog_related_posts', '=', '1' ),
+                 'options' => array(
+                                 "related_posts" => "Related Posts",
+                                 "similar_posts" => "Similar Posts",
+                                 "you_may_also_like" => "You May Also Like",
+                                 "recommended_for_you" => "Recommended For You",
+                                 "hidden" => "None (Hidden)",
+                             ),
+                 'default' => 'related_posts'
+             ),
+               
            array(
                 'id' => 'blog_social',
                 'type' => 'switch',
@@ -3884,6 +4441,41 @@ Redux::setSection( $opt_name, array(
                 'type' => 'text', 
                 'title' => __('Vine URL', NECTAR_THEME_NAME),
                 'subtitle' => __('Please enter in your Vine URL.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+            array(
+                'id' => 'vine-url', 
+                'type' => 'text', 
+                'title' => __('Vine URL', NECTAR_THEME_NAME),
+                'subtitle' => __('Please enter in your Vine URL.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+            array(
+                'id' => 'houzz-url', 
+                'type' => 'text', 
+                'title' => __('Houzz URL', NECTAR_THEME_NAME),
+                'subtitle' => __('Please enter in your Houzz URL.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+            array(
+                'id' => 'yelp-url', 
+                'type' => 'text', 
+                'title' => __('Yelp URL', NECTAR_THEME_NAME),
+                'subtitle' => __('Please enter in your Yelp URL.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+            array(
+                'id' => 'email-url', 
+                'type' => 'text', 
+                'title' => __('Email link', NECTAR_THEME_NAME),
+                'subtitle' => __('Please enter in your URL link.', NECTAR_THEME_NAME),
+                'desc' => ''
+            ),
+            array(
+                'id' => 'phone-url', 
+                'type' => 'text', 
+                'title' => __('Phone Link', NECTAR_THEME_NAME),
+                'subtitle' => __('Please enter in your Phone link.', NECTAR_THEME_NAME),
                 'desc' => ''
             )
             

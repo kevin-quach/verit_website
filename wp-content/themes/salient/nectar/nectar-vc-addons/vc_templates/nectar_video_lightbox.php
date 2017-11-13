@@ -1,6 +1,18 @@
 <?php 
 
-extract(shortcode_atts(array("link_style" => "play_button", 'hover_effect' => 'default', "font_style" => "p", "video_url" => '#', "link_text" => "", "play_button_color" => "default", "nectar_button_color" => "default", 'nectar_play_button_color' => 'Accent-Color', 'image_url' => '', 'box_shadow' => ''), $atts));
+extract(shortcode_atts(array(
+	"link_style" => "play_button", 
+  'hover_effect' => 'default', 
+	"font_style" => "p", 
+	"video_url" => '#', 
+	"link_text" => "", 
+	"play_button_color" => "default", 
+	"nectar_button_color" => "default", 
+	'nectar_play_button_color' => 'Accent-Color', 
+	'image_url' => '', 
+	'border_radius' => 'none',
+	'play_button_size' => 'default',
+	'box_shadow' => ''), $atts));
 
 $extra_attrs = ($link_style == 'nectar-button') ? 'data-color-override="false"': null;
 $the_link_text = ($link_style == 'nectar-button') ? $link_text : '<span class="play"><span class="inner-wrap"><svg version="1.1"
@@ -23,13 +35,13 @@ if($link_style == 'play_button_2') {
         	}  
 		}
 
-	echo '<div class="nectar-video-box" data-color="'.strtolower($nectar_play_button_color).'" data-hover="'.$hover_effect.'" data-shadow="'.$box_shadow.'"><a href="'.$video_url.'" class="full-link pp"></a>'. $image;
+	echo '<div class="nectar-video-box" data-color="'.strtolower($nectar_play_button_color).'" data-play-button-size="'.$play_button_size.'" data-border-radius="'.$border_radius.'" data-hover="'.$hover_effect.'" data-shadow="'.$box_shadow.'"><div class="inner-wrap"><a href="'.$video_url.'" class="full-link pp"></a>'. $image;
 }
 
 $pbwt = ($link_style == 'play_button_with_text') ? '<span class="link-text"><'.$font_style.'>'.$link_text.'</'.$font_style.'></span>' : null;
 
 echo '<a href="'.$video_url.'" '.$extra_attrs.' data-color="'.strtolower($the_color).'" class="'.$link_style.' large nectar_video_lightbox pp">'.$the_link_text .$pbwt.'</a>';
 
-if($link_style == 'play_button_2') echo '</div>';
+if($link_style == 'play_button_2') echo '</div></div>';
 
 ?>

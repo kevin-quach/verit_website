@@ -188,17 +188,7 @@ if($nectar_disable_home_slider != true) { ?>
 								//video 
 							    if( !empty($video_embed) || !empty($video_m4v) ) {
 	
-								    if( !empty( $video_embed) && $wp_version < "3.6" ) {
-								    	
-								    	echo '<a href="#video-popup-'.$post->ID.'" class="pp">'.__("Watch Video", NECTAR_THEME_NAME).' </a> ';
-										echo '<div id="video-popup-'.$post->ID.'">';
-								        echo '<div class="video-wrap">' . stripslashes(htmlspecialchars_decode($video_embed)) . '</div>';
-										echo '</div>';
-								    } 
-								    
-								    else {
-										 echo '<a href="'.get_template_directory_uri(). '/includes/portfolio-functions/video.php?post-id=' .$post->ID.'&iframe=true&width=854" class="pp" >'.__("Watch Video", NECTAR_THEME_NAME).'</a> ';	 
-								     }
+								    echo nectar_portfolio_video_popup_link($post, '1', $video_embed, $video_m4v);
 		
 						        } 
 								

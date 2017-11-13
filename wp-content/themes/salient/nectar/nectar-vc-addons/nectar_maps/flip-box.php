@@ -108,14 +108,14 @@ return array(
 				"param_name" => "icon_color",
 				"group" => 'Front Side',
 				"value" => array(
-					"Accent-Color" => "Accent-Color",
-					"Extra-Color-1" => "Extra-Color-1",
-					"Extra-Color-2" => "Extra-Color-2",	
-					"Extra-Color-3" => "Extra-Color-3",
-					"Extra-Color-Gradient-1" => "extra-color-gradient-1",
-			 		"Extra-Color-Gradient-2" => "extra-color-gradient-2"
+					"Accent Color" => "Accent-Color",
+					"Extra Color 1" => "Extra-Color-1",
+					"Extra Color 2" => "Extra-Color-2",	
+					"Extra Color 3" => "Extra-Color-3",
+					"Color Gradient 1" => "extra-color-gradient-1",
+			 		"Color Gradient 2" => "extra-color-gradient-2"
 				),
-				"description" => ""
+				'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 			),
 			array(
 		      "type" => "textfield",

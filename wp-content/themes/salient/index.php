@@ -18,6 +18,8 @@
 			$infinite_scroll_class = null;
 			$load_in_animation = (!empty($options['blog_loading_animation'])) ? $options['blog_loading_animation'] : 'none';
 			$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
+			$enable_ss = (!empty($options['blog_enable_ss'])) ? $options['blog_enable_ss'] : 'false';
+			$auto_masonry_spacing = (!empty($options['blog_auto_masonry_spacing'])) ? $options['blog_auto_masonry_spacing'] : '4px';
 
 			//enqueue masonry script if selected
 			if($blog_type == 'masonry-blog-sidebar' || $blog_type == 'masonry-blog-fullwidth' || $blog_type == 'masonry-blog-full-screen-width') {
@@ -31,6 +33,7 @@
 			if(!empty($options['blog_pagination_type']) && $options['blog_pagination_type'] == 'infinite_scroll'){
 				$infinite_scroll_class = ' infinite_scroll';
 			}
+			
 
 			if($masonry_class != null) {
 				$masonry_style = (!empty($options['blog_masonry_type'])) ? $options['blog_masonry_type']: 'classic';
@@ -42,11 +45,14 @@
 				$std_minimal_class = 'standard-minimal';
 			else
 				$std_minimal_class = '';
+				
+			if($masonry_style == null && $blog_standard_type == 'featured_img_left')
+				$std_minimal_class = 'featured_img_left';
 			
 			if($blog_type == 'std-blog-sidebar' || $blog_type == 'masonry-blog-sidebar'){
-				echo '<div id="post-area" class="col '.$std_minimal_class.' span_9 '.$masonry_class.' '.$masonry_style.' '. $infinite_scroll_class.'"> <div class="posts-container"  data-load-animation="'.$load_in_animation.'">';
+				echo '<div class="post-area col '.$std_minimal_class.' span_9 '.$masonry_class.' '.$masonry_style.' '. $infinite_scroll_class.'" data-ams="'.$auto_masonry_spacing.'"> <div class="posts-container"  data-load-animation="'.$load_in_animation.'">';
 			} else {
-				echo '<div id="post-area" class="col '.$std_minimal_class.' span_12 col_last '.$masonry_class.' '.$masonry_style.' '. $infinite_scroll_class.'"> <div class="posts-container"  data-load-animation="'.$load_in_animation.'">';
+				echo '<div class="post-area col '.$std_minimal_class.' span_12 col_last '.$masonry_class.' '.$masonry_style.' '. $infinite_scroll_class.'" data-ams="'.$auto_masonry_spacing.'"> <div class="posts-container"  data-load-animation="'.$load_in_animation.'">';
 			}
 	
 				if(have_posts()) : while(have_posts()) : the_post(); ?>
@@ -58,7 +64,8 @@
 						 get_template_part( 'includes/post-templates-pre-3-6/entry', get_post_format() ); 
 					} else {
 						//WP 3.6+ post formats
-						 get_template_part( 'includes/post-templates/entry', get_post_format() ); 
+						 $nectar_post_format = (get_post_format() == 'image' || get_post_format() == 'aside') ? false : get_post_format();
+						 get_template_part( 'includes/post-templates/entry', $nectar_post_format ); 
 					} ?>
 	
 				<?php endwhile; endif; ?>
@@ -70,7 +77,7 @@
 			</div><!--/span_9-->
 			
 			<?php  if($blog_type == 'std-blog-sidebar' || $blog_type == 'masonry-blog-sidebar') { ?>
-				<div id="sidebar" class="col span_3 col_last">
+				<div id="sidebar" data-nectar-ss="<?php echo $enable_ss; ?>" class="col span_3 col_last">
 					<?php get_sidebar(); ?>
 				</div><!--/span_3-->
 			<?php } ?>

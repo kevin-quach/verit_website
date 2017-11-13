@@ -15,7 +15,7 @@ return array(
 		     "Play Button" => "play_button",
 		     "Play Button With text" => "play_button_with_text",
 		     "Play Button With Preview Image" => "play_button_2",
-			 "Nectar Button" => "nectar-button"
+			   "Nectar Button" => "nectar-button"
 		   ),
 		  'save_always' => true,
 		  "admin_label" => true,
@@ -33,14 +33,14 @@ return array(
 		  "heading" => __("Play Button Color", "js_composer"),
 		  "param_name" => "nectar_play_button_color",
 		  "value" => array(
-			 "Accent-Color" => "Default-Accent-Color",
-			 "Extra-Color-1" => "Extra-Color-1",
-			 "Extra-Color-2" => "Extra-Color-2",	
-			 "Extra-Color-3" => "Extra-Color-3"
+			 "Accent Color" => "Default-Accent-Color",
+			 "Extra Color 1" => "Extra-Color-1",
+			 "Extra Color 2" => "Extra-Color-2",	
+			 "Extra Color 3" => "Extra-Color-3"
 		   ),
 		  'save_always' => true,
 		  "dependency" => array('element' => "link_style", 'value' => array("play_button_2","play_button_with_text")),
-		  "description" => __("Please select the color you desire", "js_composer")
+		  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 	    array(
 	      "type" => "fws_image",
@@ -68,6 +68,30 @@ return array(
 	      "value" => array(__("None", "js_composer") => "none", __("Small Depth", "js_composer") => "small_depth", __("Medium Depth", "js_composer") => "medium_depth", __("Large Depth", "js_composer") => "large_depth", __("Very Large Depth", "js_composer") => "x_large_depth"),
 	      "description" => __("Select your desired image box shadow", "js_composer")
 	    ),
+			array(
+					"type" => "dropdown",
+					"heading" => __("Border Radius", "js_composer"),
+					'save_always' => true,
+					"dependency" => array('element' => "link_style", 'value' => "play_button_2"),
+					"param_name" => "border_radius",
+					"value" => array(
+						__("0px", "js_composer") => "none",
+						__("3px", "js_composer") => "3px",
+						__("5px", "js_composer") => "5px", 
+						__("10px", "js_composer") => "10px", 
+						__("15px", "js_composer") => "15px", 
+						__("20px", "js_composer") => "20px"),
+				),	
+				array(
+						"type" => "dropdown",
+						"heading" => __("Play Button Size", "js_composer"),
+						'save_always' => true,
+						"dependency" => array('element' => "link_style", 'value' => "play_button_2"),
+						"param_name" => "play_button_size",
+						"value" => array(
+							__("Default", "js_composer") => "default",
+							__("Larger", "js_composer") => "larger")
+					),	
 	    array(
 	      "type" => "textfield",
 	      "heading" => __("Link Text", "js_composer"),
@@ -99,18 +123,18 @@ return array(
 		  "heading" => __("Color", "js_composer"),
 		  "param_name" => "nectar_button_color",
 		  "value" => array(
-			 "Accent-Color" => "Default-Accent-Color",
-			 "Extra-Color-1" => "Default-Extra-Color-1",
-			 "Extra-Color-2" => "Default-Extra-Color-2",	
-			 "Extra-Color-3" => "Default-Extra-Color-3",
-			 "Transparent-Accent-Color" =>  "Transparent-Accent-Color",
-			 "Transparent-Extra-Color-1" => "Transparent-Extra-Color-1",
-			 "Transparent-Extra-Color-2" => "Transparent-Extra-Color-2",	
-			 "Transparent-Extra-Color-3" => "Transparent-Extra-Color-3"
+			 "Accent Color" => "Default-Accent-Color",
+			 "Extra Color 1" => "Default-Extra-Color-1",
+			 "Extra Color 2" => "Default-Extra-Color-2",	
+			 "Extra Color 3" => "Default-Extra-Color-3",
+			 "Transparent Accent Color" =>  "Transparent-Accent-Color",
+			 "Transparent Extra Color 1" => "Transparent-Extra-Color-1",
+			 "Transparent Extra Color 2" => "Transparent-Extra-Color-2",	
+			 "Transparent Extra Color 3" => "Transparent-Extra-Color-3"
 		   ),
 		  'save_always' => true,
 		  "dependency" => array('element' => "link_style", 'value' => "nectar-button"),
-		  "description" => __("Please select the color you desire", "js_composer")
+		  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 
 	  )

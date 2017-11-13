@@ -6,7 +6,7 @@
 	$vc_is_wp_version_3_6_more = version_compare(preg_replace('/^([\d\.]+)(\-.*$)/', '$1', get_bloginfo('version')), '3.6') >= 0;
 	
 	return array(
-	  "name"  => __("Testiomonial Slider", "js_composer"),
+	  "name"  => __("Testimonial Slider", "js_composer"),
 	  "base" => "testimonial_slider",
 	  "show_settings_on_create" => false,
 	  "is_container" => true,
@@ -34,7 +34,7 @@
 		  "param_name" => "color",
 		  "admin_label" => false,
 		  "value" => array(
-			 "Inherit (Default)" => "default",
+			 "Inherit (from row Text Color)" => "default",
 			 "Accent Color + Light Text" => "accent-color-light",
 			 "Extra Color 1 + Light Text" => "extra-color-1-light",
 			 "Extra Color 2 + Light Text" => "extra-color-2-light",
@@ -46,7 +46,7 @@
 		   ),
 		  'save_always' => true,
 		  "dependency" => Array('element' => "style", 'value' => array('multiple_visible')),
-		  "description" => __("Please select the color you would like for your testimonial slider. <br/> The Inherit value will react based on the row Text Color when set to light or dark.", "js_composer")
+		  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 		array(
 		  "type" => "dropdown",
@@ -54,16 +54,16 @@
 		  "param_name" => "star_rating_color",
 		  "admin_label" => false,
 		  "value" => array(
-			 "Accent-Color" => "accent-color",
-			 "Extra-Color-1" => "extra-color-1",
-			 "Extra-Color-2" => "extra-color-2",	
-			 "Extra-Color-3" => "extra-color-3",
-			 "Extra-Color-Gradient-1" => "extra-color-gradient-1",
-			 "Extra-Color-Gradient-2" => "extra-color-gradient-2"
+			 "Accent Color" => "accent-color",
+			 "Extra Color 1" => "extra-color-1",
+			 "Extra Color 2" => "extra-color-2",	
+			 "Extra Color 3" => "extra-color-3",
+			 "Color Gradient 1" => "extra-color-gradient-1",
+			 "Color Gradient 2" => "extra-color-gradient-2"
 		   ),
 		  'save_always' => true,
-		   "dependency" => Array('element' => "style", 'value' => array('multiple_visible_minimal','minimal','default')),
-		  "description" => __("Please select the color that will be used for the testimonial star ratings", "js_composer")
+		  "dependency" => Array('element' => "style", 'value' => array('multiple_visible_minimal','minimal','default')),
+		  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 		array(
 	      "type" => "checkbox",

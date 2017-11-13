@@ -67,7 +67,6 @@ vc_remove_element("vc_basic_grid");
 vc_remove_element("vc_round_chart");
 vc_remove_element("vc_line_chart");
 vc_remove_element("vc_cta");
-vc_remove_element("vc_icon");
 vc_remove_element("vc_media_grid");
 vc_remove_element("vc_masonry_media_grid");
 vc_remove_element("vc_masonry_grid");
@@ -86,7 +85,6 @@ vc_remove_element("vc_images_carousel");
 vc_remove_element("vc_wp_archives");
 vc_remove_element("vc_wp_calendar");
 vc_remove_element("vc_wp_categories");
-vc_remove_element("vc_wp_custommenu");
 vc_remove_element("vc_wp_links");
 vc_remove_element("vc_wp_meta");
 vc_remove_element("vc_wp_pages");
@@ -129,10 +127,46 @@ $is_admin = is_admin();
 global $nectar_get_template_directory_uri;
 
 
+function nectar_select_color_styles() {
+	global $options;
+
+	$nectar_accent_color = (!empty($options["accent-color"])) ? $options["accent-color"] : 'transparent';
+	$nectar_extra_color_1 = (!empty($options["extra-color-1"])) ? $options["extra-color-1"] : 'transparent';
+	$nectar_extra_color_2 = (!empty($options["extra-color-2"])) ? $options["extra-color-2"] : 'transparent';
+	$nectar_extra_color_3 = (!empty($options["extra-color-3"])) ? $options["extra-color-3"] : 'transparent';
+
+	$nectar_color_css = '.vc_edit-form-tab .chosen-container .chosen-results li.Default:before, .vc_edit-form-tab .chosen-container .chosen-results li.default:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"].Default + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"].default + .chosen-container > a:before { background: linear-gradient(to right, #444 49%, #fff 51%); } 
+	.vc_edit-form-tab .chosen-container .chosen-results li[class*="Accent-Color"]:before, .vc_edit-form-tab .chosen-container .chosen-results li.Default-Accent-Color:before, .vc_edit-form-tab .chosen-container .chosen-results li[class*="accent-color"]:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"].Default-Accent-Color + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="Accent-Color"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="accent-color"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="cta_button_style"].accent-color + .chosen-container > a:before { background-color: '.$nectar_accent_color.'; } 
+    .vc_edit-form-tab .chosen-container .chosen-results li[class*="Extra-Color-1"]:before, .vc_edit-form-tab .chosen-container .chosen-results li[class*="extra-color-1"]:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="Extra-Color-1"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="extra-color-1"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="cta_button_style"].extra-color-1 + .chosen-container > a:before { background-color: '.$nectar_extra_color_1.'; }
+    .vc_edit-form-tab .chosen-container .chosen-results li[class*="Extra-Color-2"]:before, .vc_edit-form-tab .chosen-container .chosen-results li[class*="extra-color-2"]:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="Extra-Color-2"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="extra-color-2"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="cta_button_style"].extra-color-2 + .chosen-container > a:before { background-color: '.$nectar_extra_color_2.'; }
+    .vc_edit-form-tab .chosen-container .chosen-results li[class*="Extra-Color-3"]:before, .vc_edit-form-tab .chosen-container .chosen-results li[class*="extra-color-3"]:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="Extra-Color-3"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"][class*="extra-color-3"] + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="cta_button_style"].extra-color-3 + .chosen-container > a:before { background-color: '.$nectar_extra_color_3.'; }';
+
+	if( !empty($options["extra-color-gradient"]) && $options["extra-color-gradient"]['to'] && $options["extra-color-gradient"]['from']) {
+		$nectar_gradient_1_from = $options["extra-color-gradient"]['from'];
+		$nectar_gradient_1_to = $options["extra-color-gradient"]['to'];
+
+		$nectar_color_css .= '.vc_edit-form-tab .chosen-container .chosen-results li.extra-color-gradient-1:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"].extra-color-gradient-1 + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="button_color"].extra-color-gradient-1 + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name="icon_color"].extra-color-gradient-1 + .chosen-container > a:before {  background: linear-gradient(to right, '.$nectar_gradient_1_from.', '.$nectar_gradient_1_to.'); }';
+	}
+
+	if( !empty($options["extra-color-gradient-2"]) && $options["extra-color-gradient-2"]['to'] && $options["extra-color-gradient-2"]['from']) {
+		$nectar_gradient_2_from = $options["extra-color-gradient-2"]['from'];
+		$nectar_gradient_2_to = $options["extra-color-gradient-2"]['to'];
+
+		$nectar_color_css .= '.vc_edit-form-tab .chosen-container .chosen-results li.extra-color-gradient-2:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="color"].extra-color-gradient-2 + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name*="button_color"].extra-color-gradient-2 + .chosen-container > a:before, .vc_edit-form-tab .vc_shortcode-param[data-param_type="dropdown"] select[name="icon_color"].extra-color-gradient-2 + .chosen-container > a:before {  background: linear-gradient(to right, '.$nectar_gradient_2_from.', '.$nectar_gradient_2_to.'); }';
+	}
+
+   
+    wp_add_inline_style( 'nectar_vc', $nectar_color_css );
+}
+add_action( 'admin_enqueue_scripts', 'nectar_select_color_styles' );
+
+
+
+
 if(function_exists('vc_add_shortcode_param')) {
 
 	// Create multi dropdown param type
-	vc_add_shortcode_param( 'dropdown_multi', 'dropdown_multi_settings_field' );
+	vc_add_shortcode_param( 'dropdown_multi', 'dropdown_multi_settings_field', get_template_directory_uri().'/nectar/nectar-vc-addons/js/backend-edit-form-bulk.js' );
 	function dropdown_multi_settings_field( $param, $value ) {
 
 		 $param_line = '';
@@ -190,6 +224,46 @@ if(function_exists('vc_add_shortcode_param')) {
 	        return $param_line;
 	}
 
+
+	vc_add_shortcode_param( 'nectar_radio_image', 'nectar_radio_images_settings_field' );
+	function nectar_radio_images_settings_field( $param, $value ) {
+			$rnd_id = uniqid();
+			$options = isset($param['options']) ? $param['options'] : '';
+
+			$param_line = '';
+			$param_line .= '<input type="hidden" id="nectar-radio-image-'.$rnd_id.'" class="wpb_vc_param_value '.esc_attr($param['param_name']).' '.esc_attr($param['type']).'" name="'.esc_attr($param['param_name']).'" value="'.esc_attr($value).'"/>';
+	        $param_line .= '<div class="nectar-radio-image" data-grp-id="' . $rnd_id . '">';
+	        $param_line .= '<ul class="nectar_radio_images_list">';
+		
+			foreach($options as $k => $v) {
+
+				foreach($v as $name => $image_src) {
+
+					if($value == $k) {
+						$checked = 'checked';
+					}
+					else {
+						$checked = '';
+					}
+
+					$param_line .= '<li><label>
+						<input type="radio" class="n_radio_image_val" value="'. $k .'" name="n_radio_image_' . $rnd_id . '" ' . $checked . ' />
+						<span class="n_radio_image_src"><img src="'. $image_src .'" alt="'. $name.'" /></span>
+						<span class="n_radio_image_title">'.$name.'</span>
+					</label></li>';
+				}
+
+				
+			}
+			
+	        
+	        $param_line .= '</ul>';
+	        $param_line .= '</div>';
+
+	        return $param_line;
+	}
+
+
 	vc_add_shortcode_param( 'hotspot_image_preview', 'hotspot_image_preview_field' );
 	function hotspot_image_preview_field( $settings, $value ) {
 	   
@@ -210,11 +284,13 @@ function nectar_custom_maps() {
 	global $options;
 	$is_admin = is_admin();
 	$nectar_template_dir = get_template_directory();
+	$nectar_get_template_directory_uri = get_template_directory_uri();
 
 	vc_map( array(
 		'name' => __( 'Row', 'js_composer' ),
 		'base' => 'vc_row',
 		'is_container' => true,
+		'weight' => 11,
 		'icon' => 'icon-wpb-row',
 		'show_settings_on_create' => false,
 		'category' => __( 'Structure', 'js_composer' ),
@@ -656,7 +732,36 @@ function nectar_custom_maps() {
 				"param_name" => "bottom_padding",
 				"description" => "Don't include \"px\" in your string. e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\""
 			),
+			
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"heading" => "Translate Y",
+				"value" => "",
+				"edit_field_class" => "col-md-6",
+				"param_name" => "translate_y",
+				"description" => ""
+			),
 
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"heading" => "Translate X",
+				"value" => "",
+				"edit_field_class" => "col-md-6",
+				"param_name" => "translate_x",
+				"description" => ""
+			),
+			
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"heading" => "Z-Index",
+				"param_name" => "zindex",
+				"description" => "If you want to set a custom stacking order on this row, enter it here. Can be useful when overlapping elements from other rows with negative margins/translates.",
+				"value" => ""
+			),
+			
 			array(
 				"type" => "textfield",
 				"class" => "",
@@ -752,7 +857,82 @@ function nectar_custom_maps() {
 					"Very Heavy" => "0.95",
 					"Solid" => '1'
 				)
+			),
+
+			array(
+				"type" => "checkbox",
+				"class" => "",
+				"group" => "Shape Divider",
+				"heading" => "Enable Shape Divider",
+				"value" => array("Yes, please" => "true" ),
+				"param_name" => "enable_shape_divider",
+				"description" => ""
+			),
+			array(
+				"type" => "nectar_radio_image",
+				"class" => "",
+				'save_always' => true,
+				"heading" => "Shape Type",
+				"param_name" => "shape_type",
+				"group" => "Shape Divider",
+				"options" => array(
+					"curve" => array( __('Curve', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/curve_down.jpg"),
+					'fan' => array( __('Fan', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/fan.jpg"),
+					'curve_opacity' => array( __('Curve Opacity', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/curve_opacity.jpg"),
+					"mountains" => array( __('Mountains', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/mountains.jpg"),
+					'curve_asym' => array( __('Curve Asym.', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/curve_asym.jpg"),
+					'curve_asym_2' => array( __('Curve Asym. Alt', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/curve_asym_2.jpg"),
+					"tilt" => array( __('Tilt', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/tilt.jpg"),
+					"tilt_alt" => array( __('Tilt Alt', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/tilt_alt.jpg"),
+					"triangle" => array( __('Triangle', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/triangle.jpg"),
+					'waves' => array( __('Waves', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/waves_no_opacity.jpg"),
+					'waves_opacity' => array( __('Waves Opacity', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/waves.jpg"),
+					'waves_opacity_alt' => array( __('Waves Opacity 2', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/waves_opacity.jpg"),
+					'clouds' => array( __('Clouds', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/clouds.jpg"),
+					"speech" => array( __('Speech', NECTAR_THEME_NAME) => $nectar_get_template_directory_uri."/nectar/nectar-vc-addons/img/shape_dividers/speech.jpg")
+				),
+			),
+			array(
+				"type" => "colorpicker",
+				"class" => "",
+				"heading" => "Shape Divider Color",
+				"param_name" => "shape_divider_color",
+				"value" => "",
+				"group" => "Shape Divider",
+				"description" => ""
+			),
+			array(
+				"type" => "dropdown",
+				"class" => "",
+				'save_always' => true,
+				"heading" => "Shape Divider Position",
+				"param_name" => "shape_divider_position",
+				"group" => "Shape Divider",
+				"value" => array(
+					"Bottom" => "bottom",
+					"Top" => "top",
+					"Bottom & Top" => 'both'
+				),
+			),
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"group" => "Shape Divider",
+				"heading" => "Shape Divider Height",
+				"param_name" => "shape_divider_height",
+				"value" => "",
+				"description" => "Enter an optional custom height for your shape divider in pixels without the \"px\", e.g. 50"
+			),
+			array(
+				"type" => "checkbox",
+				"class" => "",
+				"group" => "Shape Divider",
+				"heading" => "Bring to front?",
+				"value" => array("Yes, please" => "true" ),
+				"param_name" => "shape_divider_bring_to_front",
+				"description" => "This will bring the shape divider to the top layer, placing it on top of any content it intersects/"
 			)
+
 		
 		),
 		'js_view' => 'VcRowView'
@@ -778,7 +958,7 @@ function nectar_custom_maps() {
       "heading" => __("Max Width", "js_composer"),
       "param_name" => "max_width",
       "admin_label" => false,
-      "description" => __("Optionally enter your desired max width in pixels with the \"px\", e.g. 200", "js_composer")
+      "description" => __("Optionally enter your desired max width in pixels without the \"px\", e.g. 200", "js_composer")
     ));
 
 
@@ -886,7 +1066,9 @@ function nectar_custom_maps() {
 					"12%" => "padding-12-percent",
 					"13%" => "padding-13-percent",
 					"14%" => "padding-14-percent",
-					"15%" => "padding-15-percent"
+					"15%" => "padding-15-percent",
+					"16%" => "padding-16-percent",
+					"17%" => "padding-17-percent"
 				),
 				"description" => "When using the full width content row type or providing a background color/image for the column, you have the option to define the amount of padding your column will receive."
 			),
@@ -973,7 +1155,6 @@ function nectar_custom_maps() {
 				
 			),
 
-
 			array(
 				"type" => "fws_image",
 				"class" => "",
@@ -1010,24 +1191,6 @@ function nectar_custom_maps() {
 				"admin_label" => false,
 				"description" => "If you wish for this column to link somewhere, enter the URL in here",
 			),
-
-			array(
-				"type" => "textfield",
-				"class" => "",
-				"heading" => "Margin Top",
-				"value" => "",
-				"param_name" => "top_margin",
-				"description" => "Don't include \"px\" in your string. e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\". Negative Values are also accepted."
-			),
-
-			array(
-				"type" => "textfield",
-				"class" => "",
-				"heading" => "Margin Bottom",
-				"value" => "",
-				"param_name" => "bottom_margin",
-				"description" => "Don't include \"px\" in your string. e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\". Negative Values are also accepted."
-			),
 			array(
 		      "type" => "dropdown",
 		      "heading" => __("Box Shadow", "js_composer"),
@@ -1036,6 +1199,38 @@ function nectar_custom_maps() {
 		      "value" => array(__("None", "js_composer") => "none", __("Small Depth", "js_composer") => "small_depth", __("Medium Depth", "js_composer") => "medium_depth", __("Large Depth", "js_composer") => "large_depth", __("Very Large Depth", "js_composer") => "x_large_depth"),
 		      "description" => __("Select your desired column box shadow", "js_composer")
 		    ),	
+				array(
+			      "type" => "dropdown",
+			      "heading" => __("Border Radius", "js_composer"),
+			      'save_always' => true,
+			      "param_name" => "column_border_radius",
+			      "value" => array(
+							__("0px", "js_composer") => "none",
+							__("3px", "js_composer") => "3px",
+							__("5px", "js_composer") => "5px", 
+							__("10px", "js_composer") => "10px", 
+							__("15px", "js_composer") => "15px", 
+							__("20px", "js_composer") => "20px"),
+			      "description" => __("This will round the edges of your column", "js_composer")
+			    ),	
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"heading" => "Margin Top",
+				"value" => "",
+				"param_name" => "top_margin",
+				"description" => "Don't include \"px\" in your strings . e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\". Negative Values are also accepted."
+			),
+
+			array(
+				"type" => "textfield",
+				"class" => "",
+				"heading" => "Margin Bottom",
+				"value" => "",
+				"param_name" => "bottom_margin",
+				"description" => ""
+			),
+
 			array(
 				"type" => "textfield",
 				"class" => "",
@@ -1136,7 +1331,8 @@ function nectar_custom_maps() {
 					"Double" => "double",
 					"Double Offset" => "double_offset"
 				),
-				"description" => ""
+				"description" => "",
+				"dependency" => Array('element' => "column_border_radius", 'value' => 'none')
 			),
 			array(
 				"type" => "checkbox",
@@ -1145,7 +1341,8 @@ function nectar_custom_maps() {
 				"heading" => "Enable Border Animation",
 				"value" => array("Enable Column Animation?" => "true" ),
 				"param_name" => "enable_border_animation",
-				"description" => ""
+				"description" => "",
+				"dependency" => Array('element' => "column_border_radius", 'value' => 'none')
 			),
 
 			array(
@@ -1166,7 +1363,7 @@ function nectar_custom_maps() {
 	) );
 	
 	
-
+	
 	vc_map( array(
 		"name" => __( "Column", "js_composer" ),
 		"base" => "vc_column_inner",
@@ -1270,7 +1467,9 @@ function nectar_custom_maps() {
 					"12%" => "padding-12-percent",
 					"13%" => "padding-13-percent",
 					"14%" => "padding-14-percent",
-					"15%" => "padding-15-percent"
+					"15%" => "padding-15-percent",
+					"16%" => "padding-16-percent",
+					"17%" => "padding-17-percent"
 				),
 				"description" => "When using the full width content row type or providing a background color/image for the column, you have the option to define the amount of padding your column will receive."
 			),
@@ -1334,7 +1533,37 @@ function nectar_custom_maps() {
 				)
 				
 			),
+			
+			array(
+				"type" => "colorpicker",
+				"class" => "",
+				"heading" => "Background Color Hover",
+				"param_name" => "background_color_hover",
+				"value" => "",
+				"description" => "",
+			),
 
+			array(
+				"type" => "dropdown",
+				"class" => "",
+				'save_always' => true,
+				"heading" => "Background Hover Color Opacity",
+				"param_name" => "background_hover_color_opacity",
+				"value" => array(
+					"1" => "1",
+					"0.9" => "0.9",
+					"0.8" => "0.8",
+					"0.7" => "0.7",
+					"0.6" => "0.6",
+					"0.5" => "0.5",
+					"0.4" => "0.4",
+					"0.3" => "0.3",
+					"0.2" => "0.2",
+					"0.1" => "0.1",
+				)
+				
+			),
+			
 			array(
 				"type" => "colorpicker",
 				"class" => "",
@@ -1343,7 +1572,46 @@ function nectar_custom_maps() {
 				"value" => "",
 				"description" => ""
 			),
-
+			array(
+		      "type" => "dropdown",
+		      "heading" => __("Box Shadow", "js_composer"),
+		      'save_always' => true,
+		      "param_name" => "column_shadow",
+		      "value" => array(__("None", "js_composer") => "none", __("Small Depth", "js_composer") => "small_depth", __("Medium Depth", "js_composer") => "medium_depth", __("Large Depth", "js_composer") => "large_depth", __("Very Large Depth", "js_composer") => "x_large_depth"),
+		      "description" => __("Select your desired column box shadow", "js_composer")
+		    ),	
+			array(
+					"type" => "dropdown",
+					"heading" => __("Border Radius", "js_composer"),
+					'save_always' => true,
+					"param_name" => "column_border_radius",
+					"value" => array(
+						__("0px", "js_composer") => "none",
+						__("3px", "js_composer") => "3px",
+						__("5px", "js_composer") => "5px", 
+						__("10px", "js_composer") => "10px", 
+						__("15px", "js_composer") => "15px", 
+						__("20px", "js_composer") => "20px"),
+					"description" => __("This will round the edges of your column", "js_composer")
+				),	
+				
+				array(
+					"type" => "textfield",
+					"class" => "",
+					"heading" => "Margin Top",
+					"value" => "",
+					"param_name" => "top_margin",
+					"description" => "Don't include \"px\" in your strings . e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\". Negative Values are also accepted."
+				),
+	
+				array(
+					"type" => "textfield",
+					"class" => "",
+					"heading" => "Margin Bottom",
+					"value" => "",
+					"param_name" => "bottom_margin",
+					"description" => ""
+				),
 			array(
 				"type" => "textfield",
 				"class" => "",
@@ -1454,6 +1722,7 @@ function nectar_custom_maps() {
 
 	//inner row class fix
 	vc_remove_param("vc_row_inner", "el_class");
+	vc_remove_param("vc_row_inner", "el_id");
 
 	//columns gap
 	vc_remove_param("vc_row_inner", "gap");
@@ -1488,6 +1757,26 @@ function nectar_custom_maps() {
 				"param_name" => "bottom_padding",
 				"description" => "Don't include \"px\" in your string. e.g \"40\" - However you can also use a percent value in which case a \"%\" would be needed at the end e.g. \"10%\""
 	));
+	
+	vc_add_param("vc_row_inner", array(
+		"type" => "textfield",
+		"class" => "",
+		"heading" => "Translate Y",
+		"value" => "",
+		"edit_field_class" => "col-md-6",
+		"param_name" => "translate_y",
+		"description" => ""
+	));
+
+	vc_add_param("vc_row_inner", array(
+		"type" => "textfield",
+		"class" => "",
+		"heading" => "Translate X",
+		"value" => "",
+		"edit_field_class" => "col-md-6",
+		"param_name" => "translate_x",
+		"description" => ""
+	));
 
 	vc_add_param("vc_row_inner", array(
 		"type" => "dropdown",
@@ -1521,13 +1810,22 @@ function nectar_custom_maps() {
 		"type" => "textfield",
 		"class" => "",
 		"heading" => "Row ID",
-		"param_name" => "id",
+		"param_name" => "el_id",
 		"value" => "",
 		"description" => "Use this to option to add an ID onto your row. This can then be used to target the row with CSS or as an anchor point to scroll to when the relevant link is clicked."
 	));
 
 
 
+  //sidebar
+	vc_add_param("vc_widget_sidebar", array(
+		"type" => "checkbox",
+		"class" => "",
+		"heading" => "Make Sticky?",
+		"value" => array("Enable" => "true" ),
+		"param_name" => "enable_sticky",
+		"description" => "This will cause your widgetized sidebar to stick to the screen when used in a column within a row that is taller than the widgetized sidebar."
+	));
 
 
 	//full width section
@@ -1545,28 +1843,33 @@ function nectar_custom_maps() {
 	        $column_controls = $this->getColumnControls($this->settings('controls'));
 
 	        for ( $i=0; $i < count($width); $i++ ) {
-	            $output .= '<div'.$this->customAdminBockParams().' data-element_type="vc_row" class="'.$this->settings['base'].' wpb_vc_row wpb_sortable">';
+	            $output .= '<div data-element_type="vc_row" class="'.$this->settings['base'].' wpb_vc_row wpb_sortable">';
 	            $output .= str_replace("%column_size%", 1, $column_controls);
 	            $output .= '<div class="wpb_element_wrapper">';
 	            $output .= '<div class="vc_row-fluid vc_row wpb_row_container vc_container_for_children">';
-	            if($content=='' && !empty($this->settings["default_content_in_template"])) {
-	                $output .= do_shortcode( shortcode_unautop($this->settings["default_content_in_template"]) );
-	            } else {
-	                $output .= do_shortcode( shortcode_unautop($content) );
+	            if ( '' === $content && ! empty( $this->settings['default_content_in_template'] ) ) {
+					$output .= do_shortcode( shortcode_unautop( $this->settings['default_content_in_template'] ) );
+				} else {
+					$output .= do_shortcode( shortcode_unautop( $content ) );
 
-	            }
+				}
 	            $output .= '</div>';
 	            if ( isset($this->settings['params']) ) {
 	                $inner = '';
 	                foreach ($this->settings['params'] as $param) {
-	                    $param_value = isset($$param['param_name']) ? $$param['param_name'] : '';
-	                    if ( is_array($param_value)) {
-	                        // Get first element from the array
-	                        reset($param_value);
-	                        $first_key = key($param_value);
-	                        $param_value = $param_value[$first_key];
-	                    }
-	                    $inner .= $this->singleParamHtmlHolder($param, $param_value);
+
+	                	if ( ! isset( $param['param_name'] ) ) {
+							continue;
+						}
+	                    $param_value = isset( $atts[ $param['param_name'] ] ) ? $atts[ $param['param_name'] ] : '';
+
+	                    if ( is_array( $param_value ) ) {
+							// Get first element from the array
+							reset( $param_value );
+							$first_key = key( $param_value );
+							$param_value = $param_value[ $first_key ];
+						}
+	                    $inner .= $this->singleParamHtmlHolder( $param, $param_value );
 	                }
 	                $output .= $inner;
 	            }
@@ -1713,7 +2016,12 @@ function nectar_custom_maps() {
 	// Fancy Title
 	class WPBakeryShortCode_Nectar_Animated_Title extends WPBakeryShortCode { }
 	vc_lean_map('nectar_animated_title', null, $nectar_template_dir . '/nectar/nectar-vc-addons/nectar_maps/fancy-title.php');
-
+	
+	
+	// Single Testimonial
+	class WPBakeryShortCode_Nectar_Single_Testimonial extends WPBakeryShortCode { }
+	vc_lean_map('nectar_single_testimonial', null, $nectar_template_dir . '/nectar/nectar-vc-addons/nectar_maps/nectar_single_testimonial.php');
+	
 
 	require_once vc_path_dir('SHORTCODES_DIR', 'vc-accordion.php');
 	require_once vc_path_dir('SHORTCODES_DIR', 'vc-accordion-tab.php');
@@ -1751,11 +2059,14 @@ function nectar_custom_maps() {
 	vc_lean_map('testimonial', null, $nectar_template_dir . '/nectar/nectar-vc-addons/nectar_maps/testimonial.php');
 
 	
+	//adding back in default VC elements
+	$vc_config_path = vc_path_dir( 'CONFIG_DIR' );
+	if(version_compare(WPB_VC_VERSION,'5.0','>=')) {
+    	vc_lean_map( 'vc_widget_sidebar', null, $vc_config_path . '/structure/shortcode-vc-widget-sidebar.php' );
+    }
 
-
-
-
-
+    vc_lean_map( 'vc_wp_custommenu', null,  $nectar_template_dir . '/nectar/nectar-vc-addons/nectar_maps/shortcode-vc-wp-custommenu.php' );
+	
 
 	/* clients slider */
 	class WPBakeryShortCode_Clients extends WPBakeryShortCode_Tabbed_Section { }
@@ -2153,7 +2464,7 @@ function nectar_custom_maps() {
 	      "type" => "dropdown",
 	      "heading" => __("On click", "js_composer"),
 	      "param_name" => "onclick",
-	      "value" => array( __("Do nothing", "js_composer") => "link_no", __("Open prettyPhoto", "js_composer") => "link_image",  __("Open custom link", "js_composer") => "custom_link"),
+	      "value" => array( __("Do nothing", "js_composer") => "link_no", __("Open lightbox", "js_composer") => "link_image",  __("Open custom link", "js_composer") => "custom_link"),
 	      "description" => __("What to do when slide is clicked?", "js_composer"),
 	      'save_always' => true,
 	      "dependency" => Array('element' => "type", 'value' => array('nectarslider_style', 'flexslider_style', 'flickity_style'))

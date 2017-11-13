@@ -1,11 +1,11 @@
 /*
-    Theme Name: <Verit> Website 
-    Theme URI: ...
-    Version: 0.1
-    Author: Kevin Quach & Lydia Quon
-    Author URI: kevinquach.ca | lydiaquon.com
-    Description: Custom Salient child theme for the FF14 Free Company website <Verit>
-    Template: salient
+Theme Name: Salient Child Theme
+Theme URI: http: //mysite.com/
+Description: This is a custom child theme for Salient
+Author: My Name
+Author URI: http: //mysite.com/
+Template: salient
+Version: 0.1
 -------------------------------------------------------------------------*/
 /*-------------------------------------------------------------------------*/
 /*  Imports
@@ -41,8 +41,13 @@ p, li, td, a, div, span {
 /*-------------------------------------------------------------------------*/
 /*  Global
 /*-------------------------------------------------------------------------*/
-#call-to-action .triangle {
-  border-top: 10px solid #23334c !important; }
+html body.original .container-wrap {
+  background-color: #23334c;
+  margin-top: -75px;
+  padding-top: 8% !important; }
+
+html body.original.home .container-wrap {
+  padding-top: 0 !important; }
 
 /*
 |--------------------------------------------------------------------------
@@ -62,82 +67,73 @@ p, li, td, a, div, span {
 /*-------------------------------------------------------------------------*/
 /*  Home
 /*-------------------------------------------------------------------------*/
-article.post .post-meta .month {
-  border: 2px solid red !important;
-  padding: 20px; }
+.top-heading img {
+  display: block !important;
+  text-align: center;
+  margin: 20px auto; }
 
 /*
 |--------------------------------------------------------------------------
 | Forum
 |--------------------------------------------------------------------------
 */
-.bbpress {
-  color: #767b91; }
-  .bbpress .container-wrap {
-    background-color: #23334c !important;
-    margin-top: -70px !important; }
-  .bbpress #bbpress-forums .minimal-form-input label span.text .text-inner {
-    color: #767b91 !important; }
-  .bbpress #bbpress-forums input, .bbpress #bbpress-forums textarea {
-    color: #fff !important;
-    padding-bottom: 0 !important; }
-  .bbpress #bbpress-forums fieldset.bbp-form {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid #767b91 !important; }
-    .bbpress #bbpress-forums fieldset.bbp-form .bbp_topic_title::before {
-      border-bottom: 1px solid red !important; }
-    .bbpress #bbpress-forums fieldset.bbp-form legend {
-      font-size: 1.5em;
-      margin: 0 auto; }
-    .bbpress #bbpress-forums fieldset.bbp-form textarea {
-      padding-top: 0 !important; }
-  .bbpress #bbpress-forums select {
-    background-color: transparent !important;
-    border-bottom: 1px solid #767b91 !important;
-    color: #fff !important; }
-    .bbpress #bbpress-forums select option {
-      color: #676767 !important; }
-  .bbpress #bbpress-forums #bbp_topic_title {
-    font-size: 2.25em !important; }
-  .bbpress #bbpress-forums .minimal-form-input label:before {
-    border-bottom: 1px solid #767b91 !important; }
-  .bbpress #bbpress-forums p.bbp-topic-meta img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums ul.bbp-reply-revision-log img.avatar, .bbpress #bbpress-forums ul.bbp-topic-revision-log img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar, .bbpress #bbpress-forums .widget_display_topics img.avatar, .bbpress #bbpress-forums .widget_display_replies img.avatar {
-    border: none !important;
-    border-radius: 50%;
-    transform: scale(1.5);
-    margin: 8px; }
-  .bbpress #bbpress-forums div.bbp-template-notice.info, .bbpress #bbpress-forums div.bbp-template-notice {
-    background-color: #767b91 !important;
-    color: #fff !important;
-    padding: 2px 10px;
-    border: none !important; }
-    .bbpress #bbpress-forums div.bbp-template-notice.info a, .bbpress #bbpress-forums div.bbp-template-notice a {
-      color: #eab053;
-      font-weight: 600; }
-    .bbpress #bbpress-forums div.bbp-template-notice.info img.avatar, .bbpress #bbpress-forums div.bbp-template-notice img.avatar {
-      margin-top: 0 !important; }
-  .bbpress #bbpress-forums ul.bbp-forums, .bbpress #bbpress-forums ul.bbp-topics {
-    border: none !important;
-    /* HEADERS */
-    /* BODY */ }
-    .bbpress #bbpress-forums ul.bbp-forums li.bbp-header, .bbpress #bbpress-forums ul.bbp-topics li.bbp-header {
-      border-top: none;
-      background-color: transparent !important; }
-      .bbpress #bbpress-forums ul.bbp-forums li.bbp-header .forum-titles, .bbpress #bbpress-forums ul.bbp-topics li.bbp-header .forum-titles {
-        color: #fff;
-        font-weight: bolder;
-        text-transform: uppercase; }
-    .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.even, .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.odd, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.even, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.odd {
-      border-top: 1px solid #767b91;
-      background-color: transparent !important;
-      color: #767b91; }
-      .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.even a, .bbpress #bbpress-forums ul.bbp-forums li.bbp-body ul.odd a, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.even a, .bbpress #bbpress-forums ul.bbp-topics li.bbp-body ul.odd a {
-        color: #eab053;
-        font-weight: 600;
-        font-size: 1.25em; }
-    .bbpress #bbpress-forums ul.bbp-forums li.bbp-footer, .bbpress #bbpress-forums ul.bbp-topics li.bbp-footer {
-      border-top: 1px solid #767b91;
-      background-color: transparent !important; }
+.main-content #af-wrapper .main-title, .main-content #af-wrapper .read-unread, .main-content #af-wrapper .main-description {
+  color: #fff !important; }
+
+.main-content #af-wrapper .main-title {
+  font-size: 2.5em; }
+  @media screen and (max-width: 479px) {
+    .main-content #af-wrapper .main-title {
+      margin: 12px;
+      text-align: center;
+      font-size: 1.75em;
+      line-height: 1em; } }
+
+.main-content #af-wrapper .editor-row-subject span {
+  padding-left: 0; }
+  .main-content #af-wrapper .editor-row-subject span input {
+    padding-left: 20px !important; }
+
+.main-content #af-wrapper .forum-menu a {
+  color: #eab053 !important;
+  border: 2px solid #eab053;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: 1em;
+  background-color: transparent !important;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s ease; }
+  .main-content #af-wrapper .forum-menu a::before {
+    margin-right: 3px; }
+  .main-content #af-wrapper .forum-menu a:hover {
+    color: #23334c !important;
+    background-color: #eab053 !important; }
+  @media screen and (max-width: 479px) {
+    .main-content #af-wrapper .forum-menu a {
+      width: calc(50% - 6px);
+      font-size: .75em;
+      padding: 4px 8px;
+      line-height: 2em;
+      letter-spacing: 0;
+      margin: 3px; } }
+
+.main-content #af-wrapper .user-online .avatar {
+  box-shadow: none;
+  outline: none; }
+
+.main-content #af-wrapper .user-online .profile-link::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #72dc51;
+  margin-left: 5px; }
+
+.main-content #af-wrapper .clear {
+  padding: 0; }
 
 /*
 |--------------------------------------------------------------------------
@@ -147,3 +143,39 @@ article.post .post-meta .month {
 | bio, character information etc. that might require specific
 | styling and formatting.
 */
+.roster-wrapper {
+  margin: 30px 0; }
+  .roster-wrapper li {
+    background: #23334c;
+    border: 1px solid #304668;
+    display: inline-block;
+    margin: 2px 5px;
+    border-radius: 3px;
+    overflow: hidden;
+    width: calc(25% - 10px); }
+    .roster-wrapper li img.avatar {
+      width: 75px;
+      float: left;
+      height: auto;
+      margin-right: 10px; }
+    .roster-wrapper li img.rankicon {
+      width: 18px;
+      display: inline-block;
+      margin-right: 3px;
+      position: relative;
+      top: 3px; }
+    .roster-wrapper li:hover {
+      background: #304668;
+      transition: all .3s ease;
+      cursor: pointer; }
+    .roster-wrapper li .name {
+      color: #eab053;
+      font-weight: 700;
+      line-height: 100%;
+      margin-top: 8px;
+      font-size: 16px;
+      display: block; }
+    .roster-wrapper li .rank {
+      color: #767b91;
+      line-height: 100%;
+      font-size: 14px; }

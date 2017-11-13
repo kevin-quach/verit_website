@@ -213,17 +213,7 @@ $bg = get_post_meta($post->ID, '_nectar_header_bg', true);
 										//video 
 									    if( !empty($video_embed) || !empty($video_m4v) ) {
 			
-										    if( !empty( $video_embed) && floatval(get_bloginfo('version')) < "3.6") {
-										    	
-										    	echo '<a href="#video-popup-'.$post->ID.'"  class="pretty_photo default-link">'.__("Watch Video", NECTAR_THEME_NAME).'</a> ';
-												echo '<div id="video-popup-'.$post->ID.'">';
-										        echo '<div class="video-wrap">' . stripslashes(htmlspecialchars_decode($video_embed)) . '</div>';
-												echo '</div>';
-										    } 
-										    
-										    else {
-												 echo '<a href="'.get_template_directory_uri(). '/includes/portfolio-functions/video.php?post-id=' .$post->ID.'&iframe=true&width=854" class="pretty_photo default-link" >'.__("Watch Video", NECTAR_THEME_NAME).'</a> ';	 
-										     }
+										   echo nectar_portfolio_video_popup_link($post, $project_style, $project_style, $video_embed, $video_m4v);
 				
 								        } 
 										
@@ -592,17 +582,7 @@ $bg = get_post_meta($post->ID, '_nectar_header_bg', true);
 									//video 
 								    if( !empty($video_embed) || !empty($video_m4v) ) {
 		
-									    if( !empty( $video_embed) && floatval(get_bloginfo('version')) < "3.6") {
-									    	
-									    	echo '<a href="#video-popup-'.$post->ID.'" class="pretty_photo"></a> ';
-											echo '<div id="video-popup-'.$post->ID.'">';
-									        echo '<div class="video-wrap">' . stripslashes(htmlspecialchars_decode($video_embed)) . '</div>';
-											echo '</div>';
-									    } 
-									    
-									    else {
-											 echo '<a href="'.get_template_directory_uri(). '/includes/portfolio-functions/video.php?post-id=' .$post->ID.'&iframe=true&width=854" class="pretty_photo" ></a> ';	 
-									     }
+									    echo nectar_portfolio_video_popup_link($post, $project_style, $video_embed, $video_m4v);
 			
 							        } else { ?>
 							        	
@@ -709,17 +689,7 @@ $bg = get_post_meta($post->ID, '_nectar_header_bg', true);
 											//video 
 										    if( !empty($video_embed) || !empty($video_m4v) ) {
 				
-											    if( !empty( $video_embed) && floatval(get_bloginfo('version')) < "3.6") {
-											    	
-											    	echo '<a href="#video-popup-'.$post->ID.'" class="pretty_photo"></a> ';
-													echo '<div id="video-popup-'.$post->ID.'">';
-											        echo '<div class="video-wrap">' . stripslashes(htmlspecialchars_decode($video_embed)) . '</div>';
-													echo '</div>';
-											    } 
-											    
-											    else {
-													 echo '<a href="'.get_template_directory_uri(). '/includes/portfolio-functions/video.php?post-id=' .$post->ID.'&iframe=true&width=854" class="pretty_photo" ></a> ';	 
-											     }
+											   echo nectar_portfolio_video_popup_link($post, $project_style, $video_embed, $video_m4v);
 					
 									        } else { ?>
 									        	
@@ -833,17 +803,7 @@ $bg = get_post_meta($post->ID, '_nectar_header_bg', true);
 											//video 
 										    if( !empty($video_embed) || !empty($video_m4v) ) {
 				
-											    if( !empty( $video_embed) && floatval(get_bloginfo('version')) < "3.6") {
-											    	
-											    	echo '<a href="#video-popup-'.$post->ID.'" class="pretty_photo"></a> ';
-													echo '<div id="video-popup-'.$post->ID.'">';
-											        echo '<div class="video-wrap">' . stripslashes(htmlspecialchars_decode($video_embed)) . '</div>';
-													echo '</div>';
-											    } 
-											    
-											    else {
-													 echo '<a href="'.get_template_directory_uri(). '/includes/portfolio-functions/video.php?post-id=' .$post->ID.'&iframe=true&width=854" class="pretty_photo" ></a> ';	 
-											     }
+											    echo nectar_portfolio_video_popup_link($post, $project_style, $video_embed, $video_m4v);
 					
 									        } else { ?>
 									        	

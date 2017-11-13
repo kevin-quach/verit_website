@@ -1,12 +1,28 @@
 <?php 
-$options = get_nectar_theme_options(); 
+global $options;  
 global $post;
 
 $masonry_size_pm = get_post_meta($post->ID, '_post_item_masonry_sizing', true); 
 $masonry_item_sizing = (!empty($masonry_size_pm)) ? $masonry_size_pm : 'regular'; 
 $using_masonry = null;
-$masonry_type = (!empty($options['blog_masonry_type'])) ? $options['blog_masonry_type'] : 'classic';
-$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
+
+if(isset($GLOBALS['nectar_blog_std_style']) && $GLOBALS['nectar_blog_std_style'] != 'inherit') {
+	$blog_standard_type = $GLOBALS['nectar_blog_std_style'];
+} else {
+	$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
+}
+
+$blog_type = $options['blog_type']; 
+
+if(isset($GLOBALS['nectar_blog_masonry_style']) && $GLOBALS['nectar_blog_masonry_style'] != 'inherit') {
+	$masonry_type = $GLOBALS['nectar_blog_masonry_style'];
+} else {
+	$masonry_type = (!empty($options['blog_masonry_type'])) ? $options['blog_masonry_type'] : 'classic';
+}
+
+$use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_excerpt'] == '1') ? 'true' : 'false'; 
+
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($masonry_item_sizing); ?>>
@@ -27,7 +43,6 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 					
 					<?php 
 					$blog_type = $options['blog_type']; 
-					$use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_excerpt'] == '1') ? 'true' : 'false'; 
 					?>
 					
 					<div class="date">

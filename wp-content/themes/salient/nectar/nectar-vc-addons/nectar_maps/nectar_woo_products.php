@@ -1,6 +1,6 @@
 <?php 
 
-global $is_admin;
+$is_admin = is_admin();
 
 $woo_args = array(
 	'taxonomy' => 'product_cat',

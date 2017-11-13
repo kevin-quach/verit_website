@@ -25,7 +25,7 @@
 	
 	function myprefix_autocomplete_suggestions(){  
 
-		$search_term = $_REQUEST['term'];
+		$search_term = sanitize_text_field( $_REQUEST['term'] );
 		$search_term = apply_filters('get_search_query', $search_term);
 		
 		$options = get_nectar_theme_options(); 

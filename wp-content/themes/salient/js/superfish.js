@@ -137,6 +137,10 @@
 						return this;
 					}
 
+					if($(this).hasClass('menu-item-over') && $(this).hasClass('megamenu')) {
+						return true;
+					}
+
 					var not = (o.retainPath === true) ? o.$path : '',
 						$ul = $this.find('li.' + o.hoverClass).add(this).not(not).removeClass(o.hoverClass).children(o.popUpSelector),
 						speed = o.speedOut;

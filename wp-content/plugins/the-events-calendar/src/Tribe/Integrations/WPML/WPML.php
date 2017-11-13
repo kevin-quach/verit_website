@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Class Tribe__Events__Integrations__WPML__WPML
  *
@@ -51,8 +49,6 @@ class Tribe__Events__Integrations__WPML__WPML {
 	}
 
 	protected function hook_filters() {
-		add_filter( 'tribe_events_post_type_permalink', 'wpml_permalink_filter' );
-
 		$filters = Tribe__Events__Integrations__WPML__Filters::instance();
 		add_filter( 'tribe_events_rewrite_i18n_slugs_raw', array( $filters, 'filter_tribe_events_rewrite_i18n_slugs_raw' ), 10, 3 );
 
@@ -62,12 +58,17 @@ class Tribe__Events__Integrations__WPML__WPML {
 
 		$rewrites = Tribe__Events__Integrations__WPML__Rewrites::instance();
 		add_filter( 'rewrite_rules_array', array( $rewrites, 'filter_rewrite_rules_array' ), 20, 1 );
+		add_filter( 'tribe_events_rewrite_i18n_slugs_raw', array( $rewrites, 'filter_tax_base_slug' ), 10, 2 );
 
 		$permalinks = Tribe__Events__Integrations__WPML__Permalinks::instance();
 		add_filter( 'post_type_link', array( $permalinks, 'filter_post_type_link' ), 20, 2 );
 
 		$language_switcher = Tribe__Events__Integrations__WPML__Language_Switcher::instance();
 		add_filter( 'icl_ls_languages', array( $language_switcher, 'filter_icl_ls_languages' ), 5 );
+
+		// Disable month view caching when WPML is activated for now, until we
+		// fully implement multilingual support for the month view cache.
+		add_filter( 'tribe_events_enable_month_view_cache', '__return_false' );
 
 		if ( ! is_admin() ) {
 			$category_translation = Tribe__Events__Integrations__WPML__Category_Translation::instance();

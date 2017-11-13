@@ -29,7 +29,8 @@ extract(shortcode_atts(array(
     'column_border_style' => '',
     'enable_border_animation' => '',
     'border_animation_delay' => '',
-    'column_shadow' => 'none'
+    'column_shadow' => 'none',
+    'column_border_radius' => 'none',
 
 ), $atts));
 
@@ -73,6 +74,7 @@ if(!empty($background_image)) {
 }
 if(!empty($font_color)) $style .= ' color: '.$font_color.';';
 
+/*margins*/
 if(!empty($top_margin)) {
     //class for neg margin to adjust z-index
     if(strpos($top_margin,'-') !== false) {
@@ -92,6 +94,8 @@ if(!empty($bottom_margin)) {
         $style .= 'margin-bottom: '. $bottom_margin .'px!important; ';
     }
 }
+
+
 
 (empty($background_color) && empty($background_image) && empty($font_color) && empty($top_margin) && empty($bottom_margin) ) ? $style = null : $style .= '"';
 
@@ -117,16 +121,34 @@ if($using_reveal_animation == true) {
 
 $border_html = null;
 if(!empty($column_border_width) && $column_border_width != 'none') {
-    $column_border_markup = 'border: '. $column_border_width.' solid rgba(255,255,255,0); ';
-    if($style == null) {
-         $style = 'style="'.$column_border_markup.'"';
-     }
-    else {
-        //remove the ending quotation first since it's already closed
-        $style = substr($style,0,-1);
-        $style .= $column_border_markup . '"';
+    
+    //regular border when using border radius
+    if(strpos($column_border_radius, 'px') !== false) {
+      
+      if($style == null) {
+           $style = 'style="border: '. $column_border_width.' solid '.$column_border_color.';"';
+       }
+      else {
+          //remove the ending quotation first since it's already closed
+          $style = substr($style,0,-1);
+          $style .= 'border: '. $column_border_width.' solid '.$column_border_color.'"';
+      }
+      
+      
+    } else {
+
+        $column_border_markup = 'border: '. $column_border_width.' solid rgba(255,255,255,0); ';
+        if($style == null) {
+             $style = 'style="'.$column_border_markup.'"';
+         }
+        else {
+            //remove the ending quotation first since it's already closed
+            $style = substr($style,0,-1);
+            $style .= $column_border_markup . '"';
+        }
+        $border_html = '<span class="border-wrap" style="border-color: '.$column_border_color.';"><span class="border-top"></span><span class="border-right"></span><span class="border-bottom"></span><span class="border-left"></span></span>';
     }
-    $border_html = '<span class="border-wrap" style="border-color: '.$column_border_color.';"><span class="border-top"></span><span class="border-right"></span><span class="border-bottom"></span><span class="border-left"></span></span>';
+    
 } else {
     $column_border_markup = null;
 }
@@ -134,7 +156,7 @@ if(!empty($column_border_width) && $column_border_width != 'none') {
 
 $column_link_html = (!empty($column_link)) ? '<a class="column-link" href="'.$column_link.'"></a>' : null;
 $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, $width . $el_class . vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
-$output .= "\n\t".'<div '.$style.' class="'.$css_class.'" '.$using_bg.' data-shadow="'.$column_shadow.'" data-border-animation="'.$enable_border_animation.'" data-border-animation-delay="'.$border_animation_delay.'" data-border-width="'.$column_border_width.'" data-border-style="'.$column_border_style.'" data-border-color="'.$column_border_color.'" data-bg-cover="'.$enable_bg_scale.'" data-padding-pos="'. $column_padding_position .'" data-has-bg-color="'.$has_bg_color.'" data-bg-color="'.$background_color_string.'" data-bg-opacity="'.$background_color_opacity.'" data-hover-bg="'.$background_color_hover.'" data-hover-bg-opacity="'.$background_hover_color_opacity.'" data-animation="'.strtolower($parsed_animation).'" data-delay="'.$delay.'">' . $column_link_html . $border_html;
+$output .= "\n\t".'<div '.$style.' class="'.$css_class.'" '.$using_bg.' data-border-radius="'.$column_border_radius.'" data-shadow="'.$column_shadow.'" data-border-animation="'.$enable_border_animation.'" data-border-animation-delay="'.$border_animation_delay.'" data-border-width="'.$column_border_width.'" data-border-style="'.$column_border_style.'" data-border-color="'.$column_border_color.'" data-bg-cover="'.$enable_bg_scale.'" data-padding-pos="'. $column_padding_position .'" data-has-bg-color="'.$has_bg_color.'" data-bg-color="'.$background_color_string.'" data-bg-opacity="'.$background_color_opacity.'" data-hover-bg="'.$background_color_hover.'" data-hover-bg-opacity="'.$background_hover_color_opacity.'" data-animation="'.strtolower($parsed_animation).'" data-delay="'.$delay.'">' . $column_link_html . $border_html;
 if($using_reveal_animation == true) $output .= "\n\t\t".'<div class="column-inner-wrap"><div '.$style2.' data-bg-cover="'.$enable_bg_scale.'" class="column-inner '.$column_padding.'">';
 else  $output .= "\n\t\t".'<div class="vc_column-inner">';
 $output .= "\n\t\t\t".'<div class="wpb_wrapper">';

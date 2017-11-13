@@ -46,7 +46,10 @@
 	  'content_placement' => '',
 	  'column_margin' => 'default',
 	  'css' => '',
-	  'class' => ''), 
+	  'class' => '',
+    'translate_x' => '',
+    'translate_y' => ''
+  ), 
 	$atts));
 	
 	wp_enqueue_style( 'js_composer_front' );
@@ -122,6 +125,34 @@
 	} else {	
 		$style .= 'padding-bottom: '. $bottom_padding .'px; ';
 	}
+  
+  
+  /*transforms*/
+  if(!empty($translate_y) || !empty($translate_x)) {
+      
+      $style .= 'transform: ';
+      if(!empty($translate_y)) {
+      
+          if(strpos($translate_y,'%') !== false){
+              $style .= ' translateY('. intval($translate_y) .'%)';
+          } else {    
+              $style .= ' translateY('. intval($translate_y) .'px)';
+          }
+        
+      }  
+      
+      if(!empty($translate_x)) {
+      
+          if(strpos($translate_x,'%') !== false){
+              $style .= ' translateX('. intval($translate_x) .'%)';
+          } else {    
+              $style .= ' translateX('. intval($translate_x) .'px)';
+          }
+        
+      }  
+      $style .= ';';
+      
+  }
 
 
 	if($text_color == 'custom' && !empty($custom_text_color)) {
@@ -155,7 +186,7 @@
 		 
 	 
 	$row_id = (!empty($el_id)) ? $el_id: uniqid("fws_");
-	if(!empty($id)) { $row_id = $id; }
+	//if(!empty($id)) { $row_id = $id; }
 	$css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
 	
     echo'

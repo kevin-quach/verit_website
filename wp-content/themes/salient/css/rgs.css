@@ -3,29 +3,29 @@
 	box-sizing: border-box; }
 
 /* MAIN CONTAINER */
-.container, #post-area.standard-minimal.full-width-content article.post .inner-wrap	{ margin: 0 auto;  position: relative; }
+.container, .post-area.standard-minimal.full-width-content article.post .inner-wrap	{ margin: 0 auto;  position: relative; }
 
-.container, #post-area.standard-minimal.full-width-content article.post .inner-wrap {
+.container, .post-area.standard-minimal.full-width-content article.post .inner-wrap {
     max-width: 880px; 
 } 
 
 @media only screen and (min-width: 1300px) and (max-width: 1500px) {
 
-	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] #post-area.standard-minimal.full-width-content article.post .inner-wrap,
+	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] .post-area.standard-minimal.full-width-content article.post .inner-wrap,
 	body[data-header-format="left-header"][data-ext-responsive="false"] .nectar-recent-posts-slider .flickity-page-dots {
 	    max-width: 900px; 
 	} 
 }
 @media only screen and (min-width: 1150px) and (max-width: 1300px) {
 
-	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] #post-area.standard-minimal.full-width-content article.post .inner-wrap,
+	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] .post-area.standard-minimal.full-width-content article.post .inner-wrap,
 	body[data-header-format="left-header"][data-ext-responsive="false"] .nectar-recent-posts-slider .flickity-page-dots {
 	    max-width: 800px; 
 	} 
 }
 @media only screen and (min-width: 1000px) and (max-width: 1150px) {
 
-	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] #post-area.standard-minimal.full-width-content article.post .inner-wrap,
+	html body[data-header-format="left-header"][data-ext-responsive="false"] .container, html body[data-header-format="left-header"][data-ext-responsive="false"] .post-area.standard-minimal.full-width-content article.post .inner-wrap,
 	body[data-header-format="left-header"][data-ext-responsive="false"] .nectar-recent-posts-slider .flickity-page-dots {
 	    max-width: 650px; 
 	} 
@@ -51,7 +51,6 @@
 /* DEFAULT COLUMN STYLES */
 .col {
   position: relative;
-  z-index: 10;
   display: block;
   float: left;
   width: 100%; 

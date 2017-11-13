@@ -56,13 +56,13 @@ return array(
 			"heading" => "Color",
 			"param_name" => "color",
 			"value" => array(
-				"Accent-Color" => "Accent-Color",
-				"Extra-Color-1" => "Extra-Color-1",
-				"Extra-Color-2" => "Extra-Color-2",	
-				"Extra-Color-3" => "Extra-Color-3"
+				"Accent Color" => "Accent-Color",
+				"Extra Color 1" => "Extra-Color-1",
+				"Extra Color 2" => "Extra-Color-2",	
+				"Extra Color 3" => "Extra-Color-3"
 			),
 			'save_always' => true,
-			"description" => ""
+			'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 		array(
 	      "type" => "textarea_html",

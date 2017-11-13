@@ -68,7 +68,7 @@ input[type="text"], textarea, input[type="email"], input[type="password"], input
     direction: rtl;
 }
 
-.row .col.section-title.project-title, .row .col.section-title.blog-title, .wpb_text_column, #commentform .row, #post-area {
+.row .col.section-title.project-title, .row .col.section-title.blog-title, .wpb_text_column, #commentform .row, .post-area {
     direction: rtl;
 }
 
@@ -120,11 +120,11 @@ body .portfolio-filters-inline .container {
     direction: rtl;
 }
 
-.row #post-area > article .post-content .content-inner {
+.row .post-area > article .post-content .content-inner {
     direction: ltr;
 }
 
-.row #post-area > article .post-content .content-inner * {
+.row .post-area > article .post-content .content-inner * {
     direction: rtl;
 }
 
@@ -449,12 +449,12 @@ body.single-portfolio #sidebar #project-meta ul li:first-child, body.single #sin
     left: auto;
 }
 
-#post-area.masonry.classic_enhanced article.post .post-meta > * {
+.post-area.masonry.classic_enhanced article.post .post-meta > * {
     margin-right: 0 !important;
     margin-left: 13px !important;
 }
 
-#post-area.masonry.classic_enhanced article.post .post-meta > *:last-child {
+.post-area.masonry.classic_enhanced article.post .post-meta > *:last-child {
     margin-left: 0 !important;
 }
 
@@ -735,7 +735,7 @@ caption, th, td {
     text-align: left;
 }
 
-.woocommerce #post-area .woocommerce-ordering {
+.woocommerce .post-area .woocommerce-ordering {
     float: left !important;
 }
 
@@ -750,7 +750,7 @@ caption, th, td {
     margin-right: 0 !important;
 }
 
-.woocommerce #post-area .woocommerce-result-count {
+.woocommerce .post-area .woocommerce-result-count {
     float: right !important;
 }
 
@@ -1250,7 +1250,7 @@ body:not(.woocommerce-cart) .main-content th {
     direction: ltr;
 }
 
-#post-area #pagination {
+.post-area #pagination {
     padding-left: 0;
 }
 
@@ -1326,21 +1326,21 @@ body.single-portfolio #sidebar #project-meta ul li:first-child {
     padding: 5px 0 0px 10px;
 }
 
-#post-area.standard-minimal article.post .content-inner .quote-inner .author:before {
+.post-area.standard-minimal article.post .content-inner .quote-inner .author:before {
     right: 0;
     left: auto;
 }
 
-#post-area.standard-minimal article.post .content-inner .quote-inner .author {
+.post-area.standard-minimal article.post .content-inner .quote-inner .author {
     padding-right: 30px;
     padding-left: 0;
 }
 
-.single #post-area.standard-minimal .post-content {
+.single .post-area.standard-minimal .post-content {
     padding-right: 0;
 }
 
-#post-area.masonry.classic_enhanced article.post.large_featured .img-link, #post-area.masonry.classic_enhanced article.post.large_featured .nectar-flickity {
+.post-area.masonry.classic_enhanced article.post.large_featured .img-link, .post-area.masonry.classic_enhanced article.post.large_featured .nectar-flickity {
     left: 0;
     right: auto;
 }
@@ -1652,21 +1652,21 @@ article.post .article-content-wrap span.meta-category, article.post .article-con
     padding-right: 95px;
 }
 
-#post-area.standard-minimal .post-content {
+.post-area.standard-minimal .post-content {
     padding-right: 175px;
     padding-left: 0;
 }
 
-#post-area.standard-minimal .post-author {
+.post-area.standard-minimal .post-author {
     right: 0;
     left: auto;
 }
 
-#post-area.standard-minimal .post-author .meta-category {
+.post-area.standard-minimal .post-author .meta-category {
     display: inline-block;
 }
 
-#post-area.masonry article.post .post-content {
+.post-area.masonry article.post .post-content {
     padding-right: 0 !important;
 }
 
@@ -1927,4 +1927,17 @@ article.post .article-content-wrap span.meta-category, article.post .article-con
     body .woocommerce ul.products[data-product-style="material"] li.product.material, body.woocommerce-page ul.products[data-product-style="material"] li.product.material, html .woocommerce .span_9 ul.products li.product.material, html .woocommerce-page .span_9 ul.products li.product.material, body .woocommerce.columns-1 ul.products li.product.material {
         margin-left: 0% !important;
     }
+}
+
+
+/*nectar*/
+
+#header-outer[data-format="menu-left-aligned"] .row .col.span_9 { float: right;}
+body #header-outer[data-format="menu-left-aligned"] .row .col.span_3 { float: right; margin-left: 25px; margin-right: 0;}
+#header-outer[data-format="menu-left-aligned"] .row .right-aligned-menu-items {
+    float: left;
+}
+
+.main-content > .row > .vc_row-o-equal-height.vc_row-flex {
+    direction: ltr;
 }

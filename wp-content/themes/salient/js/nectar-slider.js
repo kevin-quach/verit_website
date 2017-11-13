@@ -2650,7 +2650,7 @@ jQuery(document).ready(function($){
     	if($('body #header-outer[data-transparent-header="true"]').length > 0) {
 
     		if($('#page-header-bg').length == 0) {
-    			
+
     			$('.nectar-slider-wrap.first-section .swiper-container .swiper-wrapper .swiper-slide').addClass('not-loaded');
     			
     			if($('.container-wrap .main-content > .row > div').find('.nectar-slider-wrap.first-section').length > 0) {
@@ -2683,7 +2683,7 @@ jQuery(document).ready(function($){
                 }
     			
     		}
-    	}
+    	} 
     }
     transparentheaderLoadingCalcs();
 	
@@ -2767,8 +2767,6 @@ jQuery(document).ready(function($){
 	//initial cals
 	var $smoothSrollWidth = ($('body').attr('data-smooth-scrolling') == '1') ? 0 : 0; 
 
-
-	
 	
 	/*=========================
      Begin Nectar Slider Main Construction
@@ -2784,7 +2782,7 @@ jQuery(document).ready(function($){
         var $leftHeaderSize = ($('#header-outer[data-format="left-header"]').length > 0 && window.innerWidth >= 1000) ? parseInt($('#header-outer[data-format="left-header"]').width()) : 0;
         var $windowWidth = $(window).width() - $leftHeaderSize;
 
-        if($('body > #boxed').length == 0 && $('.nectar-slider-wrap[data-full-width="true"]').parent().attr('id') != 'portfolio-extra' && $('.nectar-slider-wrap[data-full-width="true"]').parents('#post-area:not(".span_12")').length == 0){ 
+        if($('body > #boxed').length == 0 && $('.nectar-slider-wrap[data-full-width="true"]').parent().attr('id') != 'portfolio-extra' && $('.nectar-slider-wrap[data-full-width="true"]').parents('.post-area:not(".span_12")').length == 0){ 
             $('.nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .nectar-slider-wrap').css('left', -(($windowWidth-$smoothSrollWidth)/2 - $('.main-content').width()/2))+'px';
             $('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$windowWidth);
         } 
@@ -2793,7 +2791,7 @@ jQuery(document).ready(function($){
             $('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$windowWidth);
         }
         else { 
-            var $container = ($('body > #boxed').length == 0) ? '#post-area' : '.container-wrap';
+            var $container = ($('body > #boxed').length == 0) ? '.post-area' : '.container-wrap';
             //backup incase only slider is used with nothing else in boxed mode
             if($($container).width() == '0' && $('body > #boxed').length > 0) $container = '#boxed';
             $('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$($container).width());
@@ -3789,6 +3787,13 @@ jQuery(document).ready(function($){
 				var $heightCalc;
 				var $minHeight = $('.swiper-container').attr('data-min-height');
 
+                //material header nav parallax top
+                if(window.innerWidth > 1000) {
+                    $('body.material:not("[data-header-format=\'left-header\']") .parallax_slider_outer.first-section .nectar-slider-wrap').css('top',$('#ajax-content-wrap').offset().top);
+                } else {
+                    $('body.material:not("[data-header-format=\'left-header\']") .parallax_slider_outer.first-section .nectar-slider-wrap').css('top','0');
+                }
+
 				//fullscreen
 				if($(this).attr('data-fullscreen') == 'true' && $(this).attr('data-full-width') == 'true' || $(this).attr('data-fullscreen') == 'true' && $(this).attr('data-full-width') == 'boxed-full-width') {
 					
@@ -4042,7 +4047,7 @@ jQuery(document).ready(function($){
 				var $parentCol = ($(this).parents('.wpb_column').length > 0) ? $(this).parents('.wpb_column') : $(this).parents('.col');
 				
 				//fullwidth but inside the span_9 post area
-				if($(this).parents('#post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('#post-area');
+				if($(this).parents('.post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('.post-area');
 				
 				//last resort
 				if($parentCol.length == 0) $parentCol = $('.main-content');
@@ -4077,7 +4082,7 @@ jQuery(document).ready(function($){
 			var $parentCol = ($(this).parents('.wpb_column').length > 0) ? $(this).parents('.wpb_column') : $(this).parents('.col');
 			
 			//fullwidth but inside the span_9 post area
-			if($(this).parents('#post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('#post-area');
+			if($(this).parents('.post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('.post-area');
 			
 			//last resort
 			if($parentCol.length == 0) $parentCol = $('.main-content');
@@ -4113,7 +4118,7 @@ jQuery(document).ready(function($){
 			var $parentCol = ($(this).parents('.wpb_column').length > 0) ? $(this).parents('.wpb_column') : $(this).parents('.col') ;
 			
 			//fullwidth but inside the span_9 post area
-			if($(this).parents('#post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('#post-area');
+			if($(this).parents('.post-area').length > 0 && $(this).parents('.vc_span12').length > 0) $parentCol = $(this).parents('.post-area');
 			
 			//last resort
 			if($parentCol.length == 0) $parentCol = $('.main-content');
@@ -4215,7 +4220,7 @@ jQuery(document).ready(function($){
                 var $windowWidth = $(window).width() - $leftHeaderSize;
 
     			//width resize 
-    			if($('body > #boxed').length == 0 && $('.nectar-slider-wrap[data-full-width="true"]').parent().attr('id') != 'portfolio-extra' && $(this).parents('#post-area:not(".span_12")').length == 0){ 
+    			if($('body > #boxed').length == 0 && $('.nectar-slider-wrap[data-full-width="true"]').parent().attr('id') != 'portfolio-extra' && $(this).parents('.post-area:not(".span_12")').length == 0){ 
     				$('.nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .nectar-slider-wrap').css('left', -(($windowWidth-$smoothSrollWidth)/2 - $('.main-content').width()/2))+'px';
     				$('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$windowWidth);
     			} 
@@ -4224,7 +4229,7 @@ jQuery(document).ready(function($){
     				$('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$windowWidth);
     			}
     			else {
-    				var $container = ($('body > #boxed').length == 0) ? '#post-area' : '.container-wrap';
+    				var $container = ($('body > #boxed').length == 0) ? '.post-area' : '.container-wrap';
     				//backup incase only slider is used with nothing else in boxed mode
     				if($($container).width() == '0' && $('body > #boxed').length > 0) $container = '#boxed';
     				$('.nectar-slider-wrap[data-full-width="true"] .swiper-container, .nectar-slider-wrap[data-full-width="true"], .parallax_slider_outer.first-section .swiper-container, .parallax_slider_outer.first-section .nectar-slider-wrap').css('width',$($container).width());
@@ -4235,7 +4240,7 @@ jQuery(document).ready(function($){
     			var $sliderHeight = parseInt($(this).find('.swiper-container').attr('data-height'));
     			var isFullWidthCompatible = ($(this).attr('data-full-width') == 'true') ? 'true' : 'false';
     			
-    			if($(this).parent().attr('id') == 'portfolio-extra' && $('#full_width_portfolio').length == 0 || $(this).parents('#post-area').length > 0) { isFullWidthCompatible = 'false'; };
+    			if($(this).parent().attr('id') == 'portfolio-extra' && $('#full_width_portfolio').length == 0 || $(this).parents('.post-area').length > 0) { isFullWidthCompatible = 'false'; };
     			
     			var $sliderWidth = (isFullWidthCompatible == 'true') ? $windowWidth-$smoothSrollWidth : $(this).width();
     			
@@ -5037,7 +5042,7 @@ jQuery(document).ready(function($){
          var $scrollTop = $(window).scrollTop();
 
         // Avoid calculations if not needed
-        if (lastPosition == $scrollTop || $('.parallax_slider_outer.element-in-view').length == 0) {
+        if (lastPosition == $scrollTop || $('.parallax_slider_outer.element-in-view').length == 0 || $('.ocm-effect-wrap.material-ocm-open').length > 0 ) {
            // window.requestAnimationFrame(parallaxScroll);
             return false;
         } else lastPosition = $scrollTop;
@@ -5308,6 +5313,14 @@ jQuery(document).ready(function($){
 	
 	$('body').on('click','.slider-down-arrow',function(){
 		
+    //within full page row
+    if($(this).parents('#nectar_fullscreen_rows').length > 0) {
+      if($('#fp-nav li .active').parent().next('li').length > 0) {
+        $('#fp-nav li .active').parent().next('li').find('a').trigger('click');
+      }
+      return;
+    }
+    
 		var $currentSlider = $(this).parents('.swiper-container');
 		var $topDistance = $currentSlider.attr('data-height');
 		var $offset = ($currentSlider.parents('.first-section').length == 0 || $('body[data-transparent-header="false"]').length > 0) ? $currentSlider.offset().top : 0;

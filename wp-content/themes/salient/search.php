@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php get_header(); 
+
+global $options;
+$theme_skin = ( !empty($options['theme-skin']) ) ? $options['theme-skin'] : 'original';
+
+?>
 
 <script>
 jQuery(document).ready(function($){
@@ -36,6 +41,7 @@ jQuery(document).ready(function($){
 			<div class="col span_12">
 				<div class="col span_12 section-title">
 					<h1><?php echo __('Results For', NECTAR_THEME_NAME); ?><span>"<?php echo esc_html( get_search_query( false ) ); ?>"</span></h1>
+					<?php if($theme_skin == 'material' && $wp_query->found_posts) echo '<span class="result-num">' . $wp_query->found_posts . ' results found </span>'; ?>
 				</div>
 			</div>
 		</div>
@@ -51,7 +57,6 @@ jQuery(document).ready(function($){
 					<?php if(have_posts()) : while(have_posts()) : the_post(); ?>
 						
 
-							
 							<?php if( get_post_type($post->ID) == 'post' ){ ?>
 								<article class="result">
 									<div class="inner-wrap">

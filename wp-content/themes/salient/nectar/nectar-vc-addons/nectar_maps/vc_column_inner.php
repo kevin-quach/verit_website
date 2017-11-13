@@ -103,7 +103,9 @@ return array(
 					"12%" => "padding-12-percent",
 					"13%" => "padding-13-percent",
 					"14%" => "padding-14-percent",
-					"15%" => "padding-15-percent"
+					"15%" => "padding-15-percent",
+					"16%" => "padding-16-percent",
+					"17%" => "padding-17-percent"
 				),
 				"description" => "When using the full width content row type or providing a background color/image for the column, you have the option to define the amount of padding your column will receive."
 			),

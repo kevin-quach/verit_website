@@ -64,7 +64,7 @@ if(!empty($options['transparent-header']) && $options['transparent-header'] == '
 $logo_class = (!empty($options['use-logo']) && $options['use-logo'] == '1') ? null : 'class="no-image"'; 
 $sideWidgetArea = (!empty($options['header-slide-out-widget-area']) && $headerFormat != 'left-header' ) ? $options['header-slide-out-widget-area'] : 'off';
 $sideWidgetClass = (!empty($options['header-slide-out-widget-area-style'])) ? $options['header-slide-out-widget-area-style'] : 'slide-out-from-right';
-$sideWidgetIconAnimation = (!empty($options['header-slide-out-widget-area-icon-animation'])) ? $options['header-slide-out-widget-area-icon-animation'] : 'spin-and-transform';
+$sideWidgetIconAnimation = 'simple-transform';
 if($sideWidgetClass == 'slide-out-from-right-hover') $sideWidgetIconAnimation = 'simple-transform';
 $fullWidthHeader = (!empty($options['header-fullwidth']) && $options['header-fullwidth'] == '1') ? 'true' : 'false';
 $headerSearch = (!empty($options['header-disable-search']) && $options['header-disable-search'] == '1') ? 'false' : 'true';
@@ -91,6 +91,7 @@ $megamenuRemoveTransparent = (!empty($options['header-megamenu-remove-transparen
 $body_border = (!empty($options['body-border'])) ? $options['body-border'] : 'off';
 if($hideHeaderUntilNeeded == '1' || $body_border == '1' || $headerFormat == 'left-header' || $headerRemoveStickiness == '1') $headerResize = '0';
 $lightbox_script = (!empty($options['lightbox_script'])) ? $options['lightbox_script'] : 'pretty_photo';
+if($lightbox_script == 'pretty_photo') { $lightbox_script = 'magnific'; }
 $button_styling = (!empty($options['button-styling'])) ? $options['button-styling'] : 'default'; 
 $form_style = (!empty($options['form-style'])) ? $options['form-style'] : 'default'; 
 $fancy_rcs = (!empty($options['form-fancy-select'])) ? $options['form-fancy-select'] : 'default';

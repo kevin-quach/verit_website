@@ -175,6 +175,7 @@ function nectar_metabox_portfolio(){
 					'std' => ''
 				)
 				
+				
 			)
 		);
 	} 
@@ -323,7 +324,14 @@ function nectar_metabox_portfolio(){
 					'id' => '_nectar_project_subtitle_color',
 					'type' => 'color',
 					'std' => ''
-				)
+				),
+				array( 
+					'name' => __('Custom CSS Class Name', NECTAR_THEME_NAME),
+					'desc' => __('For advanced users with css knowledge - use this to add an a specific class onto your project that can be used to target it in any portfolio element to add custom styling.', NECTAR_THEME_NAME),
+					'id' => '_nectar_project_css_class',
+					'type' => 'text',
+					'std' => ''
+				),
 				/*array( 
 					'name' => __('3D Parallax Images', NECTAR_THEME_NAME),
 					'desc' => 'Add images here that will be used to create the 3d parallax effect when using the relevant project style.',

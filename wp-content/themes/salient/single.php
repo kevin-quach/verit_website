@@ -9,10 +9,11 @@ $bg_color = get_post_meta($post->ID, '_nectar_header_bg_color', true);
 $fullscreen_header = (!empty($options['blog_header_type']) && $options['blog_header_type'] == 'fullscreen' && is_singular('post')) ? true : false;
 $blog_header_type = (!empty($options['blog_header_type'])) ? $options['blog_header_type'] : 'default';
 $fullscreen_class = ($fullscreen_header == true) ? "fullscreen-header full-width-content" : null;
-$theme_skin = (!empty($options['theme-skin']) && $options['theme-skin'] == 'ascend') ? 'ascend' : 'default';
+$theme_skin = (!empty($options['theme-skin'])) ? $options['theme-skin'] : 'default';
 $hide_sidebar = (!empty($options['blog_hide_sidebar'])) ? $options['blog_hide_sidebar'] : '0'; 
 $blog_type = $options['blog_type']; 
 $blog_social_style = (!empty($options['blog_social_style'])) ? $options['blog_social_style'] : 'default';
+$enable_ss = (!empty($options['blog_enable_ss'])) ? $options['blog_enable_ss'] : 'false';
 
 if(have_posts()) : while(have_posts()) : the_post();
 
@@ -29,6 +30,19 @@ endwhile; endif;
 			<div class="container">	
 				<div class="row">
 					<div class="col span_6 section-title blog-title">
+						<?php
+						if(($post->post_type == 'post' && is_single()) && $theme_skin == 'material') {
+							$categories = get_the_category();
+							if ( ! empty( $categories ) ) {
+								$output = null;
+									foreach( $categories as $category ) {
+											$output .= '<a class="'.$category->slug.'" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', NECTAR_THEME_NAME), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>';
+									}
+									echo trim( $output);
+							}
+						}
+						?>
+						
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<div class="author-section">
 						 	<span class="meta-author">  
@@ -58,7 +72,7 @@ endwhile; endif;
 	<?php } 
 
 
-	if($theme_skin != 'ascend') { ?>
+	if($theme_skin != 'ascend' && $theme_skin != 'material') { ?>
 		<div class="container">
 			<div id="single-below-header" class="<?php echo $fullscreen_class; ?> custom-skip">
 				<?php if($blog_social_style != 'fixed_bottom_right') { ?>
@@ -188,16 +202,18 @@ endwhile; endif;
 			global $options;
 
 			$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
-
-			if($blog_standard_type == 'minimal')
+			$blog_type = $options['blog_type'];
+			if($blog_type == null) $blog_type = 'std-blog-sidebar';
+			
+			if($blog_standard_type == 'minimal' && $blog_type == 'std-blog-sidebar' || $blog_type == 'std-blog-fullwidth')
 				$std_minimal_class = 'standard-minimal';
 			else
 				$std_minimal_class = '';
 
 			if($blog_type == 'std-blog-fullwidth' || $hide_sidebar == '1'){
-				echo '<div id="post-area" class="col '.$std_minimal_class.' span_12 col_last">';
+				echo '<div class="post-area col '.$std_minimal_class.' span_12 col_last">';
 			} else {
-				echo '<div id="post-area" class="col '.$std_minimal_class.' span_9">';
+				echo '<div class="post-area col '.$std_minimal_class.' span_9">';
 			}
 			
 				 if(have_posts()) : while(have_posts()) : the_post(); 
@@ -217,18 +233,43 @@ endwhile; endif;
 					
 
 				    global $options; 
-
+						
+						if($blog_header_type == 'default_minimal' && $blog_social_style != 'fixed_bottom_right')  { ?>
+						
+							<div class="bottom-meta">	
+								<?php
+								
+								$using_post_pag = (!empty($options['blog_next_post_link']) && $options['blog_next_post_link'] == '1') ? true : false;
+								$using_related_posts = (!empty($options['blog_related_posts']) && !empty($options['blog_related_posts']) == '1') ? true : false;
+								$extra_bottom_space = ($using_related_posts && !$using_post_pag) ? 'false' : 'true';
+								
+									echo '<div class="sharing-default-minimal" data-bottom-space="'.$extra_bottom_space.'">'; 
+										nectar_blog_social_sharing();
+									echo '</div>'; ?>
+							</div>
+						<?php } 
+						
 				    if($theme_skin != 'ascend') {
+							
 						if( !empty($options['author_bio']) && $options['author_bio'] == true){ 
 							$grav_size = 80;
 							$fw_class = null; 
+							$has_tags = 'false';
+							
+							if(!empty($options['display_tags']) && $options['display_tags'] == true && has_tag()) { $has_tags = 'true'; }
+							
 						?>
 							
-							<div id="author-bio" class="<?php echo $fw_class; ?>">
+							<div id="author-bio" class="<?php echo $fw_class; ?>" data-has-tags="<?php echo $has_tags; ?>">
 								<div class="span_12">
 									<?php if (function_exists('get_avatar')) { echo get_avatar( get_the_author_meta('email'), $grav_size, null, get_the_author() ); }?>
 									<div id="author-info">
-										<h3><span><?php if(!empty($options['theme-skin']) && $options['theme-skin'] == 'ascend') { _e('Author', NECTAR_THEME_NAME); } else { _e('About', NECTAR_THEME_NAME); } ?></span> <?php the_author(); ?></h3>
+										<h3><span><?php if(!empty($options['theme-skin']) && $options['theme-skin'] == 'ascend') { _e('Author', NECTAR_THEME_NAME); } else if(!empty($options['theme-skin']) && $options['theme-skin'] != 'material') { _e('About', NECTAR_THEME_NAME); } ?></span> 
+											
+											<?php if(!empty($options['theme-skin']) && $options['theme-skin'] == 'material') { echo '<a href="'. get_author_posts_url(get_the_author_meta( 'ID' )).'">'; }
+											echo get_the_author(); 
+											if(!empty($options['theme-skin']) && $options['theme-skin'] == 'material') { echo '</a>'; } ?></h3>
+										
 										<p><?php the_author_meta('description'); ?></p>
 									</div>
 									<?php if(!empty($options['theme-skin']) && $options['theme-skin'] == 'ascend'){ echo '<a href="'. get_author_posts_url(get_the_author_meta( 'ID' )).'" data-hover-text-color-override="#fff" data-hover-color-override="false" data-color-override="#000000" class="nectar-button see-through-2 large"> '. __("More posts by",NECTAR_THEME_NAME) . ' ' .get_the_author().' </a>'; } ?>
@@ -236,31 +277,27 @@ endwhile; endif;
 								</div>
 							</div>
 							
-					<?php } ?>
+					<?php } 
+					
+					if($theme_skin != 'material') { ?>
 
 					<div class="comments-section">
 						   <?php comments_template(); ?>
 					 </div>   
 
 
-				<?php } ?>
+				<?php } 
+			
+			} ?>
 
-				<?php if($blog_header_type == 'default_minimal' && $blog_social_style != 'fixed_bottom_right')  { ?>
-				
-					<div class="bottom-meta">	
-						<?php
-							echo '<div class="sharing-default-minimal">'; 
-								nectar_blog_social_sharing();
-							echo '</div>'; ?>
-					</div>
-				<?php } ?>
+			
 
 
 			</div><!--/span_9-->
 			
 			<?php if($blog_type != 'std-blog-fullwidth' && $hide_sidebar != '1') { ?>
 				
-				<div id="sidebar" class="col span_3 col_last">
+				<div id="sidebar" data-nectar-ss="<?php echo $enable_ss; ?>" class="col span_3 col_last">
 					<?php get_sidebar(); ?>
 				</div><!--/sidebar-->
 				
@@ -275,7 +312,7 @@ endwhile; endif;
 		<!--ascend only author/comment positioning-->
 		<div class="row">
 
-			<?php if($theme_skin == 'ascend' && $fullscreen_header == true) { ?>
+			<?php if($theme_skin == 'ascend' && $fullscreen_header == true ) { ?>
 
 			<div id="single-below-header" class="<?php echo $fullscreen_class; ?> custom-skip">
 				<?php if($blog_social_style != 'fixed_bottom_right') { ?>
@@ -289,7 +326,12 @@ endwhile; endif;
 
 			<?php }
 
-			if($theme_skin == 'ascend') nectar_next_post_display(); ?>
+			if($theme_skin == 'ascend' || $theme_skin == 'material') {
+				
+			nectar_next_post_display(); 
+			nectar_related_post_display();
+			
+		} ?>
 
 			<?php if( !empty($options['author_bio']) && $options['author_bio'] == true && $theme_skin == 'ascend'){ 
 						$grav_size = 80;
@@ -313,7 +355,7 @@ endwhile; endif;
 			 <?php } ?>
 
 
-			  <?php if($theme_skin == 'ascend') { ?>
+			  <?php if($theme_skin == 'ascend' || $theme_skin == 'material') { ?>
 
 			 	 <div class="comments-section" data-author-bio="<?php if(!empty($options['author_bio']) && $options['author_bio'] == true) { echo 'true'; } else { echo 'false'; } ?>">
 					   <?php comments_template(); ?>
@@ -324,7 +366,10 @@ endwhile; endif;
 		</div>
 
 
-	   <?php if($theme_skin != 'ascend') nectar_next_post_display(); ?>
+	   <?php if($theme_skin != 'ascend' && $theme_skin != 'material') { 
+			 nectar_next_post_display();
+			 nectar_related_post_display();
+		 } ?>
 		
 	</div><!--/container-->
 

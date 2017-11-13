@@ -184,35 +184,7 @@ jQuery(document).ready(function($){
     }
     toggleParallaxOption();
     
-    
-    /*----------------------------------------------------------------------------------*/
-    /*	Only show social options when using applicable layout
-	/*----------------------------------------------------------------------------------*/
-    function toggleSocialOptions(){
-    	if($('select#header_layout').length > 0 && $('select#header_layout').val() == 'header_with_secondary' ){
-    		$('#enable_social_in_header').parents('tr').show();
-    		
-    		if($('input#enable_social_in_header[type="checkbox"]').is(':checked')){
-    			$('#enable_social_in_header').parents('tr').nextAll('tr').show();
-    		}
-    	} else {
-    		$('#enable_social_in_header').parents('tr').hide();
-    		$('#enable_social_in_header').parents('tr').nextAll('tr').hide();
-    	}
-    }
 
-    //toggleSocialOptions();
-
- 
-    $('select#header_layout').change(function(){
-    	// toggleSocialOptions();
-    });
-    
-    
-    
-    
-    
-    
     /*----------------------------------------------------------------------------------*/
 	/*	Take care of the unnecessary buttons on the slider post type edit page
 	/*----------------------------------------------------------------------------------*/
@@ -336,7 +308,6 @@ jQuery(document).ready(function($){
     	 checkButtonStyle();
     });
     
-    checkButtonStyle();
     
     
     //portfolio full width layout
@@ -399,7 +370,15 @@ jQuery(document).ready(function($){
 			    }
 			    $('#nectar-metabox-portfolio-video, #nectar-metabox-page-header, .portfolio_vc_wrap').stop(true,true).slideDown(500);
 			    
-			    $('.composer-switch:not(.vc-aspect-hidden),  #wpb_visual_composer:not(.vc-aspect-hidden), #nectar-metabox-portfolio-extra:not(.vc-aspect-hidden)').fadeIn(500);
+			    if($('.composer-switch:not(.vc-aspect-hidden).vc_backend-status').length > 0) {
+			    	$('#wpb_visual_composer:not(.vc-aspect-hidden)').fadeIn(500);
+			    }
+			   
+			    if($('.composer-switch.vc_backend-status').length == 0) {
+			    	$('#nectar-metabox-portfolio-extra').fadeIn(500);
+			    }
+			    
+			    $('.composer-switch:not(.vc-aspect-hidden)').fadeIn(500);
 
 		    	$('#nectar-metabox-project-configuration tr').each(function(){
 		    		if($(this).find('label').attr('for') != '_nectar_portfolio_custom_grid_item' && $(this).find('label').attr('for') != '_nectar_portfolio_custom_grid_item_content' && $(this).find('label').attr('for') != '_portfolio_item_masonry_sizing' 
@@ -418,15 +397,19 @@ jQuery(document).ready(function($){
     }
     
     function checkVCVis(){
-    	if($('#nectar-metabox-portfolio-extra').css('display') == 'none') {
-    		$('.composer-switch,  #wpb_visual_composer').removeClass('vc-aspect-hidden');
-    		$('#nectar-metabox-portfolio-extra').addClass('vc-aspect-hidden');
-    		$('.composer-switch,  #wpb_visual_composer').hide();
-    	}
-    	else { 
-    		$('#nectar-metabox-portfolio-extra').removeClass('vc-aspect-hidden');
-    		$('.composer-switch,  #wpb_visual_composer').addClass('vc-aspect-hidden');
-    		$('#nectar-metabox-portfolio-extra').hide();
+    	
+    	if($('#nectar-metabox-project-configuration ._nectar_portfolio_custom_grid_item .ui-state-active[for]').length > 0 && $('#nectar-metabox-project-configuration ._nectar_portfolio_custom_grid_item .ui-state-active').attr('for') == 'nectar_meta_on') {
+   
+	    	if($('#nectar-metabox-portfolio-extra').css('display') == 'none') {
+	    		$('.composer-switch,  #wpb_visual_composer').removeClass('vc-aspect-hidden');
+	    		$('#nectar-metabox-portfolio-extra').addClass('vc-aspect-hidden');
+	    		$('.composer-switch,  #wpb_visual_composer').hide();
+	    	}
+	    	else { 
+	    		$('#nectar-metabox-portfolio-extra').removeClass('vc-aspect-hidden');
+	    		$('.composer-switch,  #wpb_visual_composer').addClass('vc-aspect-hidden');
+	    		$('#nectar-metabox-portfolio-extra').hide();
+	    	}
     	}
     }
  
@@ -615,6 +598,14 @@ jQuery(document).ready(function($){
 			  },400);
 		});
 	}
+
+
+	//radio image vc param
+	$("body").on('change','.n_radio_image_val',function(){
+		
+		var group_id = $(this).parents('.nectar-radio-image').data("grp-id");
+		$("#nectar-radio-image-"+group_id).val($(this).val());
+	});
     
 
 });

@@ -9,8 +9,10 @@ function enqueue_generator_scripts(){
 
 	wp_enqueue_style('tinymce',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/tinymce.css'); 
 	wp_enqueue_style('chosen',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/chosen/chosen.css'); 
+	
+	/*
 	wp_enqueue_style('simple-slider',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/simple_slider/simple-slider.css'); 
-	wp_enqueue_style('simple-slider-volume',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/simple_slider/simple-slider-volume.css'); 
+	wp_enqueue_style('simple-slider-volume',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/simple_slider/simple-slider-volume.css'); */
 	
 	wp_enqueue_style('font-awesome',get_template_directory_uri() . '/css/font-awesome.min.css'); 
 	wp_enqueue_style('steadysets', get_template_directory_uri() . '/css/steadysets.css');
@@ -19,7 +21,8 @@ function enqueue_generator_scripts(){
 	wp_enqueue_style('iconsmind', get_template_directory_uri() . '/css/iconsmind.css');
 		 
 	wp_enqueue_script('chosen',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/js/chosen/chosen.jquery.min.js','jquery','1.0 ', TRUE);
-	wp_enqueue_script('simple-slider',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/js/simple_slider/simple-slider.min.js','jquery','1.0 ', TRUE);
+	
+	/*wp_enqueue_script('simple-slider',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/js/simple_slider/simple-slider.min.js','jquery','1.0 ', TRUE); */
 	
 	wp_enqueue_style('magnific',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/css/magnific-popup.css'); 
 	wp_enqueue_script('magnific',get_template_directory_uri() . '/nectar/tinymce/shortcode_generator/js/magnific-popup.js','jquery','0.9.7 ', TRUE);
@@ -4379,13 +4382,14 @@ $nectar_shortcodes['testimonial_slider'] = array(
 
 
 //Bar Graph
+/*
 $nectar_shortcodes['bar_graph'] = array( 
 	'type'=>'dynamic', 
 	'title'=>__('Bar Graph', NECTAR_THEME_NAME ), 
 	'attr'=>array(
 		'bar_graph'=>array('type'=>'custom')
 	)
-);
+); */
 
 //Clients
 $nectar_shortcodes['clients'] = array( 
@@ -5157,7 +5161,7 @@ function nectar_option_element( $name, $attr_option, $type, $shortcode ){
 			if(get_bloginfo('version') >= '3.5') {
 	           $option_element .= '
 	           <div class="label"><label><strong>Background Color: </strong></label></div>
-			   <div class="content"><input type="text" value="" class="popup-colorpicker" style="width: 70px;" data-default-color=""/></div>';
+			   <div class="content"><input type="text" value="" class="popup-colorpicker sc-gen" style="width: 70px;" data-default-color=""/></div>';
 	        } else {
 	           $option_element .='You\'re using an outdated version of WordPress. Please update to use this feature.';
 	        }	
@@ -5169,7 +5173,7 @@ function nectar_option_element( $name, $attr_option, $type, $shortcode ){
 			if(get_bloginfo('version') >= '3.5') {
 	           $option_element .= '
 	           <div class="label"><label><strong>Color: </strong></label></div>
-			   <div class="content"><input type="text" value="" class="popup-colorpicker simple" style="width: 70px;" data-default-color=""/></div>';
+			   <div class="content"><input type="text" value="" class="popup-colorpicker simple sc-gen" style="width: 70px;" data-default-color=""/></div>';
 	        } else {
 	           $option_element .='You\'re using an outdated version of WordPress. Please update to use this feature.';
 	        }	
@@ -5181,7 +5185,7 @@ function nectar_option_element( $name, $attr_option, $type, $shortcode ){
 			if(get_bloginfo('version') >= '3.5') {
 	           $option_element .= '
 	           <div class="label"><label><strong>Color Override:</strong></label></div>
-			   <div class="content"><input type="text" value="" class="popup-colorpicker" style="width: 70px;" data-default-color=""/></div>';
+			   <div class="content"><input type="text" value="" class="popup-colorpicker sc-gen" style="width: 70px;" data-default-color=""/></div>';
 	        } else {
 	           $option_element .='You\'re using an outdated version of WordPress. Please update to use this feature.';
 	        }	
@@ -5193,7 +5197,7 @@ function nectar_option_element( $name, $attr_option, $type, $shortcode ){
 			if(get_bloginfo('version') >= '3.5') {
 	           $option_element .= '
 	           <div class="label"><label><strong>Hover BG Color:</strong></label></div>
-			   <div class="content"><input type="text" value="" class="popup-colorpicker" style="width: 70px;" data-default-color=""/></div>';
+			   <div class="content"><input type="text" value="" class="popup-colorpicker sc-gen" style="width: 70px;" data-default-color=""/></div>';
 	        } else {
 	           $option_element .='You\'re using an outdated version of WordPress. Please update to use this feature.';
 	        }	

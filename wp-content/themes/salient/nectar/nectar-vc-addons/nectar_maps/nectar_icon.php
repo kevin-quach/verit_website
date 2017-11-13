@@ -128,19 +128,19 @@ return array(
 			'type' => 'dropdown',
 			'heading' => __( 'Icon Color', 'js_composer' ),
 			'value' => array(
-				"Accent-Color" => "Accent-Color",
-				"Extra-Color-1" => "Extra-Color-1",
-				"Extra-Color-2" => "Extra-Color-2",	
-				"Extra-Color-3" => "Extra-Color-3",
-				"Extra-Color-Gradient-1" => "extra-color-gradient-1",
-		 		"Extra-Color-Gradient-2" => "extra-color-gradient-2",
+				"Accent Color" => "Accent-Color",
+				"Extra Color 1" => "Extra-Color-1",
+				"Extra Color 2" => "Extra-Color-2",	
+				"Extra Color 3" => "Extra-Color-3",
+				"Color Gradient 1" => "extra-color-gradient-1",
+		 		"Color Gradient 2" => "extra-color-gradient-2",
 		 		"Black" => "black",
 		 		"Grey" => "grey",
 		 		"White" => "white",
 			),
 			'save_always' => true,
 			'param_name' => 'icon_color',
-			'description' => __( 'Select your icon color.', 'js_composer' ),
+			'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		),
 		 array(
 	      "type" => "textfield",
@@ -181,7 +181,7 @@ return array(
 	      "heading" => __("Margin <span>Top</span>", "js_composer"),
 	      "param_name" => "margin_top",
 	      "edit_field_class" => "col-md-2",
-	      "description" => __("." , "js_composer")
+	      "description" => __("" , "js_composer")
 	    ),
 		 array(
 	      "type" => "textfield",

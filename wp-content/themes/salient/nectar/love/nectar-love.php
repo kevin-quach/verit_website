@@ -27,9 +27,17 @@ class NectarLove {
 		//woocommerce	
 		global $woocommerce; 
 		if($woocommerce) { 
-			array_push($plugin_pages, get_permalink( woocommerce_get_page_id( 'shop' ) ));
-			$shop_sidebar = get_permalink( woocommerce_get_page_id( 'shop' ));
-			array_push($plugin_pages, $shop_sidebar . '?sidebar=true' );
+
+			if( version_compare( $woocommerce->version, "3.0", ">=" ) ) {
+				array_push($plugin_pages, get_permalink( wc_get_page_id( 'shop' ) ));
+				$shop_sidebar = get_permalink( wc_get_page_id( 'shop' ));
+				array_push($plugin_pages, $shop_sidebar . '?sidebar=true' );
+			} else {
+				array_push($plugin_pages, get_permalink( woocommerce_get_page_id( 'shop' ) ));
+				$shop_sidebar = get_permalink( woocommerce_get_page_id( 'shop' ));
+				array_push($plugin_pages, $shop_sidebar . '?sidebar=true' );
+			}
+			
 		}
 
 		//disqus

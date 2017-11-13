@@ -73,6 +73,19 @@ return array(
 	      "param_name" => "el_class",
 	      "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer")
 	    ),
+			array(
+					"type" => "dropdown",
+					"heading" => __("Border Radius", "js_composer"),
+					'save_always' => true,
+					"param_name" => "border_radius",
+					"value" => array(
+						__("0px", "js_composer") => "none",
+						__("3px", "js_composer") => "3px",
+						__("5px", "js_composer") => "5px", 
+						__("10px", "js_composer") => "10px", 
+						__("15px", "js_composer") => "15px", 
+						__("20px", "js_composer") => "20px"),
+				),	
 	    array(
 	      "type" => "dropdown",
 	      "heading" => __("Box Shadow", "js_composer"),

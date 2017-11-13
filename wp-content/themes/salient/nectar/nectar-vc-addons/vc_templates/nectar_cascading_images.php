@@ -41,11 +41,12 @@ $cascading_attrs = shortcode_atts(array(
   "image_4_rotate" => "none",
   "image_4_animation" => "Fade In",
   "image_4_box_shadow" => "none",
-  "animation_timing" => '175'
+  "animation_timing" => '175',
+  "border_radius" => 'none'
 ),
 $atts);
 
-echo '<div class="nectar_cascading_images" data-animation-timing="'.$cascading_attrs['animation_timing'].'">';
+echo '<div class="nectar_cascading_images" data-border-radius="'.$cascading_attrs['border_radius'].'" data-animation-timing="'.$cascading_attrs['animation_timing'].'">';
 
 //find largest transform val
 

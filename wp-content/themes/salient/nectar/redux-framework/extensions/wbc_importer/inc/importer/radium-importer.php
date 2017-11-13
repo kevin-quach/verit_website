@@ -79,9 +79,9 @@ if ( !class_exists( 'Radium_Theme_Importer' ) ) {
 
       self::$instance = $this;
 
-      $this->theme_options_file = $this->demo_files_path . $this->theme_options_file_name;
-      $this->widgets            = $this->demo_files_path . $this->widgets_file_name;
-      $this->content_demo       = $this->demo_files_path . $this->content_demo_file_name;
+      $this->theme_options_file = apply_filters( 'wbc_importer_options_file_location', $this->demo_files_path . $this->theme_options_file_name, $this->active_import );
+      $this->widgets            = apply_filters( 'wbc_importer_widget_file_location', $this->demo_files_path . $this->widgets_file_name, $this->active_import );
+      $this->content_demo       = apply_filters( 'wbc_importer_content_file_location', $this->demo_files_path . $this->content_demo_file_name, $this->active_import );
 
       add_filter( 'add_post_metadata', array( $this, 'check_previous_meta' ), 10, 5 );
 
@@ -233,7 +233,7 @@ if ( !class_exists( 'Radium_Theme_Importer' ) ) {
           echo "The XML file containing the dummy content is not available or could not be read .. You might want to try to set the file permission to chmod 755.<br/>If this doesn't work please use the Wordpress importer and import the XML file (should be located in your download .zip: Sample Content folder) manually ";
 
         } else {
-
+          @set_time_limit(0);
           $wp_import = new WP_Import();
           $wp_import->fetch_attachments = true;
           $wp_import->import( $file );

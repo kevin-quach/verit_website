@@ -513,7 +513,20 @@ $nectar_offset_vals_arr = array(
 	      "heading" => __("Time Between Animations", "js_composer"),
 	      "param_name" => "animation_timing",
 	      "description" => __("Enter your desired time between animations in milliseconds, defaults to 200 if left blank", "js_composer")
-	    )
+	    ),
+			array(
+					"type" => "dropdown",
+					"heading" => __("Layer Border Radius", "js_composer"),
+					'save_always' => true,
+					"param_name" => "border_radius",
+					"value" => array(
+						__("0px", "js_composer") => "none",
+						__("3px", "js_composer") => "3px",
+						__("5px", "js_composer") => "5px", 
+						__("10px", "js_composer") => "10px", 
+						__("15px", "js_composer") => "15px", 
+						__("20px", "js_composer") => "20px"),
+				)
 
 	  )
 

@@ -76,14 +76,14 @@ return array(
 			  "heading" => __("Color", "js_composer"),
 			  "param_name" => "color",
 			  "value" => array(
-			     "Default" => "Default",
+			     "Default (inherit from row Text Color)" => "Default",
 				 "Accent-Color" => "Accent-Color",
 				 "Extra-Color-1" => "Extra-Color-1",
 				 "Extra-Color-2" => "Extra-Color-2",	
 				 "Extra-Color-3" => "Extra-Color-3"
 			   ),
 			  'save_always' => true,
-			  "description" => __("Please select the color you wish for your milestone to display in.", "js_composer")
+			  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 			),
 
 		     array(

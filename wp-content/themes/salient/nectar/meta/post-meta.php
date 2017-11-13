@@ -277,6 +277,18 @@
 					),	
 				$header_height,
 				array( 
+						'name' => __('Background Alignment', NECTAR_THEME_NAME),
+						'desc' => __('Please choose how you would like your header background to be aligned', NECTAR_THEME_NAME),
+						'id' => '_nectar_page_header_bg_alignment',
+						'type' => 'select',
+						'std' => 'top',
+						'options' => array(
+							"top" => "Top",
+					  	"center" => "Center",
+					  	"bottom" => "Bottom"
+						)
+					),
+				array( 
 						'name' => __('Page Header Background Color', NECTAR_THEME_NAME),
 						'desc' => __('Set your desired page header background color if not using an image', NECTAR_THEME_NAME),
 						'id' => '_nectar_header_bg_color',

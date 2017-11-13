@@ -63,6 +63,69 @@ return array(
 		      "description" => __("The main text portion of your team member", "js_composer"),
 		      "dependency" => Array('element' => "team_memeber_style", 'value' => array('meta_below'))
 		    ),
+				array(
+		      "type" => "iconpicker",
+		      "heading" => __("Social Icon", "js_composer"),
+		      "param_name" => "social_icon_1",
+		      "settings" => array( "emptyIcon" => true, "iconsPerPage" => 4000 ),
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("", "js_composer")
+		    ),
+				array(
+		      "type" => "textfield",
+		      "heading" => __("Social Link", "js_composer"),
+		      "param_name" => "social_link_1",
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("Please enter the URL here", "js_composer")
+		    ),
+				array(
+		      "type" => "iconpicker",
+		      "heading" => __("Social Icon 2", "js_composer"),
+		      "param_name" => "social_icon_2",
+		      "settings" => array( "emptyIcon" => true, "iconsPerPage" => 4000),
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("", "js_composer")
+		    ),
+				array(
+		      "type" => "textfield",
+		      "heading" => __("Social Link 2", "js_composer"),
+		      "param_name" => "social_link_2",
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("Please enter the URL here", "js_composer")
+		    ),
+				
+				array(
+		      "type" => "iconpicker",
+		      "heading" => __("Social Icon 3", "js_composer"),
+		      "param_name" => "social_icon_3",
+		      "settings" => array( "emptyIcon" => true, "iconsPerPage" => 4000),
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("", "js_composer")
+		    ),
+				array(
+		      "type" => "textfield",
+		      "heading" => __("Social Link 3", "js_composer"),
+		      "param_name" => "social_link_3",
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("Please enter the URL here", "js_composer")
+		    ),
+				
+				array(
+		      "type" => "iconpicker",
+		      "heading" => __("Social Icon 4", "js_composer"),
+		      "param_name" => "social_icon_4",
+		      "settings" => array( "emptyIcon" => true, "iconsPerPage" => 4000),
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("", "js_composer")
+		    ),
+				array(
+		      "type" => "textfield",
+		      "heading" => __("Social Link 4", "js_composer"),
+		      "param_name" => "social_link_4",
+					"dependency" => Array('element' => "team_memeber_style", 'value' => array('bio_fullscreen')),
+		      "description" => __("Please enter the URL here", "js_composer")
+		    ),
+				
 		    array(
 		      "type" => "textarea",
 		      "heading" => __("Social Media", "js_composer"),
@@ -105,14 +168,14 @@ return array(
 			  "heading" => __("Link Color", "js_composer"),
 			  "param_name" => "color",
 			  "value" => array(
-				 "Accent-Color" => "Accent-Color",
-				 "Extra-Color-1" => "Extra-Color-1",
-				 "Extra-Color-2" => "Extra-Color-2",	
-				 "Extra-Color-3" => "Extra-Color-3"
+				 "Accent Color" => "Accent-Color",
+				 "Extra Color-1" => "Extra-Color-1",
+				 "Extra Color-2" => "Extra-Color-2",	
+				 "Extra Color-3" => "Extra-Color-3"
 			   ),
 			  'save_always' => true,
 			   "dependency" => Array('element' => "team_memeber_style", 'value' => array('meta_below')),
-			  "description" => __("Please select the color you wish for your social links to display in.", "js_composer")
+			  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 			)
 		  )
 		);

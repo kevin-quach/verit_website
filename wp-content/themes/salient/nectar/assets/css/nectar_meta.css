@@ -146,7 +146,22 @@ tr.font-family td, tr.font-family {
 	font-weight: normal!important;
 }*/
 
+.redux-group-tab[data-rel="12"] .form-table.no-border  tr {
+	border-bottom: 0;
+}
 
+.redux-group-tab[data-rel="12"] .redux-notice-field.redux-success {
+	margin-bottom: 30px;
+}
+
+.redux-group-tab[data-rel="12"] .divide .inner {
+	width: 100%!important;
+	margin: 0;
+	left: 0!important;
+}
+.redux-group-tab[data-rel="12"] .redux-field-container {
+	padding: 0;
+}
 
 .redux-opts-group-tab {
 	position: relative;
@@ -616,6 +631,10 @@ body #adminmenu .wp-menu-image img {
 
 div#nectar-metabox-page-header .form-table td {
 	width: 45%;
+}
+
+div#nectar-metabox-page-header .inside {
+	overflow: hidden;
 }
 
 #nectar-metabox-fullscreen-rows .hndle.ui-sortable-handle, #nectar-metabox-page-header .hndle.ui-sortable-handle {

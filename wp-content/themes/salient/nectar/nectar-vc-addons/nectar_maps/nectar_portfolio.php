@@ -91,7 +91,8 @@ $portfolio_types = ($is_admin) ? get_terms('project-type') : array('All' => 'all
 			    "Meta overlaid w/ zoom effect on hover" => "3",
 			    "Meta overlaid w/ zoom effect on hover alt" => "5",
 			    "Meta from bottom on hover + entire thumb link" => "4",
-			    "3D Parallax on hover" => "6"
+			    "3D Parallax on hover" => "6",
+					"Meta below thumb w/ shadow hover" => "9"
 			),
 		  "description" => __("Please select the style you would like your projects to display in ", "js_composer")
 		),

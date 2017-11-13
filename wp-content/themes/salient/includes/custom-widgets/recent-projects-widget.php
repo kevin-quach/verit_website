@@ -1,5 +1,10 @@
 <?php
 
+if ( !defined( 'ABSPATH') ) {
+	exit('Direct script access denied.');
+}
+
+
 function pn_get_attachment_id_from_url( $attachment_url = '' ) {
  
 	global $wpdb;

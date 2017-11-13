@@ -84,8 +84,8 @@ switch($icon_family) {
 	case 'steadysets':
 		$icon = $icon_steadysets;
 		break;
-	case 'linecons':
-		$icon = $icon_linecons;
+	case 'linea':
+		$icon = $icon_linea;
 		break;
 	case 'iconsmind':
 			$icon = $icon_iconsmind;

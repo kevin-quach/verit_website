@@ -1,5 +1,5 @@
 <?php 
-$options = get_nectar_theme_options(); 
+global $options;  
 global $post;
 
 $masonry_size_pm = get_post_meta($post->ID, '_post_item_masonry_sizing', true); 

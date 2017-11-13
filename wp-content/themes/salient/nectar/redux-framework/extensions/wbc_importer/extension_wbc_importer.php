@@ -9,7 +9,7 @@
  *
  * @package     WBC_Importer - Extension for Importing demo content
  * @author      Webcreations907
- * @version     1.0.2
+ * @version     1.0.3
  */
 
 // Exit if accessed directly
@@ -22,7 +22,7 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
 
         public static $instance;
 
-        static $version = "1.0.2";
+        static $version = "1.0.3";
 
         protected $parent;
 
@@ -91,7 +91,8 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
             //Adds Importer section to panel
             $this->add_importer_section();
 
-
+            include $this->extension_dir.'inc/class-wbc-importer-progress.php';
+            $wbc_progress = new Wbc_Importer_Progress( $this->parent );
         }
 
         /**
@@ -192,11 +193,6 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
 
                         }
 
-                        if ( !isset( $this->wbc_import_files['wbc-import-'.$x]['content_file'] ) ) {
-                            unset( $this->wbc_import_files['wbc-import-'.$x] );
-                            if ( $x > 1 ) $x--;
-                        }
-
                     }
 
                     $x++;
@@ -230,22 +226,14 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
                 }
 
                 $this->active_import_id = $_REQUEST['demo_import_id'];
+                
+                $this->active_import = array( $this->active_import_id => $this->wbc_import_files[$this->active_import_id] );
 
-                $import_parts         = $this->wbc_import_files[$this->active_import_id];
-
-                $this->active_import = array( $this->active_import_id => $import_parts );
-
-                $content_file        = $import_parts['directory'];
-                $demo_data_loc       = $this->demo_data_dir.$content_file;
-
-                if ( file_exists( $demo_data_loc.'/'.$import_parts['content_file'] ) && is_file( $demo_data_loc.'/'.$import_parts['content_file'] ) ) {
-
-                    if ( !isset( $import_parts['imported'] ) || true === $reimporting ) {
-                        include $this->extension_dir.'inc/init-installer.php';
-                        $installer = new Radium_Theme_Demo_Data_Importer( $this, $this->parent );
-                    }else {
-                        echo esc_html__( "Demo Already Imported", 'framework' );
-                    }
+                if ( !isset( $import_parts['imported'] ) || true === $reimporting ) {
+                    include $this->extension_dir.'inc/init-installer.php';
+                    $installer = new Radium_Theme_Demo_Data_Importer( $this, $this->parent );
+                }else {
+                    echo esc_html__( "Demo Already Imported", 'framework' );
                 }
 
                 die();
@@ -278,7 +266,7 @@ if ( !class_exists( 'ReduxFramework_extension_wbc_importer' ) ) {
             $this->parent->sections[] = array(
                 'id'     => 'wbc_importer_section',
                 'title'  => $wbc_importer_label,
-                'desc'   => '<p class="description">'. apply_filters( 'wbc_importer_description', esc_html__( 'Works best to import on a new install of WordPress. If you\'re not using a fresh install, make sure you backup your current theme options as they will be overwritten.', 'framework' ) ).'</p>',
+                'desc'   => '<p class="description">'. apply_filters( 'wbc_importer_description', esc_html__( 'Works best to import on a new install of WordPress.  If you\'re not using a fresh install, make sure you backup your current theme options as they will be overwritten.', 'framework' ) ).'</p>',
                 'icon'   => 'el-icon-website',
                 'fields' => array(
                     array(

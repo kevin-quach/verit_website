@@ -1,11 +1,11 @@
 /*
-    Theme Name: <Verit> Website 
-    Theme URI: ...
-    Version: 0.1
-    Author: Kevin Quach & Lydia Quon
-    Author URI: kevinquach.ca | lydiaquon.com
-    Description: Custom Salient child theme for the FF14 Free Company website <Verit>
-    Template: salient
+Theme Name: Salient Child Theme
+Theme URI: http: //mysite.com/
+Description: This is a custom child theme for Salient
+Author: My Name
+Author URI: http: //mysite.com/
+Template: salient
+Version: 0.1
 -------------------------------------------------------------------------*/
 
 /*-------------------------------------------------------------------------*/
@@ -28,4 +28,5 @@
 @import "_home";
 @import "_forums";
 @import "_profile";
+@import "_roster";
 

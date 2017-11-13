@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 return array(
 	  "name" => __("Call To Action", "js_composer"),
@@ -7,7 +7,17 @@ return array(
 	  "category" => __('Nectar Elements', 'js_composer'),
 	  "description" => __('minimal & animated', 'js_composer'),
 	  "params" => array(
-	  		array(
+	  	array(
+			"type" => "dropdown",
+			"class" => "",
+			'save_always' => true,
+			"heading" => "Style",
+			"param_name" => "btn_style",
+			"value" => array(
+				"See Through Button " => "see-through",
+				"Material Button" => "material",
+			)),
+			array(
 			"type" => "dropdown",
 			"class" => "",
 			'save_always' => true,

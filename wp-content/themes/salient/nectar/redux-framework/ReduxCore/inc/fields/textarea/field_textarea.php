@@ -57,7 +57,8 @@
              **/
             function render() {
 
-                 //upgrade proof
+                /* nectar addition */
+                //upgrade proof
                 $old_options = get_option('salient');
                 global $salient_redux;
 
@@ -66,13 +67,17 @@
                 $legacy_textarea = (!empty($old_options[$fixed_ID])) ? $old_options[$fixed_ID] : '-';
                 $display_val = (isset($salient_redux[$this->field['id']]) || $legacy_textarea == '-') ? $this->value : $legacy_textarea;
 
+                /* nectar addition end */
+
                 $this->field['placeholder'] = isset( $this->field['placeholder'] ) ? $this->field['placeholder'] : "";
                 $this->field['rows']        = isset( $this->field['rows'] ) ? $this->field['rows'] : 6;
                 $readonly                   = ( isset( $this->field['readonly'] ) && $this->field['readonly']) ? ' readonly="readonly"' : '';
                 // The $this->field variables are already escaped in the ReduxFramework Class.
+                
+                /* nectar addition */
                 ?>
                 <textarea <?php echo $readonly; ?> name="<?php echo esc_attr($this->field['name'] . $this->field['name_suffix']); ?>" id="<?php echo $this->field['id']; ?>-textarea" placeholder="<?php echo esc_attr( $this->field['placeholder'] ); ?>" class="large-text <?php echo esc_attr($this->field['class']); ?>" rows="<?php echo esc_attr($this->field['rows']); ?>"><?php echo esc_textarea( $display_val ); ?></textarea>
-            <?php
+            <?php  /* nectar addition end */
             }
 
             function sanitize( $field, $value ) {

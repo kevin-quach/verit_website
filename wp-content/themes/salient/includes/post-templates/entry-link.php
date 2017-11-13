@@ -1,14 +1,35 @@
 <?php 
-$options = get_nectar_theme_options(); 
+global $options;  
 global $post;
 
 $masonry_size_pm = get_post_meta($post->ID, '_post_item_masonry_sizing', true); 
 $masonry_item_sizing = (!empty($masonry_size_pm)) ? $masonry_size_pm : 'regular'; 
 $using_masonry = null;
-$masonry_type = (!empty($options['blog_masonry_type'])) ? $options['blog_masonry_type'] : 'classic';
+
 global $layout;
+
+if(isset($GLOBALS['nectar_blog_std_style']) && $GLOBALS['nectar_blog_std_style'] != 'inherit') {
+	$blog_standard_type = $GLOBALS['nectar_blog_std_style'];
+} else {
+	$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
+}
+
 $blog_type = $options['blog_type']; 
-$blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_standard_type'] : 'classic';
+
+if(isset($GLOBALS['nectar_blog_masonry_style']) && $GLOBALS['nectar_blog_masonry_style'] != 'inherit') {
+	$masonry_type = $GLOBALS['nectar_blog_masonry_style'];
+} else {
+	$masonry_type = (!empty($options['blog_masonry_type'])) ? $options['blog_masonry_type'] : 'classic';
+}
+
+if($blog_type == 'masonry-blog-sidebar' && substr( $layout, 0, 3 ) != 'std' || 
+$blog_type == 'masonry-blog-fullwidth' && substr( $layout, 0, 3 ) != 'std' || 
+$blog_type == 'masonry-blog-full-screen-width' && substr( $layout, 0, 3 ) != 'std' || 
+$layout == 'masonry-blog-sidebar' || $layout == 'masonry-blog-fullwidth' || $layout == 'masonry-blog-full-screen-width') {
+	$using_masonry = true;
+	
+}
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($masonry_item_sizing.' link'); ?>>
@@ -19,17 +40,14 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 			
 			<?php if( !is_single() ) { ?>
 				
+				<?php if( ($using_masonry != true && $blog_standard_type != 'minimal' && $blog_standard_type != 'featured_img_left') &&
+			!($using_masonry == true && $masonry_type == 'material') ) { ?>
+				
 				<div class="post-meta">
-					
-					
+						
 					<div class="date">
 						<?php 
-						if(
-						$blog_type == 'masonry-blog-sidebar' && substr( $layout, 0, 3 ) != 'std' || 
-						$blog_type == 'masonry-blog-fullwidth' && substr( $layout, 0, 3 ) != 'std' || 
-						$blog_type == 'masonry-blog-full-screen-width' && substr( $layout, 0, 3 ) != 'std' || 
-						$layout == 'masonry-blog-sidebar' || $layout == 'masonry-blog-fullwidth' || $layout == 'masonry-blog-full-screen-width') {
-							$using_masonry = true;
+						if($using_masonry == true) {
 							echo get_the_date();
 						}
 						else { 
@@ -46,7 +64,7 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 						} ?>
 					</div><!--/date-->
 					
-					<?php if($using_masonry == true && $masonry_type == 'meta_overlaid') { } else { 
+					<?php if($using_masonry == true && $masonry_type == 'meta_overlaid' || $using_masonry == true && $masonry_type == 'auto_meta_overlaid_spaced' || $using_masonry == true && $masonry_type == 'material') { } else { 
 
 						if(!($using_masonry != true && $blog_standard_type == 'minimal')) { ?> 
 						<div class="nectar-love-wrap">
@@ -55,6 +73,8 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 					<?php } } ?>
 								
 				</div><!--/post-meta-->
+				
+				<?php } //conditional for entire post meta div ?>
 			
 			<?php } ?>
 			
@@ -110,7 +130,7 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 							<span class="link-wrap">
 								<?php 
 									$h_num = '2';
-									if($using_masonry == true && $masonry_type == 'classic_enhanced') {
+									if($using_masonry == true && $masonry_type == 'classic_enhanced' || $using_masonry == true && $masonry_type == 'material') {
 										$h_num = '3';
 									} 	
 								?>
@@ -135,8 +155,20 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 			<div class="content-inner">
 				
 				<?php 
+				if ( has_post_thumbnail() && $using_masonry == true && $masonry_type == 'material' || has_post_thumbnail() && $using_masonry != true && $blog_standard_type == 'featured_img_left' ||
+			      has_post_thumbnail() && $using_masonry == true && $masonry_type == 'auto_meta_overlaid_spaced') {
+					$link_bg_img_src = wp_get_attachment_url(get_post_thumbnail_id());
+					$link_bg = '<div class="n-post-bg" style=" background-image: url('.$link_bg_img_src.'); "></div>';
+				} else {
+					$link_bg = null;
+				} 
+				
 				$link = get_post_meta($post->ID, '_nectar_link', true); 
-				$link_text = get_the_content(); ?>
+				$link_text = get_the_content();
+				
+				if(!is_single()) echo $link_bg;
+				
+				?>
 				
 				<a target="_blank" href="<?php echo $link; ?>">
 					
@@ -144,14 +176,18 @@ $blog_standard_type = (!empty($options['blog_standard_type'])) ? $options['blog_
 						<span class="link-wrap">
 							<?php 
 								$h_num = '2';
-								if($using_masonry == true && $masonry_type == 'classic_enhanced') {
+								if($using_masonry == true && $masonry_type == 'classic_enhanced' || $using_masonry == true && $masonry_type == 'material'  || $using_masonry == false && $blog_standard_type == 'featured_img_left') {
 									$h_num = '3';
 								} 	
 							?>
 							<h<?php echo $h_num; ?> class="title">
 								<?php if(empty($link_text)) { echo get_the_title(); } else { echo $link_text; } ?>
 							</h<?php echo $h_num; ?>>
-					    	<span class="destination"> <?php echo $link; ?></span>
+							
+							  <?php if( !($using_masonry == true && $masonry_type == 'material') && !($using_masonry == true && $masonry_type == 'auto_meta_overlaid_spaced') && !($using_masonry == false && $blog_standard_type == 'featured_img_left' )) { ?>
+					    		<span class="destination"> <?php echo $link; ?></span>
+								<?php } ?>
+								
 					    </span>
 				    	<span title="Link" class="icon"></span>
 					</div><!--/link-inner-->

@@ -8,6 +8,7 @@
 			"icon" => "icon-wpb-progress_bar",
 			"allowed_container_element" => 'vc_row',
 			"category" => __('Nectar Elements', 'js_composer'),
+			"class" => 'three-cols',
 			"description" => __('Include a horizontal progress bar', 'js_composer'),
 			"params" => array(
 				array(
@@ -34,14 +35,14 @@
 					"heading" => "Bar Color",
 					"param_name" => "color",
 					"value" => array(
-						"Accent-Color" => "Accent-Color",
-						"Extra-Color-1" => "Extra-Color-1",
-						"Extra-Color-2" => "Extra-Color-2",	
-						"Extra-Color-3" => "Extra-Color-3",
-						"Extra-Color-Gradient-1" => "extra-color-gradient-1",
-				 		"Extra-Color-Gradient-2" => "extra-color-gradient-2"
+						"Accent Color" => "Accent-Color",
+						"Extra Color 1" => "Extra-Color-1",
+						"Extra Color 2" => "Extra-Color-2",	
+						"Extra Color 3" => "Extra-Color-3",
+						"Color Gradient 1" => "extra-color-gradient-1",
+				 		"Color Gradient 2" => "extra-color-gradient-2"
 					),
-					"description" => ""
+					'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 				)
 
 			)

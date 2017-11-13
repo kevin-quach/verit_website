@@ -32,6 +32,9 @@ html {
  /*.container-wrap.no-scroll .main-content > .row > div > div[class*="col"] { opacity: 0; }
  .container-wrap.auto-height .main-content > .row > div > div[class*="col"] { opacity: 1; } */
 
+body.material .ocm-effect-wrap {
+	height: 100%;
+}
 
 #ajax-content-wrap.no-scroll {
 	height: 100%!important;

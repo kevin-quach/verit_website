@@ -20,6 +20,7 @@
 		  "admin_label" => true,
 		  "value" => array(
 			 "Default" => "default",
+			 "Material" => "material",
 			 "Minimal" => "minimal",
 			 "Minimal Alt" => "minimal_alt",
 			 "Vertical" => "vertical"
@@ -27,7 +28,7 @@
 		  'save_always' => true,
 		  "description" => __("Please select the style you desire for your tabbed element.", "js_composer")
 		),
-	  	 array(
+	  array(
 		  "type" => "dropdown",
 		  "heading" => __("Alignment", "js_composer"),
 		  "param_name" => "alignment",
@@ -38,10 +39,43 @@
 			 "Right" => "right"
 		   ),
 		  'save_always' => true,
-		  "dependency" => Array('element' => "style", 'value' => array('minimal','default', 'minimal_alt')),
+		  "dependency" => Array('element' => "style", 'value' => array('minimal','default', 'minimal_alt', 'material')),
 		  "description" => __("Please select your tabbed alignment", "js_composer")
 		),
-
+		array(
+		  "type" => "dropdown",
+		  "heading" => __("Spacing", "js_composer"),
+		  "param_name" => "spacing",
+		  "admin_label" => false,
+		  "value" => array(
+			 "Default" => "default",
+			 "15px" => "side-15px",
+			 "20px" => "side-20px",
+			 "25px" => "side-25px",
+			 "30px" => "side-30px",
+			 "35px" => "side-35px",
+			 "40px" => "side-40px",
+			 "45px" => "side-45px"
+		   ),
+		  'save_always' => true,
+		  "dependency" => Array('element' => "style", 'value' => array('minimal','default', 'minimal_alt',  'material')),
+		  "description" => __("Please select your desired spacing", "js_composer")
+		),
+		array(
+			"type" => "dropdown",
+			"class" => "",
+			'save_always' => true,
+			"heading" => "Tab Color",
+			"param_name" => "tab_color",
+			"value" => array(
+				"Accent Color" => "Accent-Color",
+				"Extra Color 1" => "Extra-Color-1",
+				"Extra Color 2" => "Extra-Color-2",	
+				"Extra Color 3" => "Extra-Color-3",
+				"Color Gradient 1" => "extra-color-gradient-1",
+ 			  "Color Gradient 2" => "extra-color-gradient-2",
+			)
+			),
 	  	array(
 	      "type" => "textfield",
 	      "heading" => __("Optional CTA button", "js_composer"),
@@ -64,16 +98,43 @@
 		  "param_name" => "cta_button_style",
 		  "admin_label" => false,
 		  "value" => array(
-			 "Accent-Color" => "accent-color",
-			 "Extra-Color-1" => "extra-color-1",
-			 "Extra-Color-2" => "extra-color-2",
-			 "Extra-Color-3" => "extra-color-3",
+			 "Accent Color" => "accent-color",
+			 "Extra Color 1" => "extra-color-1",
+			 "Extra Color 2" => "extra-color-2",
+			 "Extra Color 3" => "extra-color-3"
 		   ),
 		  'save_always' => true,
-		  "description" => __("Please select the style for your optional CTA button", "js_composer"),
+		  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 		   "dependency" => Array('element' => "style", 'value' => array('minimal','minimal_alt'))
 		),
-
+    
+		array(
+				"type" => 'checkbox',
+				"heading" => __("Full width divider line", "js_composer"),
+				"param_name" => "full_width_line",
+				"description" => __("This will cause the line that separates the tab links their content to display the full width of the screen.", "js_composer"),
+				"value" => Array(__("Yes, please", "js_composer") => 'true'),
+				"dependency" => Array('element' => "style", 'value' => array('material'))
+			),
+			
+			array(
+		"type" => "dropdown",
+		"heading" => __("Icon Font Size", "js_composer"),
+		"param_name" => "icon_size",
+		"admin_label" => false,
+		"value" => array(
+		 "24px" => "24",
+		 "26px" => "26",
+		 "28px" => "28",
+		 "30px" => "30",
+		 "32px" => "32",
+		 "34px" => "34",
+		 "36px" => "36",
+		 ),
+		'save_always' => true,
+		"dependency" => Array('element' => "style", 'value' => array('minimal','minimal_alt','material')),
+		'description' => __( 'Select the size you would like the optional tab icons to display in - Thin border sets like "Iconsmind" and "Linea" are better suited to display at higher values.', 'js_composer' ),
+	),
 
 	    array(
 	      "type" => "textfield",

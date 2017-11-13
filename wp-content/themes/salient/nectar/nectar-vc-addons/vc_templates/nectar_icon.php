@@ -45,15 +45,17 @@ switch($icon_family) {
 		break;
 }
 
+$icon_size_val = (!empty($icon_style) && $icon_style == 'border-basic' || !empty($icon_style) && $icon_style == 'border-animation') ? intval($icon_size)*1.5 : intval($icon_size);
+
 //needed because display: initial will cause imperfect cirles
 $grad_dimensions = '';
 if(strtolower($icon_color) == 'extra-color-gradient-1' || strtolower($icon_color) == 'extra-color-gradient-2') {
-	$circle_size = (intval($icon_size) + (intval($icon_padding)*2) + intval($icon_border_thickness));
+	$circle_size = ($icon_size_val + (intval($icon_padding)*2) + intval($icon_border_thickness));
 	$grad_dimensions = 'style="height: '. $circle_size .'px; width: '.$circle_size.'px;"';
 }
 
 //svg
-if($icon_family == 'linea' && $enable_animation == 'true' && $icon != '') {
+if($icon_family == 'linea' && $enable_animation == 'true' && $icon != '' && strlen($grad_dimensions) < 2) {
 	wp_enqueue_script('vivus'); 
 	$converted_icon = str_replace('-', '_', $icon);
 	$converted_icon = str_replace('icon_', '', $converted_icon);
@@ -68,7 +70,7 @@ else {
 	}
 
 	if(!empty($icon_family) && $icon_family != 'none') {
-		$icon_markup = '<i style="font-size: '.intval($icon_size).'px; line-height: '.intval($icon_size).'px; height: '.intval($icon_size).'px; width: '.intval($icon_size).'px;" class="' . $icon .'"></i>'; 
+		$icon_markup = '<i style="font-size: '.intval($icon_size).'px; line-height: '. $icon_size_val .'px; height: '. $icon_size_val .'px; width: '. $icon_size_val .'px;" class="' . $icon .'"></i>'; 
 		
 	} 
 	else {

@@ -1,8 +1,10 @@
 /*-------------------------------------------------------------------------*/
 /*  Home
 /*-------------------------------------------------------------------------*/
-
-article.post .post-meta .month {
-	border: 2px solid red !important;
-	padding: 20px;
+.top-heading {
+	img {
+		display: block !important;
+   	 	text-align: center;
+    	margin: 20px auto;
+	}
 }

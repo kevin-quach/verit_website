@@ -256,7 +256,7 @@ return array(
 					 "White" => "white"
 				   ),
 				  'save_always' => true,
-				  "description" => __("Please select the color that will be used when hovering over your item", "js_composer")
+				  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 				),
 				
 

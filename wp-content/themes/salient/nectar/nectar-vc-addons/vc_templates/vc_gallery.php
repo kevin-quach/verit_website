@@ -666,7 +666,7 @@ foreach ( $images as $attach_id ) {
 								case 'media_library':
 									if ($attach_id > 0) {
 
-										if($masonry_layout == 'true') {
+										if($masonry_layout == 'true' && $layout != '3' && $layout != '4') {
 
 											$image_width = null;
 											$image_height = null;

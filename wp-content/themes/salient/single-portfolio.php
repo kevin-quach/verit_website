@@ -62,7 +62,7 @@ $project_social_style = (!empty($options['portfolio_social_style'])) ? $options[
 					if ( function_exists( 'yoast_breadcrumb' ) ){ yoast_breadcrumb('<p id="breadcrumbs">','</p>'); } 
 				?>
 					
-					<div id="post-area" class="col <?php if($fwp != 'enabled') { echo 'span_9'; } else { echo 'span_12'; } ?>">
+					<div class="post-area col <?php if($fwp != 'enabled') { echo 'span_9'; } else { echo 'span_12'; } ?>">
 						
 						<?php 
 

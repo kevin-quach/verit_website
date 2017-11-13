@@ -1,0 +1,45 @@
+
+.roster-wrapper {
+	margin: 30px 0;
+  li {
+    background: $background;
+    border: 1px solid lighten($background,$col-str);
+    display: inline-block;
+    margin: 2px 5px;
+    border-radius: 3px;
+    overflow: hidden;
+    width: calc(25% - 10px);
+    img.avatar {
+    	width: 75px;
+    	float: left;
+    	height: auto;
+    	margin-right: 10px;
+    }
+    img.rankicon {
+    	width: 18px;
+    	display: inline-block;
+    	margin-right: 3px;
+    	position: relative;
+    	top: 3px;
+    }
+    &:hover {
+    	background: lighten($background,$col-str);
+   		transition: all .3s ease;
+    	cursor: pointer;
+    }
+
+    .name {
+    	color: $accent;
+    	font-weight: 700;
+   	 	line-height: 100%;
+   	 	margin-top: 8px;
+    	font-size: 16px;
+    	display: block;
+    }
+     .rank {
+        color: $extra1;
+    	line-height: 100%;
+    	font-size: 14px;
+    }
+  }
+}

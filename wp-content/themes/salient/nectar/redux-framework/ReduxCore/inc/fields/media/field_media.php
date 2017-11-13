@@ -59,9 +59,10 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
          */
         public function render() {
 
+            /* nectar addition */
             $old_options = get_option('salient');
             global $salient_redux;
-
+            /* nectar addition end */
 
             // No errors please
             $defaults = array(
@@ -74,15 +75,14 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
 
             $this->value = wp_parse_args( $this->value, $defaults );
 
-
-              //upgrade proof
+             /* nectar addition */
+            //upgrade proof
             $fixed_ID = $this->field['id'];
             $legacy_media = (!empty($old_options[$fixed_ID])) ? $old_options[$fixed_ID] : '-';
             $old_image_id = ($legacy_media != '-') ? fjarrett_get_attachment_id_from_url( $legacy_media ) : '-';
             $display_val = (isset($salient_redux[$this->field['id']]['id']) || $legacy_media == '-') ? $this->value['id'] : $old_image_id;
+            /* nectar addition end */
 
-
-            
             if (isset($this->field['mode']) && $this->field['mode'] == false) {
                 $this->field['mode'] = 0;
             }
@@ -141,13 +141,14 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
                 }
             }
 
-
+            /* nectar addition */
             if ( empty( $this->value['url'] ) && ! empty( $display_val ) ) {
                 $img                   = wp_get_attachment_image_src( $display_val, 'full' );
                 $this->value['url']    = $img[0];
                 $this->value['width']  = $img[1];
                 $this->value['height'] = $img[2];
             }
+            /* nectar addition end */
 
             $hide = 'hide ';
 
@@ -166,7 +167,7 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
                 $readOnly = '';
             }
 
-
+            /* nectar addition */
             echo '<input placeholder="' . $placeholder . '" type="text" class="' . $hide . 'upload large-text ' . $this->field['class'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[url]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][url]" value="' . $this->value['url'] . '"' . $readOnly . '/>';
             echo '<input type="hidden" class="data" data-mode="' . $this->field['mode'] . '" />';
             echo '<input type="hidden" class="library-filter" data-lib-filter="' . $libFilter . '" />';
@@ -174,6 +175,7 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
             echo '<input type="hidden" class="upload-height" name="' . $this->field['name'] . $this->field['name_suffix'] . '[height]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][height]" value="' . $this->value['height'] . '" />';
             echo '<input type="hidden" class="upload-width" name="' . $this->field['name'] . $this->field['name_suffix'] . '[width]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][width]" value="' . $this->value['width'] . '" />';
             echo '<input type="hidden" class="upload-thumbnail" name="' . $this->field['name'] . $this->field['name_suffix'] . '[thumbnail]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][thumbnail]" value="' . $this->value['thumbnail'] . '" />';
+            /* nectar addition end */
 
             //Preview
             $hide = '';
@@ -183,11 +185,14 @@ if ( ! class_exists( 'ReduxFramework_media' ) ) {
             }
 
             if ( empty( $this->value['thumbnail'] ) && ! empty( $this->value['url'] ) ) { // Just in case
+                /* nectar addition */
                 if ( ! empty( $display_val ) ) {
                     $image                    = wp_get_attachment_image_src( $display_val, array(
                             150,
                             150
                         ) );
+                    
+                     /* nectar addition end */
 
                     if (empty($image[0]) || $image[0] == '') {
                         $this->value['thumbnail'] = $this->value['url'];

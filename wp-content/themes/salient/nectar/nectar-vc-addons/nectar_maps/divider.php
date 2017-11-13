@@ -67,16 +67,16 @@ return array(
 				  "admin_label" => false,
 				  "value" => array(
 				     "Default (inherit from row Text Color)" => "default",
-					 "Accent-Color" => "accent-color",
-					 "Extra-Color-1" => "extra-color-1",
-					 "Extra-Color-2" => "extra-color-2",	
-					 "Extra-Color-3" => "extra-color-3",
-					 "Extra-Color-Gradient-1" => "extra-color-gradient-1",
-					 "Extra-Color-Gradient-2" => "extra-color-gradient-2"
+					 "Accent Color" => "accent-color",
+					 "Extra Color 1" => "extra-color-1",
+					 "Extra Color 2" => "extra-color-2",	
+					 "Extra Color 3" => "extra-color-3",
+					 "Color Gradient 1" => "extra-color-gradient-1",
+					 "Color Gradient 2" => "extra-color-gradient-2"
 				   ),
 				  'save_always' => true,
 				  "dependency" => Array('element' => "line_type", 'value' => array('Full Width Line','Small Line')),
-				  "description" => __("Please select the color for your divider line", "js_composer")
+				  'description' => __( 'Choose a color from your <a target="_blank" href="'. admin_url() .'?page=Salient&tab=6">globally defined color scheme</a>', 'js_composer' ),
 				),
 				 array(
 			      "type" => 'checkbox',
