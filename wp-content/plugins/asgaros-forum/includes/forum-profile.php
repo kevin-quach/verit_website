@@ -60,16 +60,17 @@ class AsgarosForumProfile {
     }
 
     // Sets the breadcrumbs.
-    public function setBreadCrumbs($breadCrumbs) {
+    public function setBreadCrumbs() {
+        $elementLink = $this->asgarosforum->getLink('current');
+        $elementTitle = __('Profile', 'asgaros-forum');
+
         $userData = $this->getUserData();
 
         if ($userData) {
-            $breadCrumbs[] = array('link' => $this->asgarosforum->getLink('current'), 'title' => __('Profile', 'asgaros-forum').': '.$userData->display_name, 'name' => __('Profile', 'asgaros-forum').': '.$userData->display_name, 'position' => false);
-        } else {
-            $breadCrumbs[] = array('link' => $this->asgarosforum->getLink('current'), 'title' => __('Profile', 'asgaros-forum'), 'name' => __('Profile', 'asgaros-forum'), 'position' => false);
+            $elementTitle = __('Profile', 'asgaros-forum').': '.$userData->display_name;
         }
 
-        return $breadCrumbs;
+        AsgarosForumBreadCrumbs::addToBreadCrumbsList($elementLink, $elementTitle);
     }
 
     // Shows the profile of a user.
@@ -94,6 +95,14 @@ class AsgarosForumProfile {
                     echo $userData->display_name;
                 echo '</div>';
 
+                // Show first name.
+                if (!empty($userData->first_name)) {
+                    $cellTitle = __('First Name:', 'asgaros-forum');
+                    $cellValue = $userData->first_name;
+
+                    $this->renderProfileRow($cellTitle, $cellValue);
+                }
+
                 // Show forum role.
                 $cellTitle = __('Forum Role:', 'asgaros-forum');
                 $cellValue = __('User', 'asgaros-forum');
@@ -108,10 +117,12 @@ class AsgarosForumProfile {
 
                 $this->renderProfileRow($cellTitle, $cellValue);
 
-                // Show first name.
-                if (!empty($userData->first_name)) {
-                    $cellTitle = __('First Name:', 'asgaros-forum');
-                    $cellValue = $userData->first_name;
+                // Show user groups.
+                $userGroups = AsgarosForumUserGroups::getUserGroupsForUser($userData->ID, 'names');
+
+                if (!empty($userGroups)) {
+                    $cellTitle = __('User Groups:', 'asgaros-forum');
+                    $cellValue = $userGroups;
 
                     $this->renderProfileRow($cellTitle, $cellValue);
                 }
@@ -146,6 +157,26 @@ class AsgarosForumProfile {
 
                 $this->renderProfileRow($cellTitle, $cellValue);
 
+                // Show biographical info.
+                if (!empty($userData->description)) {
+                    $cellTitle = __('Biographical Info:', 'asgaros-forum');
+                    $cellValue = trim(esc_html($userData->description));
+
+                    $this->renderProfileRow($cellTitle, $cellValue);
+                }
+
+                // Show signature.
+                if ($this->asgarosforum->options['allow_signatures']) {
+                    $signature = trim(esc_html(get_user_meta($userData->ID, 'asgarosforum_signature', true)));
+
+                    if (!empty($signature)) {
+                        $cellTitle = __('Signature:', 'asgaros-forum');
+                        $cellValue = $signature;
+
+                        $this->renderProfileRow($cellTitle, $cellValue);
+                    }
+                }
+
                 do_action('asgarosforum_custom_profile_content', $userData);
 
                 echo '<div class="clear"></div>';
@@ -160,7 +191,17 @@ class AsgarosForumProfile {
     public function renderProfileRow($cellTitle, $cellValue) {
         echo '<div>';
             echo '<span>'.$cellTitle.'</span>';
-            echo '<span>'.$cellValue.'</span>';
+            echo '<span>';
+
+            if (is_array($cellValue)) {
+                foreach ($cellValue as $value) {
+                    echo $value.'<br>';
+                }
+            } else {
+                echo $cellValue;
+            }
+
+            echo '</span>';
         echo '</div>';
     }
 

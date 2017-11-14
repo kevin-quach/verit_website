@@ -83,6 +83,6 @@ return array(
 		),
 		*/
 		/* nectar addition end */ 
-		),
+	),
 	'js_view' => 'VcRowView',
 );

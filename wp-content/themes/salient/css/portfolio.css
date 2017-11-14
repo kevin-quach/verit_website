@@ -762,7 +762,7 @@ html:not(.js) .portfolio-items .col.span_3 img, html:not(.js) .portfolio-items .
 }
 
 
-.portfolio-items:not(.carousel) .col.animated-in .inner-wrap  {
+body .portfolio-items:not(.carousel) .col.animated-in .inner-wrap  {
 	opacity: 1;
 	transform: translateY(0);
 	-webkit-transform: translateY(0);

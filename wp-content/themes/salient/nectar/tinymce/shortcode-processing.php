@@ -1329,7 +1329,7 @@ function nectar_portfolio_processing($atts, $content = null) {
 		
 			?>
 			
-			<div class="row portfolio-items <?php if($masonry_layout == 'true') echo 'masonry-items'; else { echo 'no-masonry'; } ?> <?php if($layout == 'constrained_fullwidth') echo ' fullwidth-constrained '; echo $infinite_scroll_class; ?> <?php echo $constrain_col_class; ?>" <?php if($layout != 'fullwidth') echo 'data-rcp="'.$remove_column_padding.'"'; ?> data-masonry-type="<?php echo $masonry_sizing_type; ?>" data-ps="<?php echo $project_style; ?>" data-starting-filter="<?php echo $starting_category; ?>" data-gutter="<?php echo $item_spacing; ?>" data-categories-to-show="<?php echo $category; ?>" data-col-num="<?php echo $cols; ?>">
+			<div class="row portfolio-items <?php if($masonry_layout == 'true') echo 'masonry-items'; else { echo 'no-masonry'; } ?> <?php if($layout == 'constrained_fullwidth') echo ' fullwidth-constrained '; echo $infinite_scroll_class; ?> <?php echo $constrain_col_class; ?>" <?php if($layout != 'fullwidth') echo 'data-rcp="'.$remove_column_padding.'"'; ?> data-masonry-type="<?php echo $masonry_sizing_type; ?>" data-ps="<?php echo $project_style; ?>" data-starting-filter="<?php echo $starting_category; ?>" data-gutter="<?php echo $item_spacing; ?>" data-categories-to-show="<?php echo $category; ?>" data-lightbox-only="<?php echo $lightbox_only; ?>" data-col-num="<?php echo $cols; ?>">
 				<?php 
 				
 
@@ -3350,7 +3350,7 @@ function nectar_recent_posts($atts, $content = null) {
 							
 							<?php 
               $excerpt_length = (!empty($options['blog_excerpt_length'])) ? intval($options['blog_excerpt_length']) : 30; 
-							echo nectar_excerpt($excerpt_length);
+							echo '<div class="excerpt">' . nectar_excerpt($excerpt_length) . '</div>';
 
 						} // default style
 						else if($style == 'minimal') { ?>
@@ -3362,7 +3362,7 @@ function nectar_recent_posts($atts, $content = null) {
 							</div><!--/post-header-->
 							<?php 
                 $excerpt_length = (!empty($options['blog_excerpt_length'])) ? intval($options['blog_excerpt_length']) : 30; 
-  							echo nectar_excerpt($excerpt_length);
+  							echo '<div class="excerpt">' . nectar_excerpt($excerpt_length) . '</div>';
               ?>
 							<span><?php echo __('Read More',NECTAR_THEME_NAME); ?> <i class="icon-button-arrow"></i></span>
 

@@ -44,6 +44,7 @@ extract($fp_options);
 <?php 
 $options = get_nectar_theme_options(); 
 global $post;
+$theme_skin = ( !empty($options['theme-skin']) ) ? $options['theme-skin'] : 'original';
 $cta_link = ( !empty($options['cta-btn-link']) ) ? $options['cta-btn-link'] : '#';
 $using_footer_widget_area = (!empty($options['enable-main-footer-area']) && $options['enable-main-footer-area'] == 1) ? 'true' : 'false';
 $disable_footer_copyright = (!empty($options['disable-copyright-footer-area']) && $options['disable-copyright-footer-area'] == 1) ? 'true' : 'false';
@@ -56,26 +57,47 @@ $has_main_menu = (has_nav_menu('top_nav')) ? 'true' : 'false';
 
 $sideWidgetArea = (!empty($options['header-slide-out-widget-area'])) ? $options['header-slide-out-widget-area'] : 'off';
 $userSetSideWidgetArea = $sideWidgetArea;
-if($has_main_menu == 'true' && $mobile_fixed == '1') $sideWidgetArea = '1';
+if($has_main_menu == 'true' && $mobile_fixed == '1' || $has_main_menu == 'true' && $theme_skin == 'material') $sideWidgetArea = '1';
 
+$headerFormat = (!empty($options['header_format'])) ? $options['header_format'] : 'default';
 $fullWidthHeader = (!empty($options['header-fullwidth']) && $options['header-fullwidth'] == '1') ? true : false;
 $sideWidgetClass = (!empty($options['header-slide-out-widget-area-style'])) ? $options['header-slide-out-widget-area-style'] : 'slide-out-from-right';
+
+if($headerFormat == 'centered-menu-under-logo') { 
+	if($sideWidgetClass == 'slide-out-from-right-hover' && $userSetSideWidgetArea == '1') {
+		$sideWidgetClass = 'slide-out-from-right';
+	}
+}
+
 $sideWidgetOverlayOpacity = (!empty($options['header-slide-out-widget-area-overlay-opacity'])) ? $options['header-slide-out-widget-area-overlay-opacity'] : 'dark';
 $prependTopNavMobile = (!empty($options['header-slide-out-widget-area-top-nav-in-mobile'])) ? $options['header-slide-out-widget-area-top-nav-in-mobile'] : 'false';
-$headerFormat = (!empty($options['header_format'])) ? $options['header_format'] : 'default';
+if($theme_skin == 'material') $prependTopNavMobile = '1';
+
+$dropdownFunc = (!empty($options['header-slide-out-widget-area-dropdown-behavior'])) ? $options['header-slide-out-widget-area-dropdown-behavior'] : 'default';
+if($sideWidgetClass == 'fullscreen' || $sideWidgetClass == 'fullscreen-alt') {
+	$dropdownFunc = 'default';
+}
 
 if($sideWidgetArea == '1') { 
 
 	if($sideWidgetClass == 'fullscreen') echo '</div><!--blurred-wrap-->'; ?>
 
 	<div id="slide-out-widget-area-bg" class="<?php echo $sideWidgetClass . ' '. $sideWidgetOverlayOpacity; ?>"><?php if($sideWidgetClass == 'fullscreen-alt') echo '<div class="bg-inner"></div>';?></div>
-	<div id="slide-out-widget-area" class="<?php echo $sideWidgetClass; ?>" data-back-txt="<?php echo __('Back', NECTAR_THEME_NAME); ?>">
+	<div id="slide-out-widget-area" class="<?php echo $sideWidgetClass; ?>" data-dropdown-func="<?php echo $dropdownFunc; ?>" data-back-txt="<?php echo __('Back', NECTAR_THEME_NAME); ?>">
 
-		<?php if($sideWidgetClass == 'fullscreen' || $sideWidgetClass == 'fullscreen-alt') echo '<div class="inner-wrap">'; ?>
+		<?php if($sideWidgetClass == 'fullscreen' || $sideWidgetClass == 'fullscreen-alt' || ($theme_skin == 'material' && $sideWidgetClass == 'slide-out-from-right') || ($theme_skin == 'material' && $sideWidgetClass == 'slide-out-from-right-hover') ) echo '<div class="inner-wrap">'; ?>
 
-		<div class="inner">
+		<?php $prepend_mobile_menu = ($prependTopNavMobile == '1' && $has_main_menu == 'true' && $userSetSideWidgetArea != 'off') ? 'true' : 'false'; ?>
+		<div class="inner" data-prepend-menu-mobile="<?php echo $prepend_mobile_menu; ?>">
 
-		  <a class="slide_out_area_close" href="#"><span class="icon-salient-x icon-default-style"></span></a>
+		  <a class="slide_out_area_close" href="#">
+		  	<?php 
+		  	if($theme_skin != 'material') { 
+			  	echo '<span class="icon-salient-x icon-default-style"></span>';
+			  } else {
+			  	echo '<span class="close-wrap"> <span class="close-line close-line1"></span> <span class="close-line close-line2"></span> </span>';
+			  } ?>
+		  </a>
 
 
 		   <?php  
@@ -93,8 +115,17 @@ if($sideWidgetArea == '1') {
 									wp_nav_menu( array('walker' => new Nectar_Arrow_Walker_Nav_Menu, 'theme_location' => 'top_nav_pull_right', 'container' => '', 'items_wrap' => '%3$s' ) );  
 								}
 							}
+							
 					   ?>
 		
+					</ul>
+
+					<ul class="menu secondary-header-items"><?php 
+						//material secondary nav in menu
+						$using_secondary = (!empty($options['header_layout']) && $headerFormat != 'left-header') ? $options['header_layout'] : ' '; 
+						if($theme_skin == 'material' && $using_secondary == 'header_with_secondary' && has_nav_menu('secondary_nav')) {
+			   	  			 wp_nav_menu( array('walker' => new Nectar_Arrow_Walker_Nav_Menu, 'theme_location' => 'secondary_nav', 'container' => '', 'items_wrap' => '%3$s' ) ); 
+						} ?>
 					</ul>
 				</div>
 			<?php } 
@@ -142,8 +173,8 @@ if($sideWidgetArea == '1') {
 			global $using_secondary;
 		 	/*social icons*/
 			 if(!empty($options['header-slide-out-widget-area-social']) && $options['header-slide-out-widget-area-social'] == '1') {
-			 	$social_link_arr = array('twitter-url','facebook-url','vimeo-url','pinterest-url','linkedin-url','youtube-url','tumblr-url','dribbble-url','rss-url','github-url','behance-url','google-plus-url','instagram-url','stackexchange-url','soundcloud-url','flickr-url','spotify-url','vk-url','vine-url');
-			 	$social_icon_arr = array('fa fa-twitter','fa fa-facebook','fa fa-vimeo','fa fa-pinterest','fa fa-linkedin','fa fa-youtube','fa fa-tumblr','fa fa-dribbble','fa fa-rss','fa fa-github-alt','fa fa-be','fa fa-google-plus','fa fa-instagram','fa fa-stackexchange','fa fa-soundcloud','fa fa-flickr','icon-salient-spotify','fa fa-vk','fa-vine');
+			 	$social_link_arr = array('twitter-url','facebook-url','vimeo-url','pinterest-url','linkedin-url','youtube-url','tumblr-url','dribbble-url','rss-url','github-url','behance-url','google-plus-url','instagram-url','stackexchange-url','soundcloud-url','flickr-url','spotify-url','vk-url','vine-url','houzz-url', 'phone-url','email-url');
+			 	$social_icon_arr = array('fa fa-twitter','fa fa-facebook','fa fa-vimeo','fa fa-pinterest','fa fa-linkedin','fa fa-youtube-play','fa fa-tumblr','fa fa-dribbble','fa fa-rss','fa fa-github-alt','fa fa-behance','fa fa-google-plus','fa fa-instagram','fa fa-stackexchange','fa fa-soundcloud','fa fa-flickr','icon-salient-spotify','fa fa-vk','fa-vine','fa-houzz','fa fa-phone', 'fa fa-envelope');
 			 	
 			 	echo '<ul class="off-canvas-social-links">';
 
@@ -167,7 +198,7 @@ if($sideWidgetArea == '1') {
 
 			echo '</div><!--/bottom-meta-wrap-->';
 
-			if($sideWidgetClass == 'fullscreen' || $sideWidgetClass == 'fullscreen-alt') echo '</div> <!--/inner-wrap-->'; ?>
+			if($sideWidgetClass == 'fullscreen' || $sideWidgetClass == 'fullscreen-alt' || ($theme_skin == 'material' && $sideWidgetClass == 'slide-out-from-right') || ($theme_skin == 'material' && $sideWidgetClass == 'slide-out-from-right-hover') ) echo '</div> <!--/inner-wrap-->'; ?>
 
 	</div>
 <?php } ?>

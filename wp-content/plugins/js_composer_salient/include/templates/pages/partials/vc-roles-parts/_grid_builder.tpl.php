@@ -2,7 +2,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
-
 /* nectar addition */
 /*
 vc_include_template( 'pages/partials/vc-roles-parts/_part.tpl.php', array(

@@ -203,6 +203,28 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 
 				<?php } //not single 
 				
+				if(is_single()){
+					
+					echo '<div class="content-inner">';
+					//on the single post page display the content
+					the_content('<span class="continue-reading">'. __("Read More", NECTAR_THEME_NAME) . '</span>'); 
+				
+				
+				  global $options;
+					if( $options['display_tags'] == true ){
+						if( has_tag() ) {
+						
+							echo '<div class="post-tags"><h4>'.__('Tags:').'</h4>'; 
+							the_tags('','','');
+							echo '<div class="clear"></div></div> ';
+							
+						}
+					} 
+					
+					echo '</div>';
+					
+				} //is single
+				
 				
 			} 
 			

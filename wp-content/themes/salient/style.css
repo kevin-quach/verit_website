@@ -4,7 +4,7 @@
 	Author: ThemeNectar
 	Author URI: http://themenectar.com
 	Description: An Ultra Responsive Multi-Purpose Theme.
-	Version: 8.5.0
+	Version: 8.5.1
 	License: GNU General Public License version 3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -2375,6 +2375,7 @@ header#top .sf-menu li ul li a{font-size:12px; line-height:13px; color:#ccc; tra
 html:not(.js) .home-wrap{padding-top:0px}
 
 html.no-overflow-y{overflow-y:hidden!important}
+html.no-overflow-y body{overflow-y:hidden}
 
 .mobile-video-image{position:absolute; z-index:1; top:0px; left:0px; display:none; height:100%; width:100%; background-position:center; background-repeat:no-repeat; background-size:cover; -moz-background-size:cover; -webkit-background-size:cover; -o-background-size:cover}
 
@@ -3901,8 +3902,6 @@ html[xmlns] .slides{display:block}
 
 .iframe-embed iframe, iframe{max-width:100%}
 
-.main-content iframe[src]{opacity:0}
-
 html:not(.js) .main-content iframe[src], .main-content #sidebar iframe[src], .wc-braintree-hosted-field iframe{opacity:1}
 
 .iframe-embed-standard iframe{width:100%!important}
@@ -4206,6 +4205,8 @@ body .carousel li.span_4, body .portfolio-items.carousel li.span_4{margin:0px 10
 .nectar-recent-post-slide .nectar-recent-post-bg:after, .single [data-post-hs="default_minimal"] .page-header-bg-image:after, .archive .page-header-bg-image:after{background-color:rgba(45,45,45,0.35); position:absolute; top:0; left:0; height:100%; width:100%; content:' '; z-index:1; display:block}
 .nectar-recent-posts-single_featured .nectar-recent-post-slide .nectar-recent-post-bg:after { background-color: rgba(2,2,2,0.43); }
 
+.nectar-recent-posts-single_featured.multiple_featured .nectar-recent-post-slide .row-bg {  z-index: 0; }
+
 .nectar-recent-posts-single_featured[data-bg-overlay="diagonal_gradient"] .nectar-recent-post-slide .nectar-recent-post-bg:after { background-color: transparent; }
 .nectar-recent-posts-single_featured[data-bg-overlay="diagonal_gradient"] .nectar-recent-post-slide:after { background: linear-gradient(to right top, rgba(10,10,10,0.9), transparent); position: absolute; top: 0;
 left: 0; width: 100%; height: 100%; content: ''; z-index: 1; }
@@ -4239,7 +4240,7 @@ left: 0; width: 100%; height: 100%; content: ''; z-index: 1; }
 .nectar-recent-posts-slider h2 a, .nectar-recent-posts-slider_multiple_visible h3 a{transition:color 0.16s ease; -webkit-transition:color 0.16s ease}
 .nectar-recent-posts-slider h2 a:hover{color:rgba(255,255,255,0.8)!important}
 
-.nectar-recent-posts-single_featured { overflow: hidden}
+.nectar-recent-posts-single_featured { overflow: hidden; position: relative;}
 .nectar-recent-posts-single_featured .nectar-recent-post-slide {  position: relative; overflow: hidden;}
 .nectar-recent-posts-single_featured.multiple_featured .nectar-recent-post-slide { transition: opacity .3s ease; opacity: 0; }
 .nectar-recent-posts-single_featured.multiple_featured .nectar-recent-post-slide.active { opacity: 1; }
@@ -6846,7 +6847,9 @@ body .gform_wrapper .top_label .gfield_label{font-weight:normal!important; margi
 
 
 /***************** Masonry Items / Search results ******************/
+
 .post-area.masonry{width:1125px; margin-bottom:80px; margin-top:0; transition:none!important; overflow:visible!important}
+.blog-fullwidth-wrap .post-area.masonry { margin-bottom:100px; }
 
 .vc_col-sm-4 .post-area.masonry, .vc_col-sm-3 .post-area.masonry{width:100%}
 
@@ -6865,8 +6868,13 @@ body[data-ext-responsive="true"] .post-area.masonry.span_9{width:76.5%; margin-r
 .post-area.masonry #pagination{position:absolute; bottom:-75px; padding-left:0px}
 
 .blog-fullwidth-wrap .post-area.masonry:not(.meta_overlaid){margin-top:0!important}
+
 .post-area.masonry.span_12[class*="meta_overlaid"] #pagination, 
 .blog-fullwidth-wrap .post-area.masonry[class*="meta_overlaid"] #pagination{ bottom:0 !important;  height:32px;  margin-top:45px;  position:relative !important;  text-align:center !important;  width:100%;  margin-bottom:40px}
+
+.post-area.masonry.span_9[class*="meta_overlaid"] #pagination {
+  bottom:0 !important;  height:32px;  margin-top:45px;  position:relative !important;  width:100%;  margin-bottom:40px
+}
 
 .post-area.masonry.span_12[class*="meta_overlaid"] #pagination >div, 
 .blog-fullwidth-wrap .post-area.masonry[class*="meta_overlaid"] #pagination >div{ display:inline;  float:none;  margin:0 5px 0 0}
@@ -6874,7 +6882,7 @@ body[data-ext-responsive="true"] .post-area.masonry.span_9{width:76.5%; margin-r
 body.blog .meta_overlaid_blog.container-wrap{padding-top:0!important}
 body.blog .meta_overlaid_blog.container-wrap .post-area{margin-top:0!important}
 
-body.blog .post-area.masonry.meta_overlaid #pagination{margin-bottom:0px}
+body.blog .post-area.masonry.meta_overlaid.infinite_scroll #pagination{margin-bottom:0px}
 
 .post-area.masonry article.post .post-meta.no-img{top:0px!important}
 

@@ -277,19 +277,6 @@
                 ),
                 'default' => 'default' 
             ),
-            /*
-            array(
-                'id'        => 'custom_column_spacing_amount',
-                'type' => 'select', 
-                'title'     => __('Column Spacing Amount', NECTAR_THEME_NAME),
-                'subtitle'  => __('Adjust to your desired amount.', NECTAR_THEME_NAME),
-                'desc'      => __('', NECTAR_THEME_NAME),
-                'options' => array(
-                    "default" => "Default",
-                    "larger" => "Larger"
-                ),
-                'default' => 'default'
-            ), */
             array(
                 'id' => 'theme-icon-style', 
                 'type' => 'select', 
@@ -1862,27 +1849,6 @@ Redux::setSection( $opt_name, array(
                 ),
                 'default' => 'standard'
             ),
-             /*
-             array(
-                'id' => 'header_secondary_format', 
-                'type' => 'image_select',
-                'title' => __('Header Secondary Nav Format', NECTAR_THEME_NAME),
-                'subtitle' => __('Please select your secondary header format here.', NECTAR_THEME_NAME),
-                'desc' => '',
-                'options' => array(
-                    'default' => array('title' => 'Default Layout', 'img' => NECTAR_FRAMEWORK_DIRECTORY.'options/img/hs-default.jpg'),
-                    'centered-menu' => array('title' => 'Centered Menu', 'img' => NECTAR_FRAMEWORK_DIRECTORY.'options/img/hs-centered-links.jpg'),
-                ),
-                'required' => array( 'header_layout', '=', 'header_with_secondary' ),
-                'default' => 'default'
-            ),
-              array(
-                'id' => 'header_secondary_text', 
-                'type' => 'text', 
-                'title' => __('Header Secondary Text', NECTAR_THEME_NAME),
-                'subtitle' => 'Enter any custom text you would like to display in the secoondary header. Useful for phone numbers/quick callouts',
-                'required' => array( 'header_layout', '=', 'header_with_secondary' )
-            ), */
             array(
                 'id' => 'enable_social_in_header',
                 'type' => 'switch',

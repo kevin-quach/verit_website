@@ -4176,7 +4176,8 @@
                     return false;
                 }
 
-                $args = array_merge( array( $current_user ), func_get_args() );
+                $name_arr = func_get_args();
+                $args = array_merge( array( $current_user ), $name_arr );
 
                 return call_user_func_array( array( 'self', 'user_can' ), $args );
             }

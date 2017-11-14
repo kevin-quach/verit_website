@@ -12,6 +12,7 @@ $icons_params = vc_map_integrate_shortcode( $icon_params, 'i_', __( 'Icon', 'js_
 		'align',
 		'css',
 		'el_class',
+		'el_id',
 		'link',
 		'css_animation',
 	),
@@ -47,15 +48,11 @@ return array(
 			'value' => __( 'Title', 'js_composer' ),
 			'description' => __( 'Add text to separator.', 'js_composer' ),
 		),
-		/* nectar addition */ 
-		/*
 		array(
 			'type' => 'checkbox',
 			'heading' => __( 'Add icon?', 'js_composer' ),
 			'param_name' => 'add_icon',
 		),
-		*/
-		/* nectar addition end */ 
 	), $icons_params, array(
 		array(
 			'type' => 'dropdown',
@@ -120,6 +117,12 @@ return array(
 			'description' => __( 'Separator element width in percents.', 'js_composer' ),
 		),
 		vc_map_add_css_animation(),
+		array(
+			'type' => 'el_id',
+			'heading' => __( 'Element ID', 'js_composer' ),
+			'param_name' => 'el_id',
+			'description' => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'js_composer' ), 'http://www.w3schools.com/tags/att_global_id.asp' ),
+		),
 		array(
 			'type' => 'textfield',
 			'heading' => __( 'Extra class name', 'js_composer' ),

@@ -1,0 +1,303 @@
+
+
+
+/* EVENTS CALENDAR */
+#tribe-events {
+	.tribe-events-button {
+		font-weight: 300;
+		padding: 10px 12px;
+		border-radius: 1px !important;
+		background-color: $accent;
+		transition: $easy-ease;
+		&:hover {
+			background-color: lighten($accent,10);
+		}
+	}
+	.tribe-events-event-meta {
+		background-color: lighten($background,5);
+		border: none;
+		border-radius: 3px;
+		padding: 12px 25px 1px;
+	}
+	dt {
+		color: $text-light;
+	}
+}
+
+// Calendar
+#tribe-bar-form {
+	background: transparent;
+	input[type=text] {
+		border-bottom: 4px solid transparent;
+		background: #fff;
+		position: relative;
+		&:focus {
+			outline: none;
+			border-bottom: 4px solid $accent;
+		}
+	}
+	#tribe-bar-views  {
+		margin-top: -15px;
+		.tribe-bar-views-list .tribe-bar-views-option.tribe-bar-active a {
+			background: transparent;
+			color: $text-light;
+			border: 1px solid $text-light;
+			padding: 14px 5px;
+			span {
+				background-image: none;
+			}
+		}
+		.tribe-bar-views-list .tribe-bar-views-option a {
+			background: $text-light;
+			color: $background;
+			padding: 12px 8px;
+			transition: $easy-ease;
+			span {
+				background-image: none;
+				padding: 0 5px;
+			}
+			&:hover {
+				background: lighten($text-light,10);
+			}
+		}
+	}
+
+	.tribe-bar-views-inner {
+		background: transparent;
+	}
+	.tribe-bar-search-filter, .tribe-bar-date-filter {
+		padding: 0 30px 0 0;
+	}
+	.tribe-bar-submit input[type=submit] {
+		background: $accent;
+		&:hover {
+			background: lighten($accent,10) !important;
+		}
+	}
+}
+.tribe-event-featured {
+	background: transparent !important;
+	a {
+		color: $accent !important;
+	}
+	.tribe-event-image {
+		margin: 0 !important;
+		img {
+			margin: 0;
+		}
+	}
+	.tribe-event-duration {
+		font-size: 13px !important;
+		line-height: 1.25em !important;
+		color: $text-light !important;
+	}
+}
+#tribe-events-content {
+	.tribe-events-list-separator-month {
+		span {
+			background: $background;
+		}
+		&::after {
+			border-bottom: 1px solid $border;
+		}
+	}
+	.tribe-events-day-time-slot h5 {
+		background: transparent;
+		color: $text-light;
+	}
+	.tribe-events-tooltip {
+		background-color: #fff !important;
+		padding: 15px;
+		h4 {
+			color: $accent;
+		}
+	}
+	.tribe-events-notices {
+		border: none;
+		background: $accent;
+		text-shadow: none;
+		color: #fff;
+	}
+	.tribe-events-calendar {
+		background: transparent !important;
+		tr, td, th {
+			background: transparent;
+			border-color: $border;
+		}
+		th {
+			border-top: 1px solid  $border;
+			color: $text-light;
+		}
+		td.tribe-events-othermonth {
+			background: darken($background,5);
+		}
+		td.tribe-events-past {
+			div[id*=tribe-events-daynum-] {
+				background: darken($text-light,15);
+				color: $background;
+				border-right: 1px solid $background;
+				margin-right: -1px;
+				a {
+					color: $background;
+					background: transparent;
+				}
+			}
+			a {
+				color: $text-light;
+			} 
+		}
+		td div[id*=tribe-events-daynum-] {
+			background: $text-light;
+			color: $background;
+			border-right: 1px solid $background;
+			margin-right: -1px;
+			a {
+				color: $background;
+				background: transparent;
+			}	
+		}
+		td.tribe-events-present {
+			div[id*=tribe-events-daynum-] {
+				background: $accent;
+			} 
+
+		}
+		 .type-tribe_events.tribe-event-featured {
+		 	background-color: transparent !important;
+		 	a {
+		 		color: $accent !important;
+		 	}
+		 }
+		td:hover {
+			background: lighten($background,10) !important;
+		}
+	}
+
+}
+
+
+// Widget
+
+.tribe-list-widget {
+	li.tribe-events-list-widget-events {
+		padding: 0;
+		display: block;
+		h4.tribe-event-title {
+			margin-bottom: 0 !important;
+			line-height: 1.25em !important;
+			text-transform: none !important;
+			letter-spacing: 0 !important;
+			a {
+				font-size: 14px;
+				font-weight: 300 !important;
+			}
+		}
+		.tribe-event-duration {
+			font-size: 11px;
+			line-height: 1.5em !important;
+		}
+	}
+}
+
+
+
+/* FORUM */
+#af-wrapper {
+	.forum-name a, .forum-poster a, .topic-name a, .topic a, .forum-post-menu a.dashicons-before, .post-footer a {
+		color: $background !important;
+		font-weight: 700;
+		&:hover {
+			text-decoration: none !important;
+			color: $accent !important;
+		}
+	}
+}
+
+// Widget
+.asgarosforum-widget {
+	.widget-avatar {
+		border-radius: 50%;
+		outline: none;
+		overflow: hidden;
+		width: 40px;
+    	height: 40px !important;
+   		display: inline-block !important;
+   		img {
+   			margin: 0 !important;
+   			border: none !important;
+   		}
+	}
+	.highlight-admin a.profile-link {
+		color: $red !important;
+		&:hover {
+			text-decoration: none;
+			color: lighten($red, 10) !important;
+		}
+	}
+	.widget-content {
+		padding-left: 0 !important;
+	}
+	.post-link {
+		font-size: 14px;
+		a:hover {
+			text-decoration: none !important;
+		}
+	}
+
+	.post-author {
+		margin-bottom: -18px;
+
+		line-height: 15px;
+	}
+	.post-date {
+		float: right;
+		font-size: 10px !important;
+	}
+}
+.asgarosforum-widget .widget-element {
+	border-bottom: 1px solid $border !important;
+}
+
+
+/* TIMELINE */
+.cool_timeline {
+	.timeline-post {
+		.timeline-content h2.content-title {
+			color: #fff !important;
+			font-weight: 900 !important;
+			font-size: 1em !important;
+			padding: 12px 0 8px 20px;
+			background: $border !important;
+		}
+		&.odd {
+			.timeline-content h2.content-title::before {
+				border-left-color: $border !important;
+			}
+		}
+		&.even {
+			.timeline-content h2.content-title::before {
+				border-right-color: $border !important;
+				@include mobile {
+					border-right-color: $border !important;
+				}
+			}
+		}
+	}
+	.icon-placeholder {
+		width: 100%;
+		text-align: center;
+		background-color: transparent;
+		span {
+			top: 2px !important;
+			font-size: 1.5em !important;
+		}
+	}
+	.timeline-year {
+		box-shadow: none !important;
+		border: 6px solid $border;
+	}
+	.content-details {
+		color: $text-light;
+	}
+}
+

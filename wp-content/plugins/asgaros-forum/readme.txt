@@ -1,10 +1,10 @@
 === Asgaros Forum ===
 Contributors: Asgaros
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4A5464D83ACMJ
+Donate link: https://www.paypal.me/asgaros
 Tags: forum, forums, discussion, multisite, community, bulletin, board, asgaros, support
 Requires at least: 4.7
-Tested up to: 4.8
-Stable tag: 1.6.2
+Tested up to: 4.9
+Stable tag: 1.6.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,9 @@ You can add own themes for your forum in the `/wp-content/themes-asgarosforum` d
 * asgarosforum_filter_user_groups_taxonomy_name
 * asgarosforum_filter_avatar_size
 * asgarosforum_filter_profile_link
+* asgarosforum_filter_forum_menu
+* asgarosforum_filter_topic_menu
+* asgarosforum_filter_post_menu
 
 == Screenshots ==
 1. The forum overview.
@@ -129,6 +132,19 @@ You can add own themes for your forum in the `/wp-content/themes-asgarosforum` d
 6. Manage general options.
 
 == Changelog ==
+= 1.6.3 =
+* Added: Pagination in topic-overview
+* Added: Category name to breadcrumbs
+* Added: User groups to profile
+* Added: Biographical info to profile
+* Added: Signature to profile
+* Added: asgarosforum_filter_forum_menu filter
+* Added: asgarosforum_filter_topic_menu filter
+* Added: asgarosforum_filter_post_menu filter
+* Changed: Minor design changes
+* Performance improvements and code optimizations
+* Compatibility with WordPress 4.9
+* Added link to the official support forum to the administration area
 = 1.6.2 =
 * Added: Options to hide login/logout/register buttons
 * Added: asgarosforum_custom_header_menu hook

@@ -3288,6 +3288,7 @@ div[data-project-style="text_on_hover"] .single-product-main-image .onsale {
 
 .iosSlider.product-slider .slide .easyzoom a {
 	pointer-events: none;
+	display: block;
 }
 
 .iosSlider.product-thumbs .thumb {

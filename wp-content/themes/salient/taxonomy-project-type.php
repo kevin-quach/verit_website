@@ -469,6 +469,80 @@ $lightbox_only = false;
 							</div><!--work-item-->
 							
 						<?php } //project style 4 
+						
+						
+						else if($project_style == '5') { ?>
+							
+							<div class="work-item style-3-alt">
+								
+								<?php
+								$thumb_size = (!empty($masonry_item_sizing)) ? $masonry_item_sizing : 'portfolio-thumb';
+								if($masonry_sizing_type == 'photography' && !empty($masonry_item_sizing)) {
+									$thumb_size = $thumb_size.'_photography';
+
+									//no tall size in photography
+									if($thumb_size == 'tall_photography') $thumb_size = 'wide_tall_photography';
+								}
+
+								//custom thumbnail
+								$custom_thumbnail = get_post_meta($post->ID, '_nectar_portfolio_custom_thumbnail', true); 
+								
+								if( !empty($custom_thumbnail) ){
+									echo '<img class="custom-thumbnail" src="'.$custom_thumbnail.'" alt="'. get_the_title() .'" />';
+								}
+								else {
+									
+									if ( has_post_thumbnail() ) {
+										 echo get_the_post_thumbnail($post->ID, $thumb_size, array('title' => '')); 
+									} 
+									
+									//no image added
+									else {
+										switch($thumb_size) {
+											case 'wide_photography':
+												$no_image_size = 'no-portfolio-item-photography-wide.jpg';
+												break;
+											case 'regular_photography':
+												$no_image_size = 'no-portfolio-item-photography-regular.jpg';
+												break;
+											case 'wide_tall_photography':
+												$no_image_size = 'no-portfolio-item-photography-regular.jpg';
+												break;
+											case 'wide':
+												$no_image_size = 'no-portfolio-item-wide.jpg';
+												break;
+											case 'tall':
+												$no_image_size = 'no-portfolio-item-tall.jpg';
+												break;
+											case 'regular':
+												$no_image_size = 'no-portfolio-item-tiny.jpg';
+												break;
+											case 'wide_tall':
+												$no_image_size = 'no-portfolio-item-tiny.jpg';
+												break;
+											default:
+												$no_image_size = 'no-portfolio-item-small.jpg';
+												break;
+										}
+										 echo '<img src="'.get_template_directory_uri().'/img/'.$no_image_size.'" alt="no image added yet." />';
+									 }   
+									
+								} ?>
+				
+								<div class="work-info-bg"></div>
+								<div class="work-info">
+
+									<a href="<?php echo $the_project_link; ?>"></a>
+									
+									<div class="vert-center">
+										<h3><?php echo get_the_title(); ?> </h3> 
+										<?php if(!empty($project_excerpt)) { echo '<p>'.$project_excerpt.'</p>'; } elseif(!empty($options['portfolio_date']) && $options['portfolio_date'] == 1) echo '<p>' . get_the_date() . '</p>'; ?>
+									</div><!--/vert-center-->
+									
+								</div>
+							</div><!--work-item-->
+							
+						<?php } //project style 5 
 
 
 						else if($project_style == '6') { 

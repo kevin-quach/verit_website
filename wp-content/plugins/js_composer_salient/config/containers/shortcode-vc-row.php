@@ -147,6 +147,7 @@ return array(
 				'not_empty' => true,
 			),
 		),
+
 		vc_map_add_css_animation( false ),
 		array(
 			'type' => 'el_id',
@@ -175,7 +176,8 @@ return array(
 			'heading' => __( 'CSS box', 'js_composer' ),
 			'param_name' => 'css',
 			'group' => __( 'Design Options', 'js_composer' ),
-		),*/
+		),
+		*/
 		/* nectar addition end */ 
 	),
 	'js_view' => 'VcRowView',

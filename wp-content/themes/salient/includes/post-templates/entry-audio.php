@@ -101,7 +101,7 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 			 	if($using_masonry == true && $masonry_type == 'meta_overlaid') $img_size = (!empty($masonry_item_sizing)) ? $masonry_item_sizing : 'portfolio-thumb';
 			 	if($using_masonry == true && $masonry_type == 'classic_enhanced') $img_size = (!empty($masonry_item_sizing) && $masonry_item_sizing == 'regular') ? 'portfolio-thumb' : 'full';
 				
-				if($using_masonry == true && $masonry_type == 'classic_enhanced' || $using_masonry == true && $masonry_type == 'material') echo'<a href="' . get_permalink() . '" class="img-link"><span class="post-featured-img">'.get_the_post_thumbnail($post->ID, $img_size, array('title' => '')) .'</span></a>'; 
+				if($using_masonry == true && $masonry_type == 'classic_enhanced' || $using_masonry == true && $masonry_type == 'material' && !is_single() ) echo'<a href="' . get_permalink() . '" class="img-link"><span class="post-featured-img">'.get_the_post_thumbnail($post->ID, $img_size, array('title' => '')) .'</span></a>'; 
 			?>
 			
 			<?php 
@@ -181,7 +181,52 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 				<?php } //not single 
 				
 				
-			} 
+				
+				if(is_single()){ ?>
+					
+					<div class="content-inner">
+					<div class="audio-wrap">		
+					 <?php 
+					 
+						 $audio_mp3 = get_post_meta($post->ID, '_nectar_audio_mp3', true);
+							 $audio_ogg = get_post_meta($post->ID, '_nectar_audio_ogg', true); 
+						 
+						 if(!empty($audio_ogg) || !empty($audio_mp3)) {
+									 
+							 $audio_output = '[audio ';
+							 
+							 if(!empty($audio_mp3)) { $audio_output .= 'mp3="'. $audio_mp3 .'" '; }
+							 if(!empty($audio_ogg)) { $audio_output .= 'ogg="'. $audio_ogg .'"'; }
+							 
+							 $audio_output .= ']';
+							 
+									 echo  do_shortcode($audio_output);	
+								 }
+
+						?>
+				 </div><!--/audio-wrap-->
+				 
+				 <?php 
+				
+					the_content('<span class="continue-reading">'. __("Read More", NECTAR_THEME_NAME) . '</span>'); 
+				} ?>
+				
+				<?php global $options;
+					if( $options['display_tags'] == true ){
+						 
+						if( is_single() && has_tag() ) {
+						
+							echo '<div class="post-tags"><h4>'.__('Tags:').'</h4>'; 
+							the_tags('','','');
+							echo '<div class="clear"></div></div> ';
+							
+						}
+					}
+					
+					if( is_single()){ echo '</div><!--content inner-->'; }
+				
+				
+			} //featured img left 
 			
 		
 			//minimal std
@@ -364,7 +409,7 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 				
 					}
 				
-				} else if(!($using_masonry == true && $masonry_type == 'classic_enhanced') && !($using_masonry == true && $masonry_type == 'material')) { ?>
+				} else if(!($using_masonry == true && $masonry_type == 'classic_enhanced') && !($using_masonry == true && $masonry_type == 'material') && !is_single() ) { ?>
 					<div class="audio-wrap">		
 						<?php 
 						
@@ -490,7 +535,30 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 				
 			   
 				<?php 
-				if(is_single()){
+				if(is_single()){ ?>
+					
+					<div class="audio-wrap">		
+						<?php 
+						
+							$audio_mp3 = get_post_meta($post->ID, '_nectar_audio_mp3', true);
+						    $audio_ogg = get_post_meta($post->ID, '_nectar_audio_ogg', true); 
+							
+							if(!empty($audio_ogg) || !empty($audio_mp3)) {
+					        	
+								$audio_output = '[audio ';
+								
+								if(!empty($audio_mp3)) { $audio_output .= 'mp3="'. $audio_mp3 .'" '; }
+								if(!empty($audio_ogg)) { $audio_output .= 'ogg="'. $audio_ogg .'"'; }
+								
+								$audio_output .= ']';
+								
+				        		echo  do_shortcode($audio_output);	
+				        	}
+
+						 ?>
+					</div><!--/audio-wrap-->
+					
+					<?php 
 					//on the single post page display the content
 					the_content('<span class="continue-reading">'. __("Read More", NECTAR_THEME_NAME) . '</span>'); 
 				} ?>

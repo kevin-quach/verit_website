@@ -119,9 +119,7 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 
 					 global $options;
 					 $hide_featrued_image = (!empty($options['blog_hide_featured_image'])) ? $options['blog_hide_featured_image'] : '0'; 
-					 if(is_single() && $hide_featrued_image != '1'){
-						echo '<span class="post-featured-img">'.get_the_post_thumbnail($post->ID, 'full', array('title' => '')) .'</span>';
-					 }	
+
 
 				 }
 				 
@@ -187,8 +185,60 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 
 				<?php } //not single 
 				
+				if(is_single()) {
+					
+					global $options;
+					$hide_featrued_image = (!empty($options['blog_hide_featured_image'])) ? $options['blog_hide_featured_image'] : '0'; 
+							
+					$video_embed = get_post_meta($post->ID, '_nectar_video_embed', true);
+					$video_m4v = get_post_meta($post->ID, '_nectar_video_m4v', true);
+					$video_ogv = get_post_meta($post->ID, '_nectar_video_ogv', true); 
+					$video_poster = get_post_meta($post->ID, '_nectar_video_poster', true); 
+					
+					if( !empty($video_embed) && $hide_featrued_image != '1' || !empty($video_m4v) && $hide_featrued_image != '1' ){
+
+							$wp_version = floatval(get_bloginfo('version'));
+										
+							//video embed
+							if( !empty( $video_embed ) ) {
+								
+										 echo '<div class="video">' . do_shortcode($video_embed) . '</div>';
+							
+							} 
+							//self hosted video pre 3-6
+							else if( !empty($video_m4v) && $wp_version < "3.6") {
+									
+									 echo '<div class="video">'; 
+											 //nectar_video($post->ID); 
+							 		 echo '</div>'; 
+							 
+							} 
+							//self hosted video post 3-6
+							else if($wp_version >= "3.6"){
+			
+									if(!empty($video_m4v) || !empty($video_ogv)) {
+										
+										 $video_output = '[video ';
+										
+										 if(!empty($video_m4v)) { $video_output .= 'mp4="'. $video_m4v .'" '; }
+										 if(!empty($video_ogv)) { $video_output .= 'ogv="'. $video_ogv .'"'; }
+										
+										 $video_output .= ' poster="'.$video_poster.'"]';
+								
+										 echo '<div class="video">' . do_shortcode($video_output) . '</div>';	
+										 
+									} // not empty m4v ogv
+									
+							} // greater than 3-6 wp
+					
+				 } // not empty video embed
+				 
+				 the_content('<span class="continue-reading">'. __("Read More", NECTAR_THEME_NAME) . '</span>'); 
+					
+				}//single
 				
-			} 
+				
+			} //featured left image style
 			
 
 		
@@ -388,7 +438,7 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 							 echo '<a href="' . get_permalink() . '"><span class="post-featured-img"><img src="'.get_template_directory_uri().'/img/'.$no_image_size.'" alt="no image added yet." /></span></a>';
 					
 						}
-					} else if(!($using_masonry == true && $masonry_type == 'classic_enhanced') && !($using_masonry == true && $masonry_type == 'material')) {
+					} else if(!($using_masonry == true && $masonry_type == 'classic_enhanced') && !($using_masonry == true && $masonry_type == 'material') && !is_single() ) {
 
 						  $video_embed = get_post_meta($post->ID, '_nectar_video_embed', true);
 						  $video_m4v = get_post_meta($post->ID, '_nectar_video_m4v', true);
@@ -397,37 +447,37 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 						  
 						  if( !empty($video_embed) || !empty($video_m4v) ){
 
-				             $wp_version = floatval(get_bloginfo('version'));
+				      $wp_version = floatval(get_bloginfo('version'));
 										
 							//video embed
 							if( !empty( $video_embed ) ) {
 								
-					             echo '<div class="video">' . do_shortcode($video_embed) . '</div>';
+				             echo '<div class="video">' . do_shortcode($video_embed) . '</div>';
+							
+				        } 
+				        //self hosted video pre 3-6
+				        else if( !empty($video_m4v) && $wp_version < "3.6") {
+				        	
+				        	 echo '<div class="video">'; 
+				            	 //nectar_video($post->ID); 
+							 echo '</div>'; 
+							 
+				        } 
+				        //self hosted video post 3-6
+				        else if($wp_version >= "3.6"){
+			
+				        	if(!empty($video_m4v) || !empty($video_ogv)) {
+				        		
+										 $video_output = '[video ';
+										
+										 if(!empty($video_m4v)) { $video_output .= 'mp4="'. $video_m4v .'" '; }
+										 if(!empty($video_ogv)) { $video_output .= 'ogv="'. $video_ogv .'"'; }
+										
+										 $video_output .= ' poster="'.$video_poster.'"]';
 								
-					        } 
-					        //self hosted video pre 3-6
-					        else if( !empty($video_m4v) && $wp_version < "3.6") {
-					        	
-					        	 echo '<div class="video">'; 
-					            	 //nectar_video($post->ID); 
-								 echo '</div>'; 
-								 
-					        } 
-					        //self hosted video post 3-6
-					        else if($wp_version >= "3.6"){
-				
-					        	if(!empty($video_m4v) || !empty($video_ogv)) {
-					        		
-									$video_output = '[video ';
-									
-									if(!empty($video_m4v)) { $video_output .= 'mp4="'. $video_m4v .'" '; }
-									if(!empty($video_ogv)) { $video_output .= 'ogv="'. $video_ogv .'"'; }
-									
-									$video_output .= ' poster="'.$video_poster.'"]';
-									
-					        		echo '<div class="video">' . do_shortcode($video_output) . '</div>';	
-					        	}
-					        }
+				        		 echo '<div class="video">' . do_shortcode($video_output) . '</div>';	
+				        	}
+				        }
 							
 						 }
 					}
@@ -541,6 +591,57 @@ $use_excerpt = (!empty($options['blog_auto_excerpt']) && $options['blog_auto_exc
 			   
 				<?php 
 				if(is_single()){
+					
+
+						global $options;
+						$hide_featrued_image = (!empty($options['blog_hide_featured_image'])) ? $options['blog_hide_featured_image'] : '0'; 
+								
+						$video_embed = get_post_meta($post->ID, '_nectar_video_embed', true);
+						$video_m4v = get_post_meta($post->ID, '_nectar_video_m4v', true);
+						$video_ogv = get_post_meta($post->ID, '_nectar_video_ogv', true); 
+						$video_poster = get_post_meta($post->ID, '_nectar_video_poster', true); 
+						
+						if( !empty($video_embed) && $hide_featrued_image != '1' || !empty($video_m4v) && $hide_featrued_image != '1' ){
+	
+								$wp_version = floatval(get_bloginfo('version'));
+											
+								//video embed
+								if( !empty( $video_embed ) ) {
+									
+											 echo '<div class="video">' . do_shortcode($video_embed) . '</div>';
+								
+								} 
+								//self hosted video pre 3-6
+								else if( !empty($video_m4v) && $wp_version < "3.6") {
+										
+										 echo '<div class="video">'; 
+												 //nectar_video($post->ID); 
+								 		 echo '</div>'; 
+								 
+								} 
+								//self hosted video post 3-6
+								else if($wp_version >= "3.6"){
+				
+										if(!empty($video_m4v) || !empty($video_ogv)) {
+											
+											 $video_output = '[video ';
+											
+											 if(!empty($video_m4v)) { $video_output .= 'mp4="'. $video_m4v .'" '; }
+											 if(!empty($video_ogv)) { $video_output .= 'ogv="'. $video_ogv .'"'; }
+											
+											 $video_output .= ' poster="'.$video_poster.'"]';
+									
+											 echo '<div class="video">' . do_shortcode($video_output) . '</div>';	
+											 
+										} // not empty m4v ogv
+										
+								} // greater than 3-6 wp
+						
+					 } // not empty video embed
+					 
+	
+					
+					
 					//on the single post page display the content
 					the_content('<span class="continue-reading">'. __("Read More", NECTAR_THEME_NAME) . '</span>');
 				} ?>

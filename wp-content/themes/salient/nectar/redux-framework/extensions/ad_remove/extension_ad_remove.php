@@ -62,12 +62,14 @@ if( !class_exists( 'ReduxFramework_extension_ad_remover' ) ) {
             $this->parent = $parent;
 
             if (version_compare($redux_ver, '3.5.8.15') < 0) {
+              /* Nectar Addition Start 
                 $this->parent->admin_notices[] = array(
                     'type'    => 'error',
                     'msg'     => 'The Redux Ad Removal extension required Redux Framework version 3.5.8.15 or higher and will disabled until a Redux update is applied.<br/><br/>You are running Redux Framework version ' . $redux_ver,
                     'id'      => 'r_ad1492',
                     'dismiss' => false,
                 );   
+                Nectar Addition End */
                 
                 return;
             }

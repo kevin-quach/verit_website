@@ -3,3 +3,9 @@
 | Buttons
 |--------------------------------------------------------------------------
 */
+input[type=submit] {
+	background-color: $accent;
+}
+input[type=text] {
+	border-bottom: none;
+}

@@ -1622,6 +1622,22 @@ margin-bottom:0!important
   }
 }
 
+/* styles which need top padding on main blog page */
+body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.material,
+body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.classic_enhanced,
+body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.classic {
+  padding-top: 35px;
+}
+
+@media only screen and (min-width: 1000px) {
+  body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.material,
+  body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.classic_enhanced,
+  body.blog[data-bg-header="false"] .full-width-content.blog-fullwidth-wrap .post-area.span_12.masonry.classic {
+    padding-top: 2%;
+  }
+}
+
+
 .single-post[data-bg-header="true"] .container-wrap:not(.no-sidebar) > .main-content {
     padding-top: 35px;
 }
@@ -1718,6 +1734,8 @@ border-radius:100%
 
 #page-header-bg h1 { padding-top: 10px; padding-bottom: 10px}
 
+.single-post #page-header-bg.fullscreen-header h1 { margin: 0 auto; }
+
 #page-header-bg.fullscreen-header .author-section { width: auto}
 #page-header-bg.fullscreen-header .author-section .avatar-post-info, #page-header-bg.fullscreen-header .author-section .meta-author {  text-align: center}
 #page-header-bg.fullscreen-header .author-section .avatar-post-info {
@@ -1741,6 +1759,7 @@ position: relative;
 top: auto;
 right: auto;
 margin-top: 5px;
+bottom: auto!important;
 }
 
  .material .comment-list .reply a {

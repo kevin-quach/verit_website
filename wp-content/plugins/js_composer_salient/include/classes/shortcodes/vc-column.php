@@ -23,6 +23,19 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 	public $nonDraggableClass = 'vc-non-draggable-column';
 
 	/**
+	 * @param $settings
+	 */
+	public function __construct( $settings ) {
+		parent::__construct( $settings );
+		$this->shortcodeScripts();
+	}
+
+	protected function shortcodeScripts() {
+		wp_register_script( 'vc_jquery_skrollr_js', vc_asset_url( 'lib/bower/skrollr/dist/skrollr.min.js' ), array( 'jquery' ), WPB_VC_VERSION, true );
+		wp_register_script( 'vc_youtube_iframe_api_js', '//www.youtube.com/iframe_api', array(), WPB_VC_VERSION, true );
+	}
+
+	/**
 	 * @param $controls
 	 * @param string $extended_css
 	 *
@@ -274,7 +287,6 @@ class WPBakeryShortCode_VC_Column extends WPBakeryShortCode {
 }
 
 
-
 /* nectar addition */ 
 
 class WPBakeryShortCode_One_Half extends WPBakeryShortCode_VC_Column {
@@ -304,12 +316,12 @@ class WPBakeryShortCode_One_Half extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -350,12 +362,12 @@ class WPBakeryShortCode_One_Half_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -398,12 +410,12 @@ class WPBakeryShortCode_One_Third extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -446,12 +458,12 @@ class WPBakeryShortCode_One_Third_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -496,12 +508,12 @@ class WPBakeryShortCode_One_Fourth extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -544,12 +556,12 @@ class WPBakeryShortCode_One_Fourth_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -592,12 +604,12 @@ class WPBakeryShortCode_One_Sixth extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -642,12 +654,12 @@ class WPBakeryShortCode_One_Sixth_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -690,12 +702,12 @@ class WPBakeryShortCode_Two_Thirds extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -739,12 +751,12 @@ class WPBakeryShortCode_Two_Thirds_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -786,12 +798,12 @@ class WPBakeryShortCode_Three_Fourths extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -834,12 +846,12 @@ class WPBakeryShortCode_Three_Fourths_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -882,12 +894,12 @@ class WPBakeryShortCode_Five_Sixths extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -929,12 +941,12 @@ class WPBakeryShortCode_Five_Sixths_Last extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}
@@ -976,12 +988,12 @@ class WPBakeryShortCode_One_Whole extends WPBakeryShortCode_VC_Column {
 			if ( isset( $this->settings['params'] ) ) {
 				$inner = '';
 				foreach ( $this->settings['params'] as $param ) {
-					$param_value = isset( $$param['param_name'] ) ? $$param['param_name'] : '';
+					$param_value = isset( ${$param['param_name']} ) ? ${$param['param_name']} : '';
 					if ( is_array( $param_value ) ) {
 						// Get first element from the array
 						reset( $param_value );
 						$first_key = key( $param_value );
-						$param_value = $param_value[$first_key];
+						$param_value = $param_value[ $first_key ];
 					}
 					$inner .= $this->singleParamHtmlHolder( $param, $param_value );
 				}

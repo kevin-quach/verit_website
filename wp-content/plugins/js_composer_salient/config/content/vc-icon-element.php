@@ -8,6 +8,9 @@ function vc_icon_element_params() {
 		'name' => __( 'Icon', 'js_composer' ),
 		'base' => 'vc_icon',
 		'icon' => 'icon-wpb-vc_icon',
+		/* nectar addition - removing the el from the list but keeping it to parse vc_icon in text with separator */
+		'content_element' => false,
+		 /* nectar addition end */
 		'category' => __( 'Content', 'js_composer' ),
 		'description' => __( 'Eye catching icons from libraries', 'js_composer' ),
 		'params' => array(
@@ -20,8 +23,9 @@ function vc_icon_element_params() {
 					__( 'Typicons', 'js_composer' ) => 'typicons',
 					__( 'Entypo', 'js_composer' ) => 'entypo',
 					__( 'Linecons', 'js_composer' ) => 'linecons',
+					__( 'Mono Social', 'js_composer' ) => 'monosocial',
 					/* nectar addition */ 
-					/*__( 'Mono Social', 'js_composer' ) => 'monosocial',
+					/*
 					__( 'Material', 'js_composer' ) => 'material',*/
 					/* nectar addition end */ 
 				),
@@ -246,6 +250,12 @@ function vc_icon_element_params() {
 				'description' => __( 'Add link to icon.', 'js_composer' ),
 			),
 			vc_map_add_css_animation(),
+			array(
+				'type' => 'el_id',
+				'heading' => __( 'Element ID', 'js_composer' ),
+				'param_name' => 'el_id',
+				'description' => sprintf( __( 'Enter element ID (Note: make sure it is unique and valid according to <a href="%s" target="_blank">w3c specification</a>).', 'js_composer' ), 'http://www.w3schools.com/tags/att_global_id.asp' ),
+			),
 			array(
 				'type' => 'textfield',
 				'heading' => __( 'Extra class name', 'js_composer' ),

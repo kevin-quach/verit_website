@@ -1,0 +1,29 @@
+/* TESTIMONIALS */
+.nectar_single_testimonial {
+	font-style: italic;
+	line-height: 1.5em;
+	.open-quote {
+		font-size: 3em !important;
+		line-height: 1em !important;
+	}
+	span {
+		font-size: 1em !important;
+		font-weight: 600;
+		font-style: normal;
+	}
+	.title {
+		color: $text-light !important;
+		font-weight: 300;
+	}
+}
+
+
+img.img-with-animation[data-shadow="small_depth"] {
+	box-shadow: 0 10px 25px rgba(0,0,0,.3) !important;
+}
+
+.portfolio-items .col .work-info .vert-center {
+	h3 {
+		font-size: 18px !important;
+	}
+}

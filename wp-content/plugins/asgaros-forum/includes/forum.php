@@ -3,7 +3,7 @@
 if (!defined('ABSPATH')) exit;
 
 class AsgarosForum {
-    var $version = '1.6.2';
+    var $version = '1.6.3';
     var $executePlugin = false;
     var $db = null;
     var $tables = null;
@@ -592,6 +592,16 @@ class AsgarosForum {
         return $categories;
     }
 
+    function get_category_name($category_id) {
+        $category = get_term($category_id, 'asgarosforum-category');
+
+        if ($category) {
+            return $category->name;
+        } else {
+            return false;
+        }
+    }
+
     function getCategoriesFilter() {
         $metaQueryFilter = array('relation' => 'AND');
 
@@ -807,6 +817,8 @@ class AsgarosForum {
             }
         }
 
+        $menu = apply_filters('asgarosforum_filter_forum_menu', $menu);
+
         return $menu;
     }
 
@@ -857,6 +869,8 @@ class AsgarosForum {
         }
 
         $menu = (!empty($menu)) ? '<div class="forum-menu">'.$menu.'</div>' : $menu;
+        $menu = apply_filters('asgarosforum_filter_topic_menu', $menu);
+
         return $menu;
     }
 
@@ -889,6 +903,8 @@ class AsgarosForum {
         }
 
         $menu = (!empty($menu)) ? '<div class="forum-post-menu">'.$menu.'</div>' : $menu;
+        $menu = apply_filters('asgarosforum_filter_post_menu', $menu);
+
         return $menu;
     }
 

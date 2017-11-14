@@ -7,9 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $with_tabs = count( $categories ) > 0;
 if ( count( $categories ) > 0 ) :
 	$first = true;
-	?>
 	
-	<?php 
 	/*nectar addition*/
 	if($categories) {
 		$categories = array_reverse($categories);

@@ -1,15 +1,10 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 
 <div class="wrap" id="af-structure">
-    <h2><?php _e('Structure', 'asgaros-forum'); ?></h2>
     <?php
-    if ($this->error) {
-        echo '<div class="error"><p>'.$this->error.'</p></div>';
-    }
-
-    if ($this->saved) {
-        echo '<div class="updated"><p>'.__('Structure updated.', 'asgaros-forum').'</p></div>';
-    }
+    $title = __('Structure', 'asgaros-forum');
+    $titleUpdated = __('Structure updated.', 'asgaros-forum');
+    $this->render_admin_header($title, $titleUpdated);
     ?>
 
     <div id="poststuff">

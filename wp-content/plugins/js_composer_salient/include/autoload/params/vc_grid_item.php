@@ -52,6 +52,7 @@ function vc_load_vc_grid_item_param() {
 /* nectar addition */ 
 //add_action( 'vc_load_default_params', 'vc_load_vc_grid_item_param' );
 /* nectar addition end */ 
+
 function vc_gitem_post_data_get_link_target_frontend_editor( $target ) {
 	return ' target="_blank"';
 }
@@ -113,8 +114,9 @@ function vc_gitem_create_link_real( $atts, $post, $default_class = '', $title = 
 	if ( isset( $atts['link'] ) ) {
 		$link_css_class = 'vc_gitem-link' . ( strlen( $default_class ) > 0 ? ' ' . $default_class : '' );
 		if ( strlen( $atts['el_class'] ) > 0 ) {
-			$link_css_class .= $atts['el_class'];
+			$link_css_class .= ' ' . $atts['el_class'];
 		}
+		$link_css_class = trim( preg_replace( '/\s+/', ' ', $link_css_class ) );
 		if ( 'custom' === $atts['link'] && ! empty( $atts['url'] ) ) {
 			$link = vc_build_link( $atts['url'] );
 			if ( strlen( $link['target'] ) ) {
