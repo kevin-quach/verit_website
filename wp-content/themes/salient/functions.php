@@ -3,6 +3,11 @@
 #-----------------------------------------------------------------#
 # Default theme constants
 #-----------------------------------------------------------------#
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
 define('NECTAR_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/nectar/');
 define('NECTAR_THEME_NAME', 'salient');
 
@@ -12,9 +17,7 @@ define('NECTAR_THEME_NAME', 'salient');
 
 add_action('after_setup_theme', 'lang_setup');
 function lang_setup(){
-	
 	load_theme_textdomain(NECTAR_THEME_NAME, get_template_directory() . '/lang');
-	
 }
 
 #-----------------------------------------------------------------#

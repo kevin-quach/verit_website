@@ -8,3 +8,47 @@
     	margin: 20px auto;
 	}
 }
+
+.nectar-slider-wrap {
+	.swiper-slide .image-bg {
+		filter: grayscale(.3);
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #112540;
+			opacity: .75;
+		}
+	}
+}
+.swiper-slide .content {
+	position: absolute !important;
+
+	h2 {
+		font-weight: 500 !important;
+		line-height: 1em !important;
+		margin-bottom: -5px !important;
+		transform: scale(.8);
+	}
+}
+
+.homepage-banner .content {
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		background: url('img/logo_nav.png') no-repeat;
+		width: 100px;
+		height: 100px;
+		top: -75px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+	}
+}
+.home .starting-logo {
+	display: none !important;
+}

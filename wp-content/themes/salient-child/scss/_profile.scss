@@ -6,3 +6,23 @@
 | bio, character information etc. that might require specific
 | styling and formatting.
 */
+
+.um {
+	margin-top: 5%;
+}
+
+.um-form input[type=number], .um-form input[type=password], .um-form input[type=tel], .um-form input[type=text] {
+	border: none !important;
+}
+.um-field-label {
+	label {
+		color: $text-light;
+		font-weight: 300 !important;
+	}
+}
+
+
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+	background-color: lighten($background,10) !important;
+}

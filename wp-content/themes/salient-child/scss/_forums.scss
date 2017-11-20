@@ -5,8 +5,31 @@
 */
 .main-content {
 	#af-wrapper {
+		#forum-header-container {
+			#forum-header-container-top {
+				display: none !important;
+			}
+			#breadcrumbs-container {
+				background: transparent;
+				border: none;
+				span {
+					color: $accent;
+					&.dashicons-before {
+						color: $text-light;
+					}
+				}
+			}
+		}
+		.pages-and-menu {
+			min-height: 0;
+		}
 		.main-title, .read-unread, .main-description {
 			color: $text-light !important;
+		}
+		.info {
+			border: none;
+			background: lighten($background,8);
+			color: #fff;
 		}
 		.main-title {
 			font-size: 2.5em;
