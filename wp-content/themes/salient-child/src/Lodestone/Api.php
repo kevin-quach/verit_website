@@ -3,7 +3,6 @@
 namespace Lodestone;
 
 use Lodestone\Modules\XIVDB;
-use Lodestone\Modules\XIVDB;
 use Lodestone\Modules\Logger;
 use Lodestone\Modules\Routes;
 
