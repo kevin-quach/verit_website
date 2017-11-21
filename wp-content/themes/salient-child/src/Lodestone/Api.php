@@ -2,22 +2,20 @@
 
 namespace Lodestone;
 
-// use all the things
-use Lodestone\Modules\{
-    XIVDB, Logger, Routes
-};
-use Lodestone\Parser\{
-    Achievements,
-    Character\Parser as CharacterParser,
-    CharacterFollowing,
-    CharacterFriends,
-    FreeCompany,
-    FreeCompanyMembers,
-    Linkshell,
-    Lodestone,
-    Search
-};
+use Lodestone\Modules\XIVDB;
+use Lodestone\Modules\XIVDB;
+use Lodestone\Modules\Logger;
+use Lodestone\Modules\Routes;
 
+use Lodestone\Parser\Achievements;
+use Lodestone\Parser\Character\Parser as CharacterParser;
+use Lodestone\Parser\CharacterFollowing;
+use Lodestone\Parser\getCharacterFriends ;
+use Lodestone\Parser\FreeCompany;
+use Lodestone\Parser\FreeCompanyMembers;
+use Lodestone\Parser\Linkshell;
+use Lodestone\Parser\Lodestone;
+use Lodestone\Parser\Search;
 /**
  * Provides quick functions to various parsing routes
  *
