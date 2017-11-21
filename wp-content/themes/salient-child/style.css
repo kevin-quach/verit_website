@@ -385,6 +385,58 @@ img.img-with-animation[data-shadow="small_depth"] {
 .cool_timeline .content-details {
   color: #9ba0b9; }
 
+/* event list */
+.ecs-event-list {
+  margin: 0 !important; }
+  .ecs-event-list li {
+    display: block; }
+    .ecs-event-list li .entry-title {
+      margin: 0;
+      line-height: 1em;
+      font-size: 16px; }
+    .ecs-event-list li .duration {
+      font-size: 12px; }
+
+/* poll */
+.yop-poll-container {
+  background: transparent !important;
+  width: 100% !important;
+  color: #9ba0b9 !important;
+  padding: 0 !important; }
+  .yop-poll-container [id^="yop-poll-questions-container"] {
+    margin: 0 !important; }
+  .yop-poll-container [class^="yop-poll-question"] {
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 0 !important;
+    font-size: 16px; }
+  .yop-poll-container [class^="yop-poll-li-answer"] {
+    width: 100% !important; }
+  .yop-poll-container [for^="yop-poll-answer-"] {
+    width: calc(100% - 25px);
+    line-height: 100%;
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #3b4b65;
+    cursor: pointer;
+    transition: all .3s ease;
+    font-size: 14px !important; }
+    .yop-poll-container [for^="yop-poll-answer-"]:hover {
+      color: #eab053 !important; }
+  .yop-poll-container input[type="radio"] {
+    border: 1px solid #9ba0b9 !important; }
+  .yop-poll-container .yop_poll_vote_button {
+    margin: 12px 0 !important;
+    border: none !important;
+    color: #fff !important;
+    background-color: #eab053 !important;
+    width: 100%;
+    max-width: 185px !important;
+    padding: 10px !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.35) !important; }
+
 /*-------------------------------------------------------------------------*/
 /*  Home
 /*-------------------------------------------------------------------------*/
